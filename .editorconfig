@@ -1,0 +1,33 @@
+[*]
+end_of_line = lf
+insert_final_newline=false
+max_line_length=95
+
+[*.{py,java}]
+indent_style = space
+indent_size = 4
+
+[*.{js,ts,tsx}]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+[*.{cpp,hpp,R,mm}]
+indent_style = space
+indent_size = 3
+end_of_line = lf
+max_line_length = 100
+
+# R files should end with a newline
+[*.R]
+insert_final_newline = true
+
+
+# Settings for CMake files
+[CMakeLists.txt]
+indent_style = space
+indent_size = 3
+
+[*.json]
+indent_style = space
+indent_size = 2
