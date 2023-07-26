@@ -1,5 +1,5 @@
-# PROJECT KEY - TOPIC
-This project is designed to standardize READMEs across AIR's **Data Science and Advanced Analytics (DSAA)** Team. It was made using readme.so/editor because Meghan Coffee thought it efficient, sufficient, and free.
+# PatentsView Assignee Hand Disambiguation
+Codebase for 
 
 ## Summary
 
