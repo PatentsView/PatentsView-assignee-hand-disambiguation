@@ -1,6 +1,7 @@
 from sqlalchemy import *
 from dotenv import dotenv_values
 import pandas as pd
+import os
 
 """
 Parameters
@@ -54,13 +55,37 @@ Specifically, rows should be of the form `assignee_data(mention_id)` for each me
 """
 def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connection):
     id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
-    print(id_list)
     query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
     result = connection.execute(text(query)).fetchall()
     df = pd.DataFrame(result)
-
     return df
 
+def populate_sample(connection):
+    # Load sample data and previously populated
+    sample = pd.read_csv('sample.csv')
+    total = len(sample.index)
+    prev_df = pd.read_csv('output.csv') if os.path.exists('output.csv') else pd.DataFrame()
+    df_list = [prev_df]
+    populated = ["US" + str(row.patent_id) + "-" + str(row.assignee_sequence) for index, row in prev_df.iterrows()]
+
+    for mention_id in sample['0']:
+        # Populate mention_id and save data
+        temp_df = assignee_data(mention_id, connection)
+        df_list.append(temp_df)
+        populated.append(mention_id)
+
+        # Output messages
+        percent = str(round(100 * len(populated) / total, 1)) + "%"
+        print(percent, "- created row for", mention_id)
+
+        # Store dataframe intermitently
+        if len(populated) % 20 == 0:
+            df = pd.concat(df_list, axis=0, ignore_index=True)
+            df.to_csv('output.csv')
+    
+    # Save final dataframe
+    df = pd.concat(df_list, axis=0, ignore_index=True)
+    df.to_csv('output.csv')
 
 # Establishing SQL connection
 config = dotenv_values(".env")
@@ -68,8 +93,7 @@ engine = create_engine(f"mysql+pymysql://{config['user']}:{config['password']}@{
 
 # Calling first method
 with engine.connect() as connection:
-    mention_id = "US7315019-0"
-    assignee_disambiguation_IDs = ['8314bfc2-8005-4202-ae98-63c90a4e245e', '8314bfc2-8005-4202-ae98-63c90a4e245e']
-    # df = assignee_data(mention_id, connection)
-    df = disambiguated_assignees_data(assignee_disambiguation_IDs, connection)
-    df.to_csv('output.csv')
+    populate_sample(connection)
+    # ids = ['8314bfc2-8005-4202-ae98-63c90a4e245e']
+    # df = disambiguated_assignees_data(ids, connection)
+    # df.to_csv('output.csv')
