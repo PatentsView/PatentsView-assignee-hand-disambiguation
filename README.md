@@ -1,5 +1,5 @@
 # PatentsView Assignee Hand Disambiguation
-Codebase for 
+Codebase for algorithmically setting up the manual assignee labeling tasks.
 
 ## Summary
 
