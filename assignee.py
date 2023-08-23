@@ -2,6 +2,7 @@ from sqlalchemy import *
 from dotenv import dotenv_values
 import pandas as pd
 import os
+import pickle
 
 """
 Parameters
@@ -60,15 +61,29 @@ def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connect
     df = pd.DataFrame(result)
     return df
 
-def populate_sample(connection):
+"""
+Parameters
+----------
+Sample: list[str]
+    List of mention IDs (`mention_id` field values)
+Output Path: str
+    Path to CSV file for saving populated data
+Connection: sqlalchemy.engine.base.Connection
+    Connection using sqlalchemy to the PV database.
+
+Output
+-------
+Saves data to `output_path` which is a dataframe with one row for every element in `sample`
+Each row has all the attributes in assignee_data()
+"""
+def populate_sample(sample, output_path, connection):
     # Load sample data and previously populated
-    sample = pd.read_csv('sample.csv')
-    total = len(sample.index)
-    prev_df = pd.read_csv('output.csv') if os.path.exists('output.csv') else pd.DataFrame()
+    total = len(sample)
+    prev_df = pd.read_csv(output_path) if os.path.exists(output_path) else pd.DataFrame()
     df_list = [prev_df]
     populated = ["US" + str(row.patent_id) + "-" + str(row.assignee_sequence) for index, row in prev_df.iterrows()]
 
-    for mention_id in sample['0']:
+    for mention_id in sample:
         # Populate mention_id and save data
         temp_df = assignee_data(mention_id, connection)
         df_list.append(temp_df)
@@ -82,18 +97,23 @@ def populate_sample(connection):
         if len(populated) % 20 == 0:
             df = pd.concat(df_list, axis=0, ignore_index=True)
             df.to_csv('output.csv')
-    
+        
     # Save final dataframe
     df = pd.concat(df_list, axis=0, ignore_index=True)
     df.to_csv('output.csv')
 
-# Establishing SQL connection
-config = dotenv_values(".env")
-engine = create_engine(f"mysql+pymysql://{config['user']}:{config['password']}@{config['hostname']}/{config['dbname']}?charset=utf8mb4")
+def main():
+    # Establishing SQL connection
+    config = dotenv_values(".env")
+    engine = create_engine(f"mysql+pymysql://{config['user']}:{config['password']}@{config['hostname']}/{config['dbname']}?charset=utf8mb4")
 
-# Calling first method
-with engine.connect() as connection:
-    populate_sample(connection)
-    # ids = ['8314bfc2-8005-4202-ae98-63c90a4e245e']
-    # df = disambiguated_assignees_data(ids, connection)
-    # df.to_csv('output.csv')
+    # Calling first method
+    with engine.connect() as connection:
+        sample = pd.read_csv('data/sample.csv')['0'].tolist()
+        populate_sample(sample, 'data/output.csv', connection)
+        # ids = ['8314bfc2-8005-4202-ae98-63c90a4e245e']
+        # df = disambiguated_assignees_data(ids, connection)
+        # df.to_csv('output.csv')
+
+if __name__ == "__main__":
+    main()

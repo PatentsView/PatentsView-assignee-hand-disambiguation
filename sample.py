@@ -14,4 +14,4 @@ disamb_20220929 = disamb_20220929.dropna()
 mention_ids = disamb_20220929.index
 
 sample = np.random.choice(mention_ids, size=10000, replace=False)
-pd.Series(sample).to_csv("sample.csv")
+pd.Series(sample).to_csv("data/sample.csv")

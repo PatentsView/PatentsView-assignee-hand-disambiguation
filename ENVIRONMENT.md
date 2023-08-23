@@ -1,6 +1,0 @@
-# Environments
-## Development
-
-## Staging
-
-## Production

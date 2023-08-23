@@ -7,44 +7,57 @@ Codebase for algorithmically setting up the manual assignee labeling tasks.
 |---|---|
 | DSAA Team Lead | {DSAA Project Lead} | 
 | Project Tier | Tier {1,2,3} | 
-| DSAA Team Members | - Bob the Builder (former AIR employee)<br>- Sami the Ragdoll cat (feline subcontractor) |
-| Client(s) | Center for Rainbows (US Department of Fabulousness) |
-| Internal Client(s) | AIR Fashion Management Practice Area |
-| Project Start Date | 12/12/2022 |
-| Project End Date | 13/33/4483 |
-| Status | In progress (client accepted initial delivery; currently in revision for 2nd delivery due 13/33/4483) |                                                                 
+| DSAA Team Members | - Olivier Binette (former AIR employee)<br>- Sarvo Madhavan (Senior Data Scientist) <br>- Siddharth Engineer (Data Scientist Assistant) |
+| Client(s) | PatentsView (USPTO) |
+| Project Start Date | 07/26/2023 |
+| Project End Date | None |
+| Status | In progress (awaiting hand-disambiguation process) |                                                                 
 
  ## Raw Materials In
+Connection to AIR's AWS database of PatentsView data for sampling mention IDs and pulling assignee information.
 
-If data is involved, where does it come from? What format is it delievered in? Are there any restrictions surrounding it?
 ## Result Out
+Following the steps below, we will sample 10k mention IDs from the assignee table.
+After sampling mention IDs, we will generate an output dataframe which includes:
+- disambiguated assignee information
+- patent information
+- all rows are listed in the comments for `assignee_data()` in the `assignee.py` file
 
-Is the result a PDF? A dashboard? An application that knits unicorns? Please provide screenshots/gifs.
 ## Usage/Examples
 
-1-2 paragraph more detailed explanation of what the code does, how it does it, its horoscope, why it's useful, who the audience is, etc
-
-Please please please include screenshots and/or accessible gifs 
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
+First we'll need to set up a the database connection for pulling data from AWS.
+In this directory, create a `.env` file with the following fields:
 ```
+user = USERNAME
+password = PASSWORD
+hostname = HOSTNAME
+dbname = algorithms_assignee_labeling
+```
+
+This is required for the `assignee.py` data pulls.
+However, we can still get our sample mention IDs by running sample.py without this DB connection.
+In your terminal, run:
+```
+python3 sample.py
+```
+
+Feel free to adjust the main method to run different commands in the `assignee.py` file.
+To just get a populated dataset which is ready for manual assignee labeling, the main method is already configured so simply run the following in terminal:
+```
+python3 assignee.py
+```
+
 ## FAQ
 
 #### Q: Does it work well on both Windows and Mac?
 A: You're hilarious
 
-
 ## Support
 For support, email fake@fake.com for a response that is sure to be real
 
-
 ## License
 Apparently this is a thing. 
+
 ### Roadmap
 
 - Additional browser support

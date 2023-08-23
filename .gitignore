@@ -3,9 +3,5 @@ resources/config.ini
 PatentsView-assignee-hand-disambiguation.code-workspace
 .env
 env
-test.py
-test.ipynb
-query.sql
-query2.sql
-query3.sql
+test/
 output.csv
