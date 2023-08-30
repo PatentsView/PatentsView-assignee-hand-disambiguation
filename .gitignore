@@ -1,7 +1,5 @@
-resources/config.ini
 .DS_Store
 PatentsView-assignee-hand-disambiguation.code-workspace
 .env
 env
 test/
-output.csv
