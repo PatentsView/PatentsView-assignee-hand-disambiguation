@@ -5,8 +5,8 @@ Codebase for algorithmically setting up the manual assignee labeling tasks.
 
 |  |  |
 |---|---|
-| DSAA Team Lead | {DSAA Project Lead} | 
-| Project Tier | Tier {1,2,3} | 
+| DSAA Team Lead | Sarvo Madhavan | 
+| Project Tier | Tier 2 | 
 | DSAA Team Members | - Olivier Binette (former AIR employee)<br>- Sarvo Madhavan (Senior Data Scientist) <br>- Siddharth Engineer (Data Scientist Assistant) |
 | Client(s) | PatentsView (USPTO) |
 | Project Start Date | 07/26/2023 |
