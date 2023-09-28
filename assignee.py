@@ -185,7 +185,7 @@ Processing
 
 Output
 -------
-CSV file with rows for all assignee mentions that correspond to one disambiguated assignee ID in the provided list. 
+XLSX file with rows for all assignee mentions that correspond to one disambiguated assignee ID in the provided list. 
 The columns should be the same as in the `assignee_data` function.
 Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of the disambiguated assignee ID in the provided list.
 Implementing merged cells to increase readability
