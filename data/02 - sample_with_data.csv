@@ -1,0 +1,743 @@
+,patent_id,assignee_sequence,organization,name_first,name_last,assignee_type,title,patent_date,assignee_country,assignee_city,assignee_state
+0,11094486,0,COGNEX CORPORATION,,,2,Magnetic trigger arrangement,2021-08-17,US,Natick,MA
+1,11562610,0,The Chamberlain Group LLC,,,2,System and method for facilitating access to a secured area,2023-01-24,US,Oak Brook,IL
+2,5161899,0,"Firma Vorwald GmbH & Co., KG",,,3,"Bearing assembly for shafts, particularly expanding shafts of winding machines",1992-11-10,DE,Hilter,
+3,5102991,0,"Virginia Tech Intellectual Properties, Inc.",,,2,Alkylene oxide esters of lignin sulfonic acid,1992-04-07,US,Blacksburg,VA
+4,7937321,0,Verizon Patent and Licensing Inc.,,,2,Managed service for detection of anomalous transactions,2011-05-03,US,Basking Ridge,NJ
+5,4033365,0,Johnson & Johnson,,,2,Flavored dental articles,1977-07-05,US,New Brunswick,NJ
+6,D783342,0,Meyer Intellectual Property Limited,,,3,Cookware lid handle,2017-04-11,HK,Hong Kong,
+7,4123023,0,General Motors Corporation,,,2,System for controlling vehicle movement over a fixed guideway,1978-10-31,US,Detroit,MI
+8,6031729,0,TRW Inc.,,,2,Integral heater for reworking MCMS and other semiconductor components,2000-02-29,US,Redondo Beach,CA
+9,11167757,0,DAIMLER AG,,,3,Method and device for controlling a longitudinal position of a vehicle,2021-11-09,DE,Stuttgart,
+10,4103213,0,Emerson Electric Co.,,,2,Two speed single phase induction motor,1978-07-25,US,St. Louis,MO
+11,3982586,0,Sid Richardson Carbon & Gasoline Co.,,,2,Method and apparatus for controlling surface temperature,1976-09-28,US,Fort Worth,TX
+12,6626811,0,FAS Converting Machinery AB,,,3,Method and machine for working an elongate web of material,2003-09-30,SE,Ystad,
+13,D831660,0,"KENU, INC.",,,2,Dashboard vent mount for an electronic device,2018-10-23,US,San Francisco,CA
+14,10073421,0,"Rockwell Automation Technologies, Inc.",,,2,Predictive monitoring and diagnostics systems and methods,2018-09-11,US,Mayfield Heights,OH
+15,10211365,0,Commissariat à l'Énergie Atomique et aux Énergies Alternatives,,,7,Method for producing optoelectronic devices comprising light-emitting diodes,2019-02-19,FR,Paris,
+16,10881185,0,AXILONE PLASTIQUE,,,3,Packaging for packaging a product such as a cosmetic composition,2021-01-05,FR,Auray,
+17,10131512,0,"RICOH COMPANY, LTD.",,,3,Document feeder and image forming apparatus incorporating the document feeder,2018-11-20,JP,Tokyo,
+18,D931163,0,Bayerische Motoren Werke Aktiengesellschaft,,,3,Front bumper for a vehicle,2021-09-21,DE,Munich,
+19,5156914,0,ISP Investments Inc.,,,2,Process for producing particulate silicon encapsulated products,1992-10-20,US,Wilmington,DE
+20,8670015,0,Canon Kabushiki Kaisha,,,3,"Semiconductor member, semiconductor article manufacturing method, and LED array using the manufacturing method",2014-03-11,JP,Tokyo,
+21,11202628,0,Cilag GmbH International,,,3,Surgical stapler with tissue engagement features around tissue containment pin,2021-12-21,CH,Zug,
+22,6538448,0,Teknoware Oy,,,3,Determining remaining operating life of fluorescent lamp,2003-03-25,FI,Lahti,
+23,5214156,0,The Upjohn Company,,,2,Therapeutically useful tetralin derivatives,1993-05-25,US,Kalamazoo,MI
+24,4222861,0,Nalco Chemical Company,,,2,Treatment and recovery of larger particles of fine oxidized coal,1980-09-16,US,Oak Brook,IL
+25,7008909,0,Inolex Investment Corporation,,,2,Alpha branched esters for use in metalworking fluids and metalworking fluids containing such esters,2006-03-07,US,Wilmington,DE
+26,11187204,0,SIEMENS GAMESA RENEWABLE ENERGY A/S,,,3,"Method for fabrication of a profile for a spar cap for a wind turbine blade, spar cap and wind turbine blade",2021-11-30,DK,Brande,
+27,5547397,0,Honda Tsushin Kogyo Kabushiki Kaisha,,,3,PC card connector and PC card,1996-08-20,JP,Tokyo,
+28,11302540,0,"SAMSUNG ELECTRONICS CO., LTD.",,,3,Substrate support device and substrate cleaning device including the same,2022-04-12,KR,Suwon-si,
+29,7739889,0,Lonati S.p.A.,,,3,Circular knitting machine for hosiery or the like,2010-06-22,IT,Brescia,
+30,5807923,0,Imperial Chemical Industries PLC,,,3,Process of emulsion polymerization,1998-09-15,GB,,
+31,4688937,0,Gewerkschaft Eisenhutte Westfalia,,,3,"Methods of, and systems, for monitoring and/or controlling mobile cutting means",1987-08-25,DE,Kunen,
+32,8887111,0,C2 Design Automation,,,2,Extraction and sharing in high level synthesis,2014-11-11,US,Redmond,WA
+33,7971070,0,International Business Machines Corporation,,,2,Read/write media key block,2011-06-28,US,Armonk,NY
+34,7118329,0,Rolls-Royce PLC,,,3,Tip sealing for a turbine rotor blade,2006-10-10,GB,London,
+35,8958164,0,"LG Innotek Co., Ltd.",,,3,Imaging lens,2015-02-17,KR,Seoul,
+36,7610581,0,"Hitachi, Ltd.",,,3,Data processing system,2009-10-27,JP,Tokyo,
+37,5882771,0,Minnesota Mining and Manufacturing Company,,,2,Conformable embossable retroreflective sheeting,1999-03-16,US,St. Paul,MN
+38,6629849,0,"Hon Hai Precision Ind. Co., Ltd.",,,3,Rotatably mated connector couple,2003-10-07,TW,Taipei Hsien,
+39,4864642,0,Pioneer Electronic Corporation,,,3,Space diversity receiving system,1989-09-05,JP,Tokyo,
+40,8720195,0,Deere & Company,,,2,Exhaust assembly,2014-05-13,US,Moline,IL
+41,11614726,0,Honeywell International Inc.,,,6,Method and apparatus to identify connected device types on an I/O channel based on current characteristics,2023-03-28,US,Charlotte,NC
+42,RE39353,0,Applera Corporation,,,2,Mass spectrometer system and method for matrix-assisted laser desorption measurements,2006-10-17,US,Framington,MA
+43,9013918,0,"Institute of Microelectronics, Chinese Academy of Sciences",,,3,Two-terminal memory cell and semiconductor memory device based on different states of stable current,2015-04-21,CN,Beijing,
+44,10749584,0,"Samsung Electronics Co., Ltd.",,,3,Uplink MIMO codebook for advanced wireless communication systems,2020-08-18,KR,Suwon-si,
+45,5500096,0,Alliance Pharmaceutical Corp.,,,2,Method of concentrating less volatile liquids,1996-03-19,US,San Diego,CA
+46,10315823,0,"Bemis Company, Inc.",,,2,Manually openable sealed overwrap and tray,2019-06-11,US,Neenah,WI
+47,4901010,0,Universal Technic,,,3,Current-measuring device,1990-02-13,FR,Paris,
+48,8325464,0,Panasonic Corporation,,,3,"Coin type electric double-layered capacitor, and capacitor-packaged element",2012-12-04,JP,Osaka,
+49,7570391,0,Seiko Epson Corporation,,,3,Image processing according to image output mode,2009-08-04,JP,Tokyo,
+50,5153415,0,Bando Kagaku Kabushiki Kaisha,,,3,Counter for elastic rings,1992-10-06,JP,,
+51,6515087,0,The Goodyear Tire & Rubber Company,,,2,Synthesis of elastomers having low hysteresis,2003-02-04,US,Akron,OH
+52,D851053,0,"T-MOBILE USA, INC.",,,2,Set top box,2019-06-11,US,Bellevue,WA
+53,6689671,0,"Advanced Micro Devices, Inc.",,,2,Low temperature solid-phase epitaxy fabrication process for MOS devices built on strained semiconductor substrate,2004-02-10,US,Sunnyvale,CA
+54,7172698,0,Chicago Bridge & Iron Company,,,2,Anaerobic sludge digester,2007-02-06,US,Plainfield,IL
+55,4510091,0,UOP Inc.,,,2,Continuous reduction of edible oils,1985-04-09,US,Des Plaines,IL
+56,9014417,0,Google Inc.,,,2,Method and apparatus for themes using photo-active surface paint,2015-04-21,US,Mountain View,CA
+57,8866908,0,Kyocera Corporation,,,3,Mobile camera system,2014-10-21,JP,Kyoto,
+58,5341208,0,Rockwell International Corporation,,,2,Gas bypass for bias reduction in laser gyrescopes,1994-08-23,US,Seal Beach,CA
+59,4456112,0,Niagara Machine & Tool Works,,,2,Overload control for mechanical power presses,1984-06-26,US,Buffalo,NY
+60,11239357,1,TOSHIBA ELECTRONIC DEVICES & STORAGE CORPORATION,,,3,Semiconductor device,2022-02-01,JP,Minato-ku,
+61,6388325,0,AlliedSignal Inc.,,,2,Multi-layer interconnect,2002-05-14,US,Morris Township,NJ
+62,10305405,0,"DAIKIN INDUSTRIES, LTD.",,,3,Speed command correction device and primary magnetic flux command generation device,2019-05-28,JP,Osaka-Shi,
+63,9279294,0,US Synthetic Corporation,,,2,Drill bit having rotational cutting elements and method of drilling,2016-03-08,US,Orem,UT
+64,10175544,0,DEXERIALS CORPORATION,,,3,"Connection body, method for manufacturing a connection body, connecting method and anisotropic conductive adhesive agent",2019-01-08,JP,Tokyo,
+65,11054721,0,FUJIFILM Corporation,,,3,"Imaging device, focusing assistance method thereof, and focusing assistance program thereof",2021-07-06,JP,Tokyo,
+66,10427143,0,SHELL OIL COMPANY,,,2,"ZSM-5, its preparation and use in ethylbenzene dealkylation",2019-10-01,US,Houston,TX
+67,5670775,0,"Ardac, Inc.",,,2,Current-boosted positive feedback logarithmic transresistance amplifier for currency validators,1997-09-23,US,Eastlake,OH
+68,5572514,0,"Casio Computer Co., Ltd.",,,3,Spread spectrum communication system capable of detecting occupying state of channel by off-communication terminal,1996-11-05,JP,Tokyo,
+69,10860934,0,"Cognitive Scale, Inc.",,,2,Universal cognitive graph having persistent knowledge elements,2020-12-08,US,Austin,TX
+70,8676063,0,"Oki Electric Industry Co., Ltd.",,,3,Quantum correlated photon pair generating device and method,2014-03-18,JP,Tokyo,
+71,D963527,0,Dr. Ing. h.c. F. Porsche Aktiengesellschaft,,,3,"Center segment of a motor vehicle, toy and/or replica",2022-09-13,,,
+72,8195339,0,General Electric Company,,,2,System and method for scheduling startup of a combined cycle power generation system,2012-06-05,US,Schenectady,NY
+73,6260653,0,Linde Aktiengesellschaft,,,3,Hydrostatic motor unit,2001-07-17,DE,,
+74,9591396,0,LG Electronics Inc.,,,3,Ear set device,2017-03-07,KR,Seoul,
+75,5374001,0,"Daiwa Seiko, Inc.",,,3,Reverse rotation preventing mechanism in spinning reel for fishing,1994-12-20,JP,Tokyo,
+76,4234796,0,Compagnie Generale de Radiologie,,,3,Film changer for X-ray apparatus,1980-11-18,FR,Paris,
+77,4706778,0,Topholm & Westermann ApS,,,3,In-the-ear-canal hearing aid,1987-11-17,DK,Vaerlose,
+78,4085805,0,Honeywell Inc.,,,2,Earth working machine with elevation control for tool thereof,1978-04-25,US,Minneapolis,MN
+79,10295592,0,GLOBAL FOUNDRIES INC.,,,3,Pre-test power-optimized bin reassignment following selective voltage binning,2019-05-21,KY,Grand Cayman,
+80,8946429,0,"The Provost, Fellows, Foundation Scholars, and the other Members of the Board, of the College of the Holy and Undivided Trinity of Queen Elizabeth, Near Dublin",,,3,Kinetic resolution,2015-02-03,IE,Dublin,
+81,9766550,0,Carl Zeiss SMT GmbH,,,3,Actuators and microlithography projection exposure systems and methods using the same,2017-09-19,DE,Oberkochen,
+82,6613463,0,International Superconductivity Technology Center,,,3,Superconducting laminated oxide substrate and superconducting integrated circuit,2003-09-02,JP,Tokyo,
+83,D813721,0,"Victoria's Secret Stores Brand Management, Inc.",,,2,Hook and eye closure extender for a brassiere,2018-03-27,US,Reynoldsburg,OH
+84,4412112,0,Mitsubishi Denki Kabushiki Kaisha,,,3,Drawer-type circuit breaker,1983-10-25,JP,Hiroshima,
+85,10535272,0,"Skyryse, Inc.",,,2,"System and method for situational awareness, vehicle control, and/or contingency planning",2020-01-14,US,Hawthorne,CA
+86,7304849,0,International Business Machines Corporation,,,2,Compliant thermal cap for an electronic device,2007-12-04,US,Armonk,NY
+87,9307115,0,Brother Kogyo Kabushiki Kaisha,,,3,Image processing device generating rectangular image data from intermediate image data,2016-04-05,JP,"Nagoya, Aichi",
+88,4011692,0,U.S. Philips Corporation,,,2,Method of and device for grinding grooves,1977-03-15,US,New York,NY
+89,10565556,0,"SuccessFactors, Inc.",,,2,Manager cockpit for improving manager performance,2020-02-18,US,South San Francisco,CA
+90,D616867,0,Yamaha Corporation,,,3,Audio mixer,2010-06-01,JP,Hamamatsu-shi,
+91,8142417,0,Pajunk GmbH & Co. KG Besitzverwaltung,,,3,Clamp adapter for a catheter,2012-03-27,DE,,
+92,9705417,0,IXYS Corporation,,,2,Low forward voltage rectifier,2017-07-11,US,Milpitas,CA
+93,5929126,0,Exxon Research and Engineering Co.,,,2,Gas conversion with rejuvenation ammonia removal,1999-07-27,US,Florham Park,NJ
+94,9913400,0,Apple Inc.,,,2,Computer thermal system,2018-03-06,US,Cupertino,CA
+95,10283136,0,"Capital One Services, LLC",,,2,Doppler microphone processing for conference calls,2019-05-07,US,McLean,VA
+96,9516273,0,"AT&T Intellectual Property I, L.P.",,,2,Indication of trickplay availability via a remote control device,2016-12-06,US,Atlanta,GA
+97,8320980,0,"Samsung Electronics Co., Ltd.",,,3,Antenna assembly of mobile terminal,2012-11-27,KR,Suwon-Si,
+98,5580080,0,"Morton International, Inc.",,,2,Cushion attachment for airbags,1996-12-03,US,Chicago,IL
+99,8169004,0,"Sumitomo Chemical Company, Limited",,,3,Compound semiconductor epitaxial substrate and process for producing the same,2012-05-01,JP,Tokyo,
+100,6898740,0,"Hewlett-Packard Development Company, L.P.",,,2,Computer system having configurable core logic chipset for connection to a fault-tolerant accelerated graphics port bus and peripheral component interconnect bus,2005-05-24,US,Houston,TX
+101,5251437,0,"Japan Electronic Control Systems Co., Ltd.",,,3,Method and system for controlling air/fuel ratio for internal combustion engine,1993-10-12,JP,Isesaki,
+102,6879543,0,The United States of America as represented by the Secretary of the Navy,,,6,Acoustic processing for estimating size of small targets,2005-04-12,US,Washington,DC
+103,5441584,0,Societe Anonyme Dite Aerospatiale Societe Nationale Industrielle,,,3,Method for laying filaments on a convex axisymmetric surface,1995-08-15,FR,Paris Cedex,
+104,4060737,0,Texas Instruments Incorporated,,,2,Charge coupled device shift registers having an improved regenerative charge detector,1977-11-29,US,Dallas,TX
+105,7979076,0,"Samsung Electronics Co., Ltd.",,,3,Method of managing resources in a cognitive radio communication system,2011-07-12,KR,,
+106,5866438,0,"Fuji Electric Co., Ltd.",,,3,Field emission type electron emitting device and method of producing the same,1999-02-02,JP,Kawasaki,
+107,5654277,0,W. R. Grace & Co.-Conn.,,,2,Peptides having thrombospondin-like activity and their therapeutic use,1997-08-05,US,New York,NY
+108,6247600,0,CDF Corporation,,,2,Paint strainer,2001-06-19,US,Plymouth,MA
+109,9732254,0,BASF SE,,,3,Multi-layered film and the use thereof,2017-08-15,DE,Ludwigshafen,
+110,4465433,0,MTU Motoren- und Turbinen-Union Muenchen GmbH,,,3,Flow duct structure for reducing secondary flow losses in a bladed flow duct,1984-08-14,DE,Munich,
+111,10555983,0,AMOREPACIFIC CORPORATION,,,3,"Composition for brain activation, comprising ginseng fruit extract",2020-02-11,KR,Seoul,
+112,4133488,0,Polysius AG,,,3,Roller mill with removable separator structure,1979-01-09,DE,Neubeckum,
+113,6879400,0,International Business Machines Corporation,,,2,Single tone process window metrology target and method for lithographic processing,2005-04-12,US,Armonk,NY
+114,10542185,0,"Hewlett-Packard Development Company, L.P.",,,2,Color printing look-up-table,2020-01-21,US,Spring,TX
+115,6790195,0,Gambro Inc,,,2,Extracorporeal blood processing methods and apparatus,2004-09-14,US,Lakewood,CO
+116,9624385,0,"Nitto Kasei Co., Ltd.",,,3,"Antifouling paint composition, copolymer for antifouling paint composition and method for manufacturing same, and painted object having on surface antifouling paint film formed using said composition",2017-04-18,JP,Osaka,
+117,6974727,0,"Sanyo Electric Co., Ltd.",,,3,Method of manufacturing a hybrid integrated circuit device,2005-12-13,JP,Osaka,
+118,11143907,0,Firefly Dimension Inc.,,,2,Method and system for displaying 3D images,2021-10-12,US,San Jose,CA
+119,7729146,0,"Nissan Motor Co., Ltd.",,,3,Power converter control and power conversion method,2010-06-01,JP,"Yokohama-shi, Kanagawa",
+120,7059065,0,The Procter & Gamble Company,,,2,Fabric article treating method and apparatus,2006-06-13,US,Cincinnati,OH
+121,D901629,0,"PURITY (XIAMEN) SANITARY WARE CO., LTD.",,,3,Shower head,2020-11-10,CN,Xiamen,
+122,D573361,0,"Kuo Chin Furniture Decoration Co., Ltd.",,,3,Office chair,2008-07-22,TW,Taipei,
+123,4452838,0,"Sumitomo Electric Industries, Ltd.",,,3,Heat-shrinkable tubes,1984-06-05,JP,Osaka,
+124,6603384,0,Moeller GmbH,,,3,Self-recovering current-limiting device having liquid metal,2003-08-05,DE,Bonn,
+125,8239464,0,Miyowa,,,3,Method and instantaneous messaging system for mobile terminals equipped with a virtual presence server configured to manage different contact lists of a single user,2012-08-07,FR,Marseilles,
+126,6855790,0,"Kimberly-Clark Worldwide, Inc.",,,2,Ion-sensitive hard water dispersible polymers and applications therefor,2005-02-15,US,Neenah,WI
+127,8276254,0,The Research Foundation of State University of New York,,,2,Surface micromachined differential microphone,2012-10-02,US,Binghamton,NY
+128,7590285,0,Sony Corporation,,,3,Imaging apparatus and method of processing images,2009-09-15,JP,Tokyo,
+129,D375131,0,"Williams Jewelers, Inc.",,,2,Golf putter head,1996-10-29,US,Evansville,IN
+130,4148050,0,The United States of America as represented by the Secretary of the Air Force,,,6,Radiation dose rate hardened light detector,1979-04-03,US,Washington,DC
+131,9509452,0,QUALCOMM Incorporated,,,2,Increasing capacity in wireless communications,2016-11-29,US,San Diego,CA
+132,10956785,0,ARIZONA BOARD OF REGENTS ON BEHALF OF ARIZONA STATE UNIVERSITY,,,2,"Methods, systems, and media for selecting candidates for annotation for use in training classifiers",2021-03-23,US,Scottsdale,AZ
+133,7775534,0,"Razor USA, Inc.",,,2,Flexible skateboard with grinding tube,2010-08-17,US,Cerritos,CA
+134,5985603,0,Glaxo Group Limited,,,3,P.sub.2x receptor DNA and protein sequence,1999-11-16,GB,Greenford,
+135,6445124,0,Kabushiki Kaisha Toshiba,,,3,Field emission device,2002-09-03,JP,Kawasaki,
+136,11136108,0,AIRBUS OPERATIONS GMBH,,,3,Composite structural element,2021-10-05,DE,Hamburg,
+137,7496501,0,Microsoft Corporation,,,2,System and method for identifying base noun phrases,2009-02-24,US,Redmond,WA
+138,10052391,0,"JENKEM TECHNOLOGY CO., LTD. (TIANJIN)",,,3,Low molecular weight polyethylene glycol drug conjugates having improved drug biological activity,2018-08-21,CN,,
+139,9947921,0,"PANASONIC INTELLECTUAL PROPERTY MANAGEMENT CO., LTD.",,,3,Silicon-carbon composite material including layered carbon and silicon particles,2018-04-17,JP,Osaka,
+140,7062721,0,"Ricoh Company, Ltd.",,,3,Graphical user interface with improved control for areas with a large number of selectable bitmaps,2006-06-13,JP,Tokyo,
+141,4378966,0,"Fa. Christian Majer K.G., Maschinenfabrik",,,3,Apparatus for controlling a pipe-cutting device,1983-04-05,DE,Tuebingen,
+142,4665578,0,Kawada Kogyo K.K.,,,3,Streamlined box girder type suspension bridge,1987-05-19,JP,Toyama,
+143,4888387,0,Asahi Kasei Kogyo Kabushiki Kaisha,,,3,Resin composition comprising a polyamide or polycarbonate,1989-12-19,JP,Osaka,
+144,7915948,0,Renesas Electronics Corporation,,,3,Current mirror circuit,2011-03-29,JP,"Kawasaki-shi, Kanagawa",
+145,9791169,0,KURITA WATER INDUSTRIES LTD.,,,3,Liquid heater,2017-10-17,JP,,
+146,4939078,0,Konica Corporation,,,3,Direct positive-type silver halide light-sensitive photographic material,1990-07-03,JP,Tokyo,
+147,8591366,0,Toyota Jidosha Kabushiki Kaisha,,,3,Automatic transmission damper mechanism,2013-11-26,JP,Aichi-ken,
+148,4200580,0,Timex Corporation,,,2,Dioxanylphenyl benzoate liquid crystal compounds,1980-04-29,US,Waterbury,CT
+149,5977607,0,"STMicroelectronics, Inc.",,,2,Method of forming isolated regions of oxide,1999-11-02,US,Carrollton,TX
+150,8117828,0,Allison Advanced Development Company,,,2,Constant volume combustor having a rotating wave rotor,2012-02-21,US,Indianapolis,IN
+151,D409740,0,"Amrep, Inc.",,,2,Aerosol dispensing cabinet,1999-05-11,US,Marietta,GA
+152,5628261,0,Chemical Lime Company,,,2,Method and furnace for decomposing solid waste materials,1997-05-13,US,Fort Worth,TX
+153,11138842,0,Matrix Design Group LLC,,,2,System for detecting the presence of an object to be protected in a low-light environment,2021-10-05,US,Newburgh,IN
+154,6177481,0,Bayer Aktiengesellschaft,,,3,"Defoamer mixtures, a process for the production thereof and the use thereof",2001-01-23,DE,Leverkusen,
+155,D628474,0,"Direct Pack, Inc.",,,2,Container,2010-12-07,US,Sun Valley,CA
+156,8977239,0,"Ubeeairwalk, Inc.",,,3,"System, method, and computer-readable medium for user equipment registration and authentication processing by a femtocell system",2015-03-10,TW,,
+157,8672738,0,"Scientific Games International, Inc.",,,2,Lottery game having enhanced winnings,2014-03-18,US,Newark,DE
+158,4115152,0,Centro-Maskin Goteborg AB,,,3,Method and device for gas planing a workpiece surface to remove surface defects,1978-09-19,SE,Goteborg,
+159,6940906,0,"Hitachi, Ltd.",,,3,Moving picture encoding apparatus,2005-09-06,JP,Tokyo,
+160,10023921,0,"PIONEER HI-BRED INTERNATIONAL, INC.",,,2,Corn event TC1507 and methods for detection thereof,2018-07-17,US,Johnston,IA
+161,10082014,0,"FORUM US, INC.",,,2,Apparatus and method for preventing particle interference of downhole devices,2018-09-25,US,Houston,TX
+162,5295177,0,Fujitsu Limited,,,3,Automatic terminal start/stop verification system using call processing simulator,1994-03-15,JP,Kawasaki,
+163,6194789,0,Honeywell Inc.,,,2,Flexible hermetic sealing,2001-02-27,US,Morristown,NJ
+164,6234861,0,"Matsushita Electric Industrial Co., Ltd.",,,3,High performance yo-yo,2001-05-22,JP,Tokyo,
+165,7634522,0,"Novell, Inc.",,,2,Random number generation,2009-12-15,US,Provo,UT
+166,4619642,0,E. I. Du Pont de Nemours and Company,,,2,"Sterile, cold cut connection process, apparatus and system",1986-10-28,US,Wilmington,DE
+167,8583422,0,Invention Machine Corporation,,,2,System and method for automatic semantic labeling of natural language texts,2013-11-12,US,Boston,MA
+168,11380577,0,COMMISSARIAT À L'ÉNERGIE ATOMIQUE ET AUX ÉNERGIES ALTERNATIVES,,,7,Method for transferring a thin layer using a filled preceramic polymer,2022-07-05,FR,Paris,
+169,7743902,0,Cummins-Allison Corp.,,,2,Optical coin discrimination sensor and coin processing system using the same,2010-06-29,US,Mount Prospect,IL
+170,10489027,0,"FUJI XEROX CO., LTD.",,,3,Information processing apparatus and non-transitory computer readable medium,2019-11-26,JP,Tokyo,
+171,4723435,0,"Research and Education Institute, Inc., Harbor-UCLA Medical Center",,,2,Means of controlled simulation of respiratory gas exchange for on-line calibration of respiratory analyzers,1988-02-09,US,Torrance,CA
+172,8026280,0,"Errant Gene Therapeutics, LLC",,,2,Histone deacetylase inhibitors,2011-09-27,US,Chicago,IL
+173,4378753,0,"Konishiroku Photo Industry Co., Ltd.",,,3,Developing apparatus for an image reproduction,1983-04-05,JP,,
+174,8007294,0,Japan Aviation Electronics Industry Limited,,,3,Connector,2011-08-30,JP,Tokyo,
+175,6433427,0,Industrial Technology Research Institute,,,3,Wafer level package incorporating dual stress buffer layers for I/O redistribution and method for fabrication,2002-08-13,TW,Hsin Chu,
+176,4657669,0,Sentrachem Limited,,,3,Depressants for froth flotation,1987-04-14,ZA,Marshalltown,
+177,6360442,0,"The Pampered Chef, Ltd.",,,2,Grapefruit knife,2002-03-26,US,Addison,IL
+178,H841,0,The United States of America as represented by the Secretary of the Army,,,6,Single laser exposure and monitoring of holograms,1990-11-06,,Washington,DC
+179,7096509,0,"Peacock Apparel Group, Inc.",,,2,Tie and shirt combination secured with an elastic band,2006-08-29,US,New York,NY
+180,11543771,0,Canon Kabushiki Kaisha,,,3,Image forming apparatus having duct with convex shaped filter,2023-01-03,JP,Tokyo,
+181,8435236,0,"CardioDex, Ltd.",,,3,Techniques for heat-treating varicose veins,2013-05-07,IL,Cesarea Business Park,
+182,10427094,0,"Cameron Solutions, Inc.",,,2,Process design for acid gas removal,2019-10-01,US,Houston,TX
+183,D681360,0,Keter Plastic Ltd.,,,3,Chair,2013-05-07,IL,Herzelyia,
+184,6834965,0,"Mitsubishi Electric Research Laboratories, Inc.",,,2,Self-configurable ad-hoc projector cluster,2004-12-28,US,Cambridge,MA
+185,9343445,0,"HON HAI PRECISION INDUSTRY CO., LTD.",,,3,Photoelectric conversion device,2016-05-17,TW,New Taipei,
+186,5620520,0,Nylok Fastener Corporation,,,2,Apparatus for producing coated fasteners having closed ends,1997-04-15,US,MaComb,MI
+187,4178051,0,AMP Incorporated,,,2,Latch/eject pin header,1979-12-11,US,Harrisburg,PA
+188,6574204,0,"LG Information & Communications, Ltd.",,,3,Method of canceling interference components included in received signals of base station in mobile communication system,2003-06-03,KR,Seoul,
+189,6784247,0,"PPG Industries Ohio, Inc.",,,2,Powder coating compositions having improved mar and acid resistance,2004-08-31,US,Cleveland,OH
+190,8724263,0,Seagate Technology LLC,,,2,Method for active control of spacing between a head and a storage medium,2014-05-13,US,Cupertino,CA
+191,5802296,0,Fujitsu Software Corporation,,,2,Supervisory powers that provide additional control over images on computers system displays to users interactings via computer systems,1998-09-01,US,San Jose,CA
+192,3996160,0,Dynapol Corporation,,,2,Hydroquinonoid ortho-alkylation polymers and the process of their production,1976-12-07,US,Palo Alto,CA
+193,8039027,0,FX LIFE Sciences AG,,,3,Treatment of autoimmune diseases with American ginseng extract,2011-10-18,CH,Zug,
+194,7537319,0,"Samsung Electronics Co., Ltd.",,,3,Piezoelectric inkjet printhead and method of manufacturing the same,2009-05-26,KR,"Suwon, Kyungki-do",
+195,11555827,0,"Bruker Nano, Inc.",,,2,Torsion wing probe assembly,2023-01-17,US,Santa Barbara,CA
+196,6048425,0,"Daiwa Seiko, Inc.",,,3,Fishing rod with pre-inserted fishing line guide members and method of manufacturing the same,2000-04-11,JP,Tokyo,
+197,8532716,0,"Samsung Electronics Co., Ltd.",,,3,Electric power control method and mobile device adapted thereto,2013-09-10,KR,"Yeongtong-gu, Suwon-si, Gyeonggi-do",
+198,4691386,0,Thomson-CSF,,,3,Optical transmission channel with electrical connectors,1987-09-01,FR,Paris,
+199,11280000,0,"BOE TECHNOLOGY GROUP CO., LTD.",,,3,Fixing apparatus and evaporation method,2022-03-22,CN,Beijing,
+200,7914010,0,Kennametal Inc.,,,2,"Hydraulic expansion chuck for chucking a tool, such as a boring tool, milling cutter, or other cutting tool",2011-03-29,US,Latrobe,PA
+201,7755831,0,"Day and Night Display Systems, Inc.",,,2,Night vision glasses,2010-07-13,US,Lincolnwood,IL
+202,4076186,0,"Fuji Photo Film Co., Ltd.",,,3,Magnetic tape cassettes,1978-02-28,JA,Minami-ashigara,
+203,4984997,0,AMP Incorporated,,,2,Locking clip for use with a chip carrier socket,1991-01-15,US,Harrisburg,PA
+204,11502165,0,NANYA TECHNOLOGY CORPORATION,,,3,Semiconductor device with flowable layer and method for fabricating the same,2022-11-15,TW,New Taipei,
+205,9541233,0,"HAND IN GLOVE INNOVATIONS, LLC",,,2,Ergonomic holder and method for handheld support of a tablet computer,2017-01-10,US,Mason,OH
+206,11314712,0,"BEIJING JINGDONG SHANGKE INFORMATION TECHNOLOGY CO., LTD.",,,3,"Method and apparatus for providing serial number, electronic device and readable storage medium",2022-04-26,CN,Beijing,
+207,5125285,0,"Nissan Motor Co., Ltd.",,,3,Control arrangement for vehicular manual transmission,1992-06-30,JP,Yokohama,
+208,7418373,0,Live Oak Ministries,,,2,Blasting method,2008-08-26,US,New Braunfels,TX
+209,6564879,0,Kuhn S.A.,,,3,Locking device for a guard of soil-working machine,2003-05-20,FR,Saverne,
+210,9602226,0,"DATANG MOBILE COMMUNICATIONS EQUIPMENT CO., LTD",,,3,Distributed spectrum analyzer and method of spectrum analysis applying same,2017-03-21,CN,Beijing,
+211,11284473,0,"Samsung Electronics Co., Ltd.",,,3,Method and apparatus for intelligent WiFi connection management,2022-03-22,KR,Suwon-si,
+212,9392693,0,SHUNSIN TECHNOLOGY (ZHONG SHAN) LIMITED,,,3,Method for manufacturing printed circuit board with shallow solder pad,2016-07-12,CN,Zhongshan,
+213,9317992,0,ARISTOCRAT TECHNOLOGIES AUSTRALIA PTY LIMITED,,,3,Gaming machine with interactive scorecard,2016-04-19,AU,,
+214,10298081,0,Cummins Generator Technologies Limited,,,3,Separator for separating windings,2019-05-21,GB,Peterborough,
+215,11087890,0,SAP SE,,,3,Automatic onboarding of digital twins of physical assests in Internet-of-Things (IoT) systems,2021-08-10,DE,Walldorf,
+216,7248057,0,General Electric Company,,,2,"Method, apparatus and computer-readable code for detecting on the fly an incipient ground fault in an electrical propulsion system of a locomotive",2007-07-24,US,Schenectady,NY
+217,5173380,0,Mitsubishi Denki Kabushiki Kaisha,,,3,Photomask,1992-12-22,JP,Tokyo,
+218,6211150,0,Amgen Inc.,,,2,Analogs of cationic proteins,2001-04-03,US,Thousand Oaks,CA
+219,8763407,0,BASF SE,,,3,Magneto-caloric heat pump with the use of a cascade of magneto-caloric materials,2014-07-01,DE,Ludwigshafen,
+220,6322616,0,"SDH, Inc.",,,2,Gas separator for an oil well production line,2001-11-27,US,Skiatook,OK
+221,6233380,0,France Telecom,,,3,"Electrooptic method of signal processing, device for implementing the latter, and use",2001-05-15,FR,Paris,
+222,PP22472,0,Lassen Canyson Nursery,,,2,Strawberry plant named ‘Sweet Ann’,2012-01-31,US,Redding,CA
+223,4446976,0,FMC Corporation,,,2,Reversible outrigger crane support,1984-05-08,US,Chicago,IL
+224,7788651,0,Microsoft Corporation,,,2,Anonymous types,2010-08-31,US,Redmond,WA
+225,6414128,0,Amrad Operations Pty. Ltd.,,,3,Haemopoietin receptor and genetic sequences encoding same,2002-07-02,AU,Victoria,
+226,4929509,0,Eastman Kodak Company,,,2,Adhesives based on amorphous propylene/hexene copolymers,1990-05-29,US,Rochester,NY
+227,10469166,0,"Maxlinear, Inc.",,,2,Feedback-based configuration of a hybrid fiber-coaxial network,2019-11-05,US,Carlsbad,CA
+228,8954252,0,Google Inc.,,,2,Pedestrian notifications,2015-02-10,US,Mountain View,CA
+229,5596667,0,Fujitsu Limited,,,3,Application of phase conjugate optics to optical systems,1997-01-21,JP,Kawasaki,
+230,7412171,0,AT&T Corp.,,,2,Optical ring network architecture,2008-08-12,US,New York,NY
+231,11049786,0,RENESAS ELECTRONICS CORPORATION,,,3,Semiconductor device,2021-06-29,JP,Tokyo,
+232,5860815,0,Minnesota Mining and Manufacturing Company,,,2,Edge mount connector having location recesses for solder tail registration,1999-01-19,US,St. Paul,MN
+233,6526508,0,"Scientific-Atlanta, Inc.",,,2,Source authentication of download information in a conditional access system,2003-02-25,US,Lawrenceville,GA
+234,4033175,0,"Mitutoyo Manufacturing Co., Ltd.",,,3,Gas leakage measuring device,1977-07-05,JA,Tokyo,
+235,10839948,0,Intel Corporation,,,2,Microfluidic information-encoding polymer data storage,2020-11-17,US,Santa Clara,CA
+236,6231587,0,"TransVascular, Inc.",,,2,Devices for connecting anatomical conduits such as vascular structures,2001-05-15,US,Menlo Park,CA
+237,6484232,0,"Compaq Information Technologies Group, L.P.",,,2,Adaptive calibration technique for high speed memory devices,2002-11-19,US,Houston,TX
+238,5932774,0,Abbott Laboratories,,,2,Processes for the preparation of D-chiro-inositol,1999-08-03,US,Abbott Park,IL
+239,10590547,0,"Advanced Combustion Technologies, Inc.",,,2,Combustible fuel and apparatus and process for creating the same,2020-03-17,US,Las Vegas,NV
+240,9849840,0,CALSONIC KANSEI CORPORATION,,,3,Attaching structure for vehicle-mounted equipment,2017-12-26,JP,Saitama,
+241,10345872,0,INVENTEC (PUDONG) TECHNOLOGY CORPORATION,,,3,Computer case,2019-07-09,CN,Shanghai,
+242,9227026,0,Board of Trustees of the University of Arkansas,,,2,Medical hand and arm protection apparatus and method of protection,2016-01-05,US,Little Rock,AR
+243,D746763,0,The Goodyear Tire & Rubber Company,,,2,Tire for automobile,2016-01-05,US,Akron,OH
+244,11031922,0,Alpha and Omega Semiconductor (Cayman) Limited,,,3,Switch circuit with reduced switch node ringing,2021-06-08,KY,Grand Cayman,
+245,9145487,0,ISP INVESTMENTS INC.,,,2,Plasticized PVC compositions with long term high temperature stability,2015-09-29,US,Wilmington,DE
+246,4609568,0,Fairchild Camera & Instrument Corporation,,,2,Self-aligned metal silicide process for integrated circuits having self-aligned polycrystalline silicon electrodes,1986-09-02,US,Mountain View,CA
+247,5617138,0,Canon Kabushiki Kaisha,,,3,Photography booth with multiple video input and confirming image display,1997-04-01,JP,Tokyo,
+248,8573123,0,The United States of America as Represented by the Secretary of the Army,,,6,Flexible detonator integrated with directly written energetics,2013-11-05,US,Washington,DC
+249,4365839,0,Intercollection Development SA,,,3,Chair construction with protective cushioning for exposed structural projections,1982-12-28,CH,Kirchberg,
+250,4151441,0,GTE Sylvania Incorporated,,,2,Cathode support means in electron gun structure of a cathode ray tube,1979-04-24,US,Stamford,CT
+251,4275547,0,"Multinorm, B.V.",,,3,Mowing device,1981-06-30,NL,Nieuw-Vennep,
+252,7985213,0,Cook Medical Technologies LLC,,,2,Delivery catheter and method of manufacture,2011-07-26,US,Bloomington,IN
+253,9487930,0,"KOBELCO CONSTRUCTION MACHINERY CO., LTD.",,,3,Drive device for construction machine,2016-11-08,JP,Hiroshima-shi,
+254,9266332,0,Seiko Epson Corporation,,,3,Liquid ejecting apparatus,2016-02-23,JP,Tokyo,
+255,10404966,0,"SAMSUNG DISPLAY CO., LTD.",,,3,Optical modulation device and driving method thereof,2019-09-03,KR,"Yongin-si, Gyeonggi-Do",
+256,7183045,0,Gambro Inc.,,,2,Removal of adenine during a pathogen reduction process in whole blood or red blood cell by dilution,2007-02-27,US,Lakewood,CO
+257,9132781,0,TECHNO-FAB 9000 INC.,,,3,Rack system with pivoting rail,2015-09-15,CA,Saint-Hyacinthe,
+258,9928835,0,"Amazon Technologies, Inc.",,,2,Systems and methods for determining content preferences based on vocal utterances and/or movement by a user,2018-03-27,US,Reno,NV
+259,6585249,0,Pitney Bowes Inc.,,,2,Low friction article feeding system,2003-07-01,US,Stamford,CT
+260,7063360,0,Aisin Seiki Kabushiki Kaisha,,,3,Door lock device,2006-06-20,JP,Kariya,
+261,10872999,0,ams Sensors Singapore Pte. Ltd.,,,3,Optoelectronic module having dual encapsulation with opening for receiving an optical assembly,2020-12-22,SG,Singapore,
+262,6312555,0,"CTP, Inc.",,,2,Thin film electrostatic shield for inductive plasma processing,2001-11-06,US,San Jose,CA
+263,7039685,0,Lucent Technologies Inc.,,,2,Method and apparatus for conducting subscriber's phone testing remotely via the internet,2006-05-02,US,Murray Hill,NJ
+264,D497327,0,Dr. Ing. h.c.F. Porsche Aktiengesellschaft,,,3,"Surface configuration of a vehicle, toy and/or other replicas",2004-10-19,DE,Stuttgart,
+265,6021486,0,Intel Corporation,,,2,Continued processing of out-of-order non-architectual operations upon exceptions until flushing by architectual operations exceptions to avoid resume deadlock,2000-02-01,US,Santa Clara,CA
+266,11442566,0,"WUHAN TIANMA MICRO ELECTRONICS CO., LTD.",,,3,Display panel and display device,2022-09-13,CN,Wuhan,
+267,D918026,0,"J. RAY MCDERMOTT, S.A.",,,2,Protective sleeve nut,2021-05-04,US,Houston,TX
+268,8564366,0,Renesas Electronics Corporation,,,3,High-frequency power amplifier device,2013-10-22,JP,Kanagawa,
+269,4519999,0,Union Carbide Corporation,,,2,Waste treatment in silicon production operations,1985-05-28,US,Danbury,CT
+270,D715201,0,"Auto Clover Co., Ltd.",,,3,Automobile emblem,2014-10-14,KR,Daegu,
+271,7485639,0,Merck Patent GmbH,,,3,"4-(benzylidene-amino)-3-(methylsulfanyl)-4h-(1,2,4)triazin-5-one derivatives having a PDE-IV inhibiting and TNF-antagonistic effect for the treatment of cardiac diseases and allergies",2009-02-03,DE,Darmstadt,
+272,5360926,0,"Sumitomo Chemical Company, Limited",,,3,Process for producing methyl methacrylate,1994-11-01,JP,Osaka,
+273,H1888,0,The United States of America as represented by the Secretary of the Navy,,,6,Process for applying high application-temperature coating to,2000-10-03,,Washington,DC
+274,4409539,0,Motorola Inc.,,,2,Self-excitation for an alternator of the low-carbon steel rotor type,1983-10-11,US,Schaumburg,IL
+275,5179919,0,Mr. Gasket Company,,,2,Wire loom mounting,1993-01-19,US,Cleveland,OH
+276,5106797,0,Alcan International Limited,,,3,Refractory material produced from red mud,1992-04-21,CA,Montreal,
+277,7831890,0,"Aware, Inc.",,,2,Resource sharing in a telecommunications environment,2010-11-09,US,Bedford,MA
+278,D549375,0,"Vector Products, Inc.",,,2,Spotlight,2007-08-21,US,Plantation,FL
+279,10531639,0,Battelle Memorial Institute,,,2,Systems and methods for monitoring organisms within an aquatic environment,2020-01-14,US,Richland,WA
+280,4438964,0,"Pierce Manufacturing, Inc.",,,2,Paddle operated vehicle latch,1984-03-27,US,Appleton,WI
+281,D476065,0,"Kallista, Inc.",,,2,Handle,2003-06-17,US,Kohler,WI
+282,5885449,0,Eisenwerke Fried.Wilh.Duker GmbH & Co.,,,3,"Apparatus for removing microbes from flowing media, such as water",1999-03-23,DE,Karlstadt,
+283,10338707,0,"BOE Technology Group Co., Ltd.",,,3,"Integrated front light assembly, manufacturing method thereof, and reflective display device",2019-07-02,CN,Beijing,
+284,10449648,1,Robert Bosch GmbH,,,3,Transferring rotation torque through isolator for table saw,2019-10-22,DE,Stuttgart,
+285,4957740,1,"Pentapharm, Ltd.",,,3,Composition for preventing or alleviating skin irritation by formulations containing superoxide dismutase,1990-09-18,CH,Basle,
+286,4634179,0,Aisin Seiki Kabushiki Kaisha,,,3,Air lumbar support device,1987-01-06,JP,Kariya,
+287,6345722,0,Chicago Show,,,2,Display rack for golf clubs,2002-02-12,US,Northfield,IL
+288,4690127,0,Vulcan-Hart Corporation,,,2,Catalytic combustion deep fat fryer,1987-09-01,US,Louisville,KY
+289,5581341,0,"Mita Industrial Co., Ltd.",,,3,Temperature control device for a fusing device in an image forming apparatus,1996-12-03,JP,Osaka,
+290,8440473,0,Lam Research Corporation,,,2,Use of spectrum to synchronize RF switching with gas switching during etch,2013-05-14,US,Fremont,CA
+291,9569600,0,"FUJI XEROX CO., LTD.",,,3,Information processing apparatus with license information management,2017-02-14,JP,Tokyo,
+292,11556167,0,"Ambiq Micro, Inc.",,,2,On-chip system with context-based energy reduction,2023-01-17,US,Austin,TX
+293,6666286,0,"Goei Co., Ltd.",,,3,Fluid circulating apparatus for drill,2003-12-23,JP,Hiroshima,
+294,9893286,0,Northeast Normal University,,,3,Organic single crystal field effect circuit and preparing method thereof,2018-02-13,CN,"Changchun, Jilin",
+295,PP22335,0,Pieters Joseph & Luc B.V.B.A.,,,3,Chrysanthemum plant named ‘Yellow Passadena Jogger’,2011-12-13,BE,Staden-Oostnieuwkerke,
+296,6608739,0,"Alps Electric Co., Ltd.",,,3,Spin valve thin film magnetic element having first and second free magnetic layers having antiparallel magnetization directions,2003-08-19,JP,Tokyo,
+297,10440342,0,TiVo Solutions Inc.,,,2,Secure transfer of previously broadcasted content,2019-10-08,US,San Jose,CA
+298,7941619,0,Symantec Operating Corporation,,,2,Space-optimized backup set conversion,2011-05-10,US,Mountain View,CA
+299,9665264,0,"Draeger Medical Systems, Inc.",,,2,Medical data display system graphical user interface,2017-05-30,US,Andover,MA
+300,7693555,0,Intel Corporation,,,2,"Sleep-mode wireless cell reselection apparatus, systems, and methods",2010-04-06,US,Santa Clara,CA
+301,10609649,0,ZTE CORPORATION,,,3,"Method and device for reducing power consumption of terminal, and smart card",2020-03-31,CN,Guangdong,
+302,9072917,0,Cognis IP Management GmbH,,,3,Linear alkyl esters and their use in cosmetic and/or pharmaceutical compositions,2015-07-07,DE,Duesseldorf,
+303,10690015,0,ISUZU MOTORS LIMITED,,,3,Cylinder head structure for internal combustion engine and internal combustion engine,2020-06-23,JP,"Shinigawa-Ku, Tokyo",
+304,11614765,0,CTS Corporation,,,2,Vehicle pedal including redundant dual output inductive position sensor with reduced coupling coil circuits,2023-03-28,US,Lisle,IL
+305,5709468,0,"Texaco Group, Inc.",,,2,Method for equalizing steam quality in pipe networks,1998-01-20,US,White Plains,NY
+306,10422453,0,DALLMER GMBH & CO. KG,,,3,Sealing system for sealing of a drain arrangement,2019-09-24,DE,Arnsberg,
+307,7179435,0,Niro Process Technology B.V.,,,3,Method and apparatus for recovering a pure substance from an impure solution by crystallization,2007-02-20,NL,S-Hertogenbosch,
+308,11358430,0,DEERE & COMPANY,,,2,Suspension system with variable roll resistance,2022-06-14,US,Moline,IL
+309,10727398,0,International Business Machines Corporation,,,2,MTJ containing device containing a bottom electrode embedded in diamond-like carbon,2020-07-28,US,Armonk,NY
+310,5010381,0,Mitsubishi Denki Kabushiki Kaisha,,,3,Semiconductor light receiving element,1991-04-23,JP,,
+311,6015435,0,"International Vision, Inc.",,,2,Self-centering phakic intraocular lens,2000-01-18,US,Cincinnati,OH
+312,11439887,0,"Lagree Technologies, Inc.",,,2,Exercise machine with visual guidance,2022-09-13,US,Chatsworth,CA
+313,7377386,0,"PTG, LLC",,,2,Mechanical attachment for packaging,2008-05-27,US,Biddeford,ME
+314,8566879,1,Sony Electronics Inc.,,,2,Method and apparatus for navigating video content,2013-10-22,US,Park Ridge,NJ
+315,4160297,0,Envirotech Corporation,,,2,Pulp washer,1979-07-10,US,Menlo Park,CA
+316,D831217,0,Sanofi,,,3,Electrical stimulation device,2018-10-16,FR,,
+317,8629997,0,"Fuji Xerox Co., Ltd.",,,3,Print control apparatus and image forming system for rendering image data,2014-01-14,JP,Tokyo,
+318,6128055,0,"Samsung Electronics Co., Ltd.",,,3,Reflective display apparatus using compensator cell and ferroelectric liquid crystal at 90.degree. to enhance contrast ratio,2000-10-03,KR,Kyungki-do,
+319,6589996,0,Orion Corporation,,,3,Treatment of disorders relating to the serotonergic system,2003-07-08,FI,Espoo,
+320,9576006,0,SIEMENS AKTIENGESELLSCHAFT,,,3,Method and system for storing data in a database,2017-02-21,DE,Munich,
+321,9958286,0,DENSO CORPORATION,,,3,"Image display system, mobile terminal, server, non-transitory physical computer-readable medium",2018-05-01,JP,"Kariya, Aichi-pref.",
+322,6960559,0,University of Zurich,,,3,Neurite growth regulatory factors,2005-11-01,CH,Zurich,
+323,6616200,0,Lear Corporation,,,2,Slide latch assembly,2003-09-09,US,Southfield,MI
+324,8399772,0,NXP B.V.,,,3,Control of carbon nanostructure growth in an interconnect structure,2013-03-19,NL,Eindhoven,
+325,4274689,0,Leslie Metal Arts Company,,,2,Drawer glide assembly,1981-06-23,US,Grand Rapids,MI
+326,9976802,0,LG Electronics Inc.,,,3,Cooling device and method for controlling cooling device,2018-05-22,KR,Seoul,
+327,9807318,0,FLIR Systems AB,,,3,IR camera and method for processing thermal image information,2017-10-31,SE,,
+328,10504706,0,Ferrotec Ceramics Corporation,,,3,Sputtering target and method for producing the same,2019-12-10,JP,Tokyo,
+329,10076232,0,The Cleveland Clinic Foundation,,,2,Endoscopic sheath assembly,2018-09-18,US,Cleveland,OH
+330,9123200,0,GTECH Canada ULC,,,3,Remote gaming using game recommender system and generic mobile gaming device,2015-09-01,CA,"Moncton, NB",
+331,D981964,0,Hangzhou SWEET I&E Co. Ltd.,,,3,Power inlet box,2023-03-28,CN,Zhejiang,
+332,7328220,0,Lucent Technologies Inc.,,,2,Sketch-based multi-query processing over data streams,2008-02-05,US,Murray Hill,NJ
+333,4956081,0,Stanadyne Automotive Corp.,,,2,Fuel filter with diaphragm pump,1990-09-11,US,Windsor,CT
+334,8904428,0,International Business Machines Corporation,,,2,Common purchase plan based advertisement,2014-12-02,US,Armonk,NY
+335,6569289,0,Andritz Inc.,,,2,Cellulose slurry treating systems for adding AQ to a cellulose slurry in the substantial absence of alkali,2003-05-27,US,Glen Falls,NY
+336,4960415,0,Merck Patent GmbH,,,3,Device for inserting in wounds and wound cavities,1990-10-02,DE,Darmstadt,
+337,9057867,0,"KONICA MINOLTA, INC.",,,3,Mirror and reflective device for generating solar power,2015-06-16,JP,Tokyo,
+338,7649924,0,"Coherent, Inc.",,,2,First-pulse suppression in a regenerative amplifier,2010-01-19,US,Santa Clara,CA
+339,10989429,0,"Daikin Industries, Ltd.",,,3,Air conditioning system,2021-04-27,JP,Osaka,
+340,6615022,0,"Matsushita Electric Industrial Co., Ltd.",,,3,Impulse noise rejection circuit and satellite communications terminal using the same,2003-09-02,JP,Osaka,
+341,4086785,0,General Motors Corporation,,,2,Two-piece fan motor mounting arrangement,1978-05-02,US,Detroit,MI
+342,11214089,0,LANDA CORPORATION LTD.,,,3,Printing system,2022-01-04,IL,Rehovot,
+343,10049430,0,International Business Machines Corporation,,,2,Visual effect augmentation of photographic images,2018-08-14,US,Armonk,NY
+344,8364325,0,"Adura Technologies, Inc.",,,2,Intelligence in distributed lighting control devices,2013-01-29,US,San Francisco,CA
+345,4214248,0,Sperry Corporation,,,2,Transreflector scanning antenna,1980-07-22,US,New York,NY
+346,9522441,0,Robert Bosch GmbH,,,3,"Welding method, welding device and composite part",2016-12-20,DE,Stuttgart,
+347,4738421,0,Sparton Corporation,,,2,Self-orienting device,1988-04-19,US,Jackson,MI
+348,3952065,0,Vyskumny ustav agrochemickej Technologie,,,3,Method of producing chlorobenzenes from benzene sulphonyl chlorides,1976-04-20,CS,Bratislava-Predmestie,
+349,8989712,0,Visa U.S.A. Inc.,,,2,Mobile phone payment process including threshold indicator,2015-03-24,US,San Francisco,CA
+350,4524314,0,PORTEC,,,2,Rear travel guidance system,1985-06-18,US,Lisle,IL
+351,10674805,0,"Ningbo ZIIER Network Technology Co., Ltd.",,,3,Deformable holder for a spray bottle,2020-06-09,CN,"Ningbo, Zhejiang",
+352,9788778,0,"Vital Connect, Inc.",,,2,Measuring psychological stress from cardiovascular and activity signals,2017-10-17,US,San Jose,CA
+353,9919614,0,ROPFIN B.V.,,,3,Passenger transportation system and relative control method,2018-03-20,NL,Leimuiden,
+354,6896008,0,Iropa AG,,,3,Weft thread monitoring device,2005-05-24,CH,Baar,
+355,D492213,0,"Gauge Works, LLC",,,2,Gauge display mount,2004-06-29,US,Great Falls,VA
+356,6385575,0,Kabushiki Kaisha Toshiba,,,3,Constraint relieving vector quantization apparatus and vector quantization method having constraints in quantization vectors,2002-05-07,JP,Kawasaki,
+357,D685017,0,"Elmo Co., Ltd.",,,3,Visual presenter,2013-06-25,JP,Aichi,
+358,7085186,0,Purple Mountain Server LLC,,,2,Method for hiding a refresh in a pseudo-static memory,2006-08-01,US,Los Altos,CA
+359,6633973,0,Mitsubishi Denki Kabushiki Kaisha,,,3,Trace control circuit adapted for high-speed microcomputer operation,2003-10-14,JP,Tokyo,
+360,6404651,0,International Business Machines Corporation,,,2,Computer expansion card shield retention device,2002-06-11,US,Armonk,NY
+361,7243115,0,"Network Appliance, Inc.",,,2,System and method for asynchronous mirroring of snapshots at a destination using a purgatory directory and inode mapping,2007-07-10,US,Sunnyvale,CA
+362,5209233,0,"Picker International, Inc.",,,2,Temperature sensing and control system for cardiac monitoring electrodes,1993-05-11,US,Highland Heights,OH
+363,5809629,0,"Southpac Trust International, Inc.",,,2,Method for forming a decorative cover,1998-09-22,US,,
+364,9142511,0,Invensas Corporation,,,2,Structures with through vias passing through a substrate comprising a planar insulating layer between semiconductor layers,2015-09-22,US,San Jose,CA
+365,5660703,0,The Dow Chemical Company,,,2,Apparatus for capillary electrophoresis having an auxiliary electroosmotic pump,1997-08-26,US,Midland,MI
+366,9298695,0,"AT&T Intellectual Property I, LP",,,2,Method and apparatus for managing auto-correction in messaging,2016-03-29,US,Atlanta,GA
+367,8402941,1,Denso Corporation,,,3,Intake system for internal combustion engine and control method of the same,2013-03-26,JP,Aichi-Pref,
+368,7052563,0,"Owens Corning Fiberglas Technology, Inc.",,,2,Apparatus and method for fiber batt encapsulation,2006-05-30,US,Summit,IL
+369,6079873,0,The United States of America as represented by the Secretary of Commerce,,,6,Micron-scale differential scanning calorimeter on a chip,2000-06-27,US,Washington,DC
+370,5572556,0,NEC Corporation,,,3,Method and system for controlling of reproduction of sampling signal,1996-11-05,JP,Tokyo,
+371,9409344,0,"BASE KING, LLC",,,2,Dry adhesive backed flooring and method for manufacture,2016-08-09,US,Dalton,GA
+372,D512802,0,LG Electronics Inc.,,,3,Dish-washing machine,2005-12-13,KR,Seoul,
+373,4333654,0,,Regina Gonsoulin,Allain,4,Game,1982-06-08,US,New Iberia,LA
+374,9626161,0,"CA, Inc.",,,2,Computer readable medium and methods for filtering a dynamic comparison model,2017-04-18,US,New York,NY
+375,11385341,0,"CACI, Inc.—Federal",,,2,Methods and systems for detecting and passively monitoring communications of an unmanned aerial vehicle,2022-07-12,US,Reston,VA
+376,10596178,0,Novartis AG,,,3,"Tablet formulation of 2-fluoro-N-methyl-4-[7-(quinolin-6-ylmethyl) imidazo [1,2-B] [1,2,4] triazin-2-yl] benzamide",2020-03-24,CH,Basel,
+377,11014833,0,"GINGER WATER PROCESSING TECHNOLOGY CO., LTD.",,,3,Energy saving desalination system,2021-05-25,TW,Zhubei,
+378,8243482,0,Kabushiki Kaisha Yaskawa Denki,,,3,Control device for matrix converter,2012-08-14,JP,Fukuoka,
+379,10851175,0,MOGAM INSTITUTE FOR BIOMEDICAL RESEARCH,,,3,Anti-mesothelin antibody and composition comprising the same,2020-12-01,KR,Gyeonggi-do,
+380,7536322,0,"Amazon Technologies, Inc.",,,2,Identifying early adopters and items adopted by them,2009-05-19,US,Incline Village,NV
+381,8315009,0,"Hitachi Global Storage Technologies, Netherlands B.V.",,,3,System and method for changing resonant frequency in hard disk drive components,2012-11-20,NL,Amsterdam,
+382,9271465,0,"PIONEER HI-BRED INTERNATIONAL, INC.",,,2,Maize inbred PH1TRS,2016-03-01,US,Johnston,IA
+383,7737053,0,"Semiconductor Energy Laboratory Co., Ltd",,,3,Semiconductor device and manufacturing method of the same,2010-06-15,un,"Atsugi-shi, Kanagawa-ken",
+384,11073737,0,Luxtera LLC,,,2,Method and system for an all-optical wafer acceptance test,2021-07-27,US,Wilmington,DE
+385,7276874,0,Fujitsu Limited,,,3,"Storage apparatus, seek control method and program",2007-10-02,JP,Kawasaki,
+386,10246519,0,"Genentech, Inc.",,,2,NSP4 inhibitors and methods of use,2019-04-02,US,South San Francisco,CA
+387,6195994,0,Robert Bosch GmbH,,,3,Master cylinder with hydraulic reaction operating with developing pressure,2001-03-06,DE,Stuttgart,
+388,5008432,0,Phillips Petroleum Company,,,2,Production of mercapto compounds,1991-04-16,US,Bartlesville,OK
+389,10243961,0,International Business Machines Corporation,,,2,Enhanced security using wearable device with authentication system,2019-03-26,US,Armonk,NY
+390,7072041,0,"Axsun Technologies, Inc.",,,2,System and method for optical spectrum fast peak reporting,2006-07-04,US,Billerica,MA
+391,8822617,0,"Korea Kumho Petrochemical Co., Ltd.",,,3,"Copolymer for organic antireflective film, monomer, and composition comprising the copolymer",2014-09-02,KR,Seoul,
+392,11118874,0,NITROCHEMIE ASCHAU GMBH,,,3,Cylindrical case for propellant charge powder,2021-09-14,DE,Aschau am Inn,
+393,7928016,0,"Oki Semiconductor Co., Ltd.",,,3,"Method of manufacturing semiconductor device, and semiconductor device",2011-04-19,JP,Tokyo,
+394,9801902,1,"KCI USA, Inc.",,,2,Debridement method using topical nitric oxide donor devices and compositions,2017-10-31,US,San Antonio,TX
+395,6328113,0,Shell Oil Company,,,2,Isolation of subterranean zones,2001-12-11,US,Houston,TX
+396,9017985,0,Metabolium,,,3,"Photosynthetic microorganisms enriched in selenium using selenohydroxy acid compounds, used thereof in nutrition, cosmetics and pharmacy",2015-04-28,FR,Romainville,
+397,5275442,0,Ametex AG,,,3,Connecting element,1994-01-04,CH,Niederurnen,
+398,8206251,0,The Gates Corporation,,,2,Double cogged V-belt for variable speed drive,2012-06-26,US,Denver,CO
+399,D553066,0,Master Pacific,,,3,Automotive wheel,2007-10-16,CN,Shanghai,
+400,9672420,0,EVONDOS OY,,,3,"Method for a medication dispenser to obtain information from a medication package, and medication dispenser",2017-06-06,FI,Salo,
+401,11111476,0,"Sumitomo Chemical Company, Limited",,,3,Method for manufacturing ciliary marginal zone-like structure,2021-09-07,JP,Tokyo,
+402,6774352,0,Keyence Corporation,,,3,Multi-beam photoelectric sensor and its mount,2004-08-10,JP,Osaka,
+403,7654198,0,"Colop Stempelerzeugung Skopek Gesellschaft m.b.H. & Co., KG",,,3,Type unit of a hand stamp including a hood-shaped cover,2010-02-02,AT,Wels,
+404,7143949,0,Digimarc Corporation,,,2,Internet-linking scanner,2006-12-05,US,Beaverton,OR
+405,10566398,0,"SHENZHEN CHINA STAR OPTOELECTRONICS SEMICONDUCTOR DISPLAY TECHNOLOGY CO., LTD.",,,3,Organic light emitting diode (OLED) display panel having protrusions on substrate with plurality of planarization layers and method for manufacturing same,2020-02-18,CN,"Shenzhen, Guangdong",
+406,9150901,0,"NEW ENGLAND BIOLABS, INC.",,,2,High fidelity restriction endonucleases,2015-10-06,US,Ipswich,MA
+407,8598237,0,Neste Oil Oyj,,,3,Method for adjusting hydrogen to carbon monoxide ratio in synthesis gas,2013-12-03,FI,Espoo,
+408,9571717,0,Olympus Corporation,,,3,"Imaging device, imaging system, imaging method, and computer-readable recording medium",2017-02-14,JP,Tokyo,
+409,D521688,0,Med-Eng Systems Inc.,,,3,Protective helmet,2006-05-23,CA,Ontario,
+410,8326192,0,Oki Data Corporation,,,3,"Developer supplying member, developing device, and image forming apparatus",2012-12-04,JP,Tokyo,
+411,5304908,0,"Goldstar Co., Ltd.",,,3,Quantizing error removing circuit for a rotational control device,1994-04-19,KR,Seoul,
+412,8386010,0,Covidien LP,,,2,Surgical tissue monitoring system,2013-02-26,US,Mansfield,MA
+413,9457984,0,OLYMPUS CORPORATION,,,3,Manufacturing method of optical fiber bundle,2016-10-04,JP,Tokyo,
+414,6847932,0,"Arcadia, Inc.",,,3,Speech synthesis device handling phoneme units of extended CV,2005-01-25,JP,Osaka,
+415,6086511,0,Agentur Droge GmbH,,,3,Motor vehicle economic operating system,2000-07-11,DE,Neuberg,
+416,5199537,0,,Helmut,Worner,5,Abutment with a damping device,1993-04-06,DE,Denkendorf,
+417,5009829,0,Akzo N.V.,,,3,Process for manufacturing yarns by meltspinning polyethylene terephthalate,1991-04-23,NL,Arnhem,
+418,7711333,0,"Analog Devices, Inc.",,,2,Detector with complementary response slope,2010-05-04,US,Norwood,MA
+419,6916991,0,Metal Manufacturing Limited,,,3,Superconducting tapes,2005-07-12,AU,,
+420,8977687,0,LinkedIn Corporation,,,2,Techniques for enhancing a member profile with a document reading history,2015-03-10,US,Mountain View,CA
+421,9512135,0,Nektar Therapeutics,,,2,Oligomer-opioid agonist conjugates,2016-12-06,US,San Francisco,CA
+422,5077542,0,L'Etat Francais (CNET),,,7,"Transmission system with suppressed carrier signal amplitude modulation preserving the polarity of the transmitted signal, and corresponding transmitter and receiver",1991-12-31,FR,Issy Les Moulineaux,
+423,10107291,0,DENSO CORPORATION,,,3,Fuel pump,2018-10-23,JP,Kariya,
+424,5795464,0,Exxon Research and Engineering Company,,,2,Conversion of the organic component from tar sands to lower boiling products,1998-08-18,US,Florham Park,NJ
+425,11380381,0,"Micron Technology, Inc.",,,2,Techniques and devices for canceling memory cell variations,2022-07-05,US,Boise,ID
+426,10221687,0,Merger Mines Corporation,,,2,Method of mining using a laser,2019-03-05,US,Coeur D'Alene,ID
+427,7575123,0,Rieke Corporation,,,2,Tamper-evident locking band for a container closure,2009-08-18,US,Auburn,IN
+428,6159216,0,Sulzer Orthopedics Inc.,,,2,Combination tibial preparation instrumentation,2000-12-12,US,Austin,TX
+429,7080970,0,"Sunonwealth Electric Machine Industry Co., Ltd.",,,3,Housing for axial flow heat-dissipating fan,2006-07-25,TW,Kaohsiung,
+430,5160268,0,Teledyne Kinetics,,,2,Floating stackable connector,1992-11-03,US,San Diego,CA
+431,9710424,0,QUALCOMM Incorporated,,,2,Synchronization method for multi-symbol words,2017-07-18,US,San Diego,CA
+432,D812479,0,WM. WRIGLEY JR. COMPANY,,,2,Product container,2018-03-13,US,Chicago,IL
+433,5783521,0,BASF Aktiengesellschaft,,,3,"Substituted pyridylsalicylaldehyde or -salicylic acid derivatives, their preparation and their use as herbicides",1998-07-21,DE,Ludwigshafen,
+434,8504358,0,Ambit Microsystems (Shanghai) Ltd.,,,3,Voice recording equipment and method,2013-08-06,CN,Shanghai,
+435,5207194,0,Industrie Magneti Marelli SpA,,,3,System for starting an internal combustion engine for motor vehicles,1993-05-04,IT,Milano,
+436,4624125,0,Redicon Corporation,,,2,Method and apparatus for controlling the spacing between a metal forming punch and a complemental die,1986-11-25,US,Canton,OH
+437,5500694,0,Quick Release,,,2,Spectacle assembly with removable lenses,1996-03-19,US,Lighthouse,FL
+438,D249795,0,"MB Royal Group, Inc.",,,2,Telephone or similar article,1978-10-03,US,New York,NY
+439,6365592,0,Merck Frosst Canada & Co.,,,3,Phosphonic and carboxylic acid derivatives as inhibitors of protein tyrosine phosphatase-1B (PTP-1B),2002-04-02,CA,Quebec,
+440,9423330,2,CENTRE NATIONAL DE LA RECHERCHE SCIENTIFIQUE,,,7,Method of determining the non-propagation threshold of fatigue cracks at high frequency,2016-08-23,FR,Paris,
+441,D576845,0,Browne & Co.,,,3,Portion of a whisk,2008-09-16,CA,,
+442,4960782,0,Pfizer Inc.,,,2,Triazole antifungal agents,1990-10-02,US,New York,NY
+443,5494809,0,"Higeta Shoyu Co., Ltd.",,,3,Method of producing iturin A and antifungal agent for profound mycosis,1996-02-27,JP,Tokyo,
+444,11243196,0,"HEATH CONSULTANTS, INC.",,,2,Apparatus for providing corrected readings in odor intensity level monitoring instrumentation and concurrent odor intensity and odorant concentration measurements,2022-02-08,US,Houston,TX
+445,D709783,0,WERMA Holding GmbH + Co. KG,,,3,Warning siren,2014-07-29,DE,Rietheim-Weilheim,
+446,11147799,0,,Jan Marius,Keppel Hesselink,5,Topical pharmaceutical composition containing phenytoin and a (co-) analgesic for the treatment of chronic pain,2021-10-19,NL,Amsterdam,
+447,9570365,0,INNOLUX CORPORATION,,,3,Display device and test pad thereof,2017-02-14,TW,Miao-Li County,
+448,9053511,0,eBay Inc.,,,2,Swipable product swatching,2015-06-09,US,San Jose,CA
+449,10306785,0,PEGATRON CORPORATION,,,3,Display device,2019-05-28,TW,Taipei,
+450,10126499,1,STMICROELECTRONICS (CROLLES 2) SAS,,,3,Electro-optic device with semiconductor junction area and related methods,2018-11-13,FR,Crolles,
+451,8525243,0,"Macronix International Co., Ltd.",,,3,Single gate semiconductor device,2013-09-03,TW,Hsinchu,
+452,5608250,0,SGS-Thomson Microelectronics S.A.,,,3,Volatile memory cell with interface charge traps,1997-03-04,FR,Saint Genis Pouilly,
+453,6072277,0,Denso Corporation,,,3,Headlight device having high voltage electric-discharge lamp,2000-06-06,JP,Kariya,
+454,D813175,0,ABB Schweiz AG,,,3,Softstarter,2018-03-20,CH,Baden,
+455,7364376,0,"Dainippon Screen MFG. Co., Ltd.",,,3,Substrate processing apparatus,2008-04-29,JP,,
+456,4201836,0,Polychrome Corporation,,,2,Aluminum substrates grained with a saturated solution of aluminum salts of mineral acids,1980-05-06,US,Yonkers,NY
+457,10825854,0,"Facebook Technologies, LLC",,,2,Stacked photo sensor assembly with pixel level interconnect,2020-11-03,US,Menlo Park,CA
+458,5192770,0,Syntex (U.S.A.) Inc.,,,2,Serotonergic alpha-oxoacetamides,1993-03-09,US,Palo Alto,CA
+459,6674976,0,Canon Kabushiki Kaisha,,,3,"Sheet post-processing device, image forming apparatus having the device and error handling method therefor",2004-01-06,JP,Tokyo,
+460,9998902,0,KYOCERA Corporation,,,3,"Mobile communication system, user terminal, base station, and processor transmitting a discovery-use signal",2018-06-12,JP,Kyoto,
+461,10899808,0,IMMATICS BIOTECHNOLOGIES GMBH,,,3,"Peptides and combination of peptides for use in immunotherapy against lung cancer, including NSCLC, SCLC and other cancers",2021-01-26,DE,Tuebingen,
+462,7013589,0,,Kent H.,Dickinson,4,Parcel shipping methods,2006-03-21,US,Covington,GA
+463,5630722,0,Yazaki Corporation,,,3,Ignition cable connection fitting,1997-05-20,JP,Tokyo,
+464,10155842,1,CENTRE NATIONAL DE LA RECHERCHE SCIENTIFIQUE,,,3,Titanium-based catalyst for vitrimer resins of epoxy/anhydride type,2018-12-18,FR,Paris,
+465,5761969,0,"Simpson Industries, Inc.",,,2,Torsional vibration damper,1998-06-09,US,Plymouth,MI
+466,4486465,0,"Motorola, Inc.",,,2,Method for deposition on a semiconductor wafer,1984-12-04,US,Schaumburg,IL
+467,3971828,0,Santen Pharmaceutical Co. Ltd.,,,3,N-(mercaptoacyl)aminoacids,1976-07-27,JA,Osaka,
+468,5820158,0,TRW Automotive Safety Systems GmbH,,,3,Passenger-airbag installation module,1998-10-13,DE,Aschaffenburg,
+469,9802174,1,SHANGHAI UNIVERSITY,,,3,Method for producing zirconia colloids,2017-10-31,CN,Shanghai,
+470,D822536,0,"Transcend Information, Inc.",,,3,Magnetic buckle,2018-07-10,TW,Taipei,
+471,7849768,0,MTU Aero Engines GmbH,,,3,Apparatus and method for rotary machining of rotors,2010-12-14,DE,Munich,
+472,9962968,0,Canon Kabushiki Kaisha,,,3,Sheet feeding apparatus,2018-05-08,JP,Tokyo,
+473,7189503,1,Regents of the University of California,,,2,Characterization of individual polymer molecules based on monomer-interface interactions,2007-03-13,US,Oakland,CA
+474,D935989,0,"Bridgestone Bandag, LLC",,,2,Tire,2021-11-16,US,Muscatine,IA
+475,5124461,0,Amoco Corporation,,,2,Process for the production of trimellitic anhydride with improved color,1992-06-23,US,Chicago,IL
+476,10408748,0,ClariFruit,,,3,System and method for evaluating fruits and vegetables,2019-09-10,IL,Rishon LeZion,
+477,4244894,0,Societe la Cellophane,,,3,Process and apparatus for the manufacture of films by electrostatic application,1981-01-13,FR,Paris,
+478,5400482,0,Yoshida Kogyo K.K.,,,3,Slide fastener and method of manufacturing the same,1995-03-28,JP,Tokyo,
+479,4469295,0,Rockwell International Corporation,,,2,Hydrodynamic ram attenuating fuel tank,1984-09-04,US,El Segundo,CA
+480,6834601,0,Card-Monroe Corp.,,,2,Yarn feed system for tufting machines,2004-12-28,US,Chattanooga,TN
+481,4387048,0,International Flavors & Fragrances Inc.,,,2,"Methyl substituted oxobicyclo-4,4,0-decane derivatives and organoleptic uses thereof",1983-06-07,US,New York,NY
+482,D255485,0,"A. H. Robins Company, Inc.",,,2,Insecticide-containing insect combatting device,1980-06-17,US,Richmond,VA
+483,6702593,0,"Sumitomo Wiring Systems, Ltd.",,,3,Connector apparatus for hardware,2004-03-09,JP,,
+484,4722377,0,The Goodyear Tire & Rubber Company,,,2,Tire safety support system,1988-02-02,US,Akron,OH
+485,9050676,0,"LINCOLN GLOBAL, INC.",,,2,Apparatus and method for starting arc welding process,2015-06-09,US,City of Industry,CA
+486,6040396,0,The Dow Chemical Company,,,2,Curing catalysts for curing epoxy resins,2000-03-21,US,Midland,MI
+487,10447083,0,THE ALFRED E. MANN FOUNDATION FOR SCIENTIFIC RESEARCH,,,2,Microprocessor controlled class E driver,2019-10-15,US,Valencia,CA
+488,9446296,0,,Richard M.,Jeffrey,4,Conditioning apparatus and related methods,2016-09-20,US,Santa Barbara,CA
+489,7891859,0,"Hon Hai Precision Industry Co., Ltd.",,,3,Frame and backlight module using the same,2011-02-22,TW,"Tu-Cheng, Taipei Hsien",
+490,9851485,0,Airbus Defence and Space GmbH,,,3,"Hollow optical waveguide with openings, particularly for supplying a photobioreactor with light and nutrients",2017-12-26,DE,Ottobrunn,
+491,10365301,0,Rohde & Schwarz GmbH & Co. KG,,,3,Oscilloscope acquisition system,2019-07-30,DE,Munich,
+492,7683683,0,Marvell International Ltd.,,,3,Frequency doubler with duty-cycle correction and associated methods,2010-03-23,BM,Hamilton,
+493,8542969,0,Corning Incorporated,,,2,Low bend loss optical fiber,2013-09-24,US,Corning,NY
+494,10767790,0,ITREC B. V.,,,3,"Offshore vessel, marine pipeline installation system and method",2020-09-08,NL,Schiedam,
+495,10336041,0,Dow Global Technologies LLC,,,2,Coextruded multilayer film with propylene-based polymer and ethylene-based polymer,2019-07-02,US,Midland,MI
+496,5249729,0,Yoshida Kogyo K. K.,,,3,Method for forming hook engaging part in thermal part of material for vertical suspension type surface treatment,1993-10-05,JP,Tokyo,
+497,10890456,1,KIA MOTORS CORPORATION,,,3,Vehicle and method of providing route guidance using public transportation,2021-01-12,KR,Seoul,
+498,7502105,0,General Electric Company,,,2,Apparatus and method for producing a calibrated Raman spectrum,2009-03-10,US,Schenectady,NY
+499,7294018,0,Yazaki Corporation,,,3,Board connector,2007-11-13,JP,Tokyo,
+500,4630933,0,"Matsushita Electric Works, Ltd.",,,3,Electrically operated clock and shaver combination,1986-12-23,JP,,
+501,4612608,0,Westfalische Metall Industrie KG Hueck & Co.,,,3,Dimmed vehicle headlight,1986-09-16,DE,Lippstadt,
+502,8359527,0,Marvell International Ltd.,,,3,Averaging signals to improve signal interpretation,2013-01-22,BM,Hamilton,
+503,7258014,0,Weston Aerospace Limited,,,3,Device for measuring pressure,2007-08-21,GB,"Farnborough, Hampshire",
+504,7357708,0,Zippy Technology Corp.,,,3,Anchor structure for fans,2008-04-15,TW,"Hsin-Tien, Taipei Hsien",
+505,5701911,0,"Medtronic, Inc.",,,2,Guide wire extension docking system,1997-12-30,US,Minneapolis,MN
+506,7830204,0,Renesas Electronics Corporation,,,3,Semiconductor integrated circuit device,2010-11-09,JP,Kanagawa,
+507,9235714,0,"Amazon Technologies, Inc.",,,2,Preventing persistent storage of cryptographic information using signaling,2016-01-12,US,Seattle,WA
+508,5033030,0,The United States of America as represented by the Secretary of the Navy,,,6,Turbulence velocimetry technique,1991-07-16,US,Washington,DC
+509,9898635,0,"Hand Held Products, Inc.",,,2,Point-of-sale (POS) code sensing apparatus,2018-02-20,US,Fort Mill,SC
+510,9892447,0,eBay Inc.,,,2,Performing image searches in a network-based publication system,2018-02-13,US,San Jose,CA
+511,8442278,0,Honeywell International Inc.,,,2,Covariance based face association,2013-05-14,US,Morristown,NJ
+512,4129571,0,"E. R. Squibb & Sons, Inc.",,,2,Amino acid derivatives,1978-12-12,US,Princeton,NJ
+513,5060530,0,Evacuo Enterprises Limited,,,3,Holder for molten metal sampling device,1991-10-29,CA,Ontario,
+514,4853187,0,Mobil Oil Corporation,,,2,Apparatus to reduce NO.sub.x emissions from a fluid catalytic cracking unit,1989-08-01,US,New York,NY
+515,10716254,0,LG ELECTRONICS INC.,,,3,Lawn mower robot,2020-07-21,KR,Seoul,
+516,8225709,0,Rancilio Macchine per Caffe' S.p.A.,,,3,"Infusion unit for infusion preparation, infusion machine, device for ejection of exhausted infusion powder and method for making the same",2012-07-24,IT,Milan,
+517,11076944,0,TC1 LLC,,,2,Methods and systems for irrigating and capturing particulates during heart pump implantation,2021-08-03,US,Saint Paul,MN
+518,9529169,0,AFL Telecommunications LLC,,,2,Logging cable,2016-12-27,US,Duncan,SC
+519,11595942,0,Apple Inc.,,,2,Communication coordination and collision mitigation for multi-subscriber identity module devices,2023-02-28,US,Cupertino,CA
+520,9236224,0,CANON KABUSHIKI KAISHA,,,3,Drawing apparatus and method of manufacturing article,2016-01-12,JP,,
+521,7894443,0,Nokia Corporation,,,3,Radio link control unacknowledged mode header optimization,2011-02-22,FI,Espoo,
+522,11296597,0,Apple Inc.,,,2,Switched-capacitor regulators with output transient compensation,2022-04-05,US,Cupertino,CA
+523,10576291,0,Manicka Institute LLC,,,2,Subcutaneous device,2020-03-03,US,Woodbury,MN
+524,5838116,0,"JRS Technology, Inc.",,,2,Fluorescent light ballast with information transmission circuitry,1998-11-17,US,Endicott,NY
+525,10882921,0,"GENENTECH, INC.",,,2,Host cell comprising nucleic acids encoding bispecific antibodies binding to beta-klotho and fibroblast growth factor receptor 1 and antibody production,2021-01-05,US,South San Francisco,CA
+526,10800808,0,Merck Millipore Ltd.,,,3,"Chromatography membranes, devices containing them, and methods of use thereof",2020-10-13,IE,Carrigtwohill,
+527,7791017,0,Schlumberger Technology Corporation,,,2,Method to simultaneously determine pore hydrocarbon density and water saturation from pulsed neutron measurements,2010-09-07,US,Cambridge,MA
+528,5204775,0,"TT&B, Inc.",,,2,Device for magnifying indicia printed on a container,1993-04-20,US,Clinton,CT
+529,9851201,0,"CiDRA CORPORATE SERVICES, INC.",,,2,Method and apparatus for using cepstrum and wavelet based algorithms for wall thickness measurement,2017-12-26,US,Wallingford,CT
+530,6887935,0,"GE Betz, Inc.",,,2,Modified polymeric flocculants with improved performance characteristics,2005-05-03,US,Trevose,PA
+531,10654000,0,"Fenwal, Inc.",,,2,"Cell processing system and method with centralized data management, monitoring and/or control",2020-05-19,US,Lake Zurich,IL
+532,10658012,0,"OVONYX MEMORY TECHNOLOGY, LLC",,,2,Apparatus and methods to provide power management for memory devices,2020-05-19,US,Alexandria,VA
+533,4172790,0,Mitsubishi Jukogyo Kabushiki Kaisha,,,3,Diaphragm-containing type filter press,1979-10-30,JP,Tokyo,
+534,8591244,0,"PPC Broadband, Inc.",,,2,Cable connector,2013-11-26,US,East Syracuse,NY
+535,D579734,0,Oneida Ltd.,,,2,Spoon,2008-11-04,US,Oneida,NY
+536,9612148,0,Xerox Corporation,,,2,Sensor detecting multiple weights of multiple items,2017-04-04,US,Norwalk,CT
+537,5084910,0,Dow Corning Corporation,,,2,X-ray diffractometer sample holder,1992-01-28,US,Midland,MT
+538,4373107,0,"Ube Industries, Ltd.",,,3,Process for preparing N-alkyl-alkylene-diamines,1983-02-08,JP,Ube,
+539,5289774,0,Baldwin-Gegenheimer GmbH,,,3,Sheet-cleaning apparatus,1994-03-01,DE,Friedberg,
+540,9672442,0,LTU TECHNOLOGIES,,,3,Method and a device for detecting differences between two digital images,2017-06-06,FR,Paris,
+541,10754626,0,Shopify Inc.,,,3,Visual and code views in a process workflow user interface,2020-08-25,CA,Ottawa,
+542,9267531,0,HERAKLES,,,3,Assembly providing a connection that is self tightening with temperature,2016-02-23,FR,Le Haillan,
+543,9605032,0,Research Development Foundation,,,2,Immunoreactive glycoprotein GP19 Ehrlichia canis,2017-03-28,US,Carson City,NV
+544,10164037,0,"TAIWAN SEMICONDUCTOR MANUFACTURING CO., LTD.",,,3,Semiconductor device structure and method for forming the same,2018-12-25,TW,Hsinchu,
+545,7864092,0,"Integrated Device Technology, Inc.",,,2,Thermo-decoder circuit,2011-01-04,US,San Jose,CA
+546,D600310,0,Magpul Industries Corp.,,,2,Hand grip for a firearm,2009-09-15,US,Erie,CO
+547,8244651,0,Google Inc.,,,2,Suggesting training examples,2012-08-14,US,Mountain View,CA
+548,9772472,0,"LARGAN PRECISION CO., LTD.",,,3,Optical imaging lens assembly,2017-09-26,TW,Taichung,
+549,10398672,0,Whitehead Institute for Biomedical Research,,,2,Methods and compositions for targeting cancer stem cells,2019-09-03,US,Cambridge,MA
+550,9314757,0,SECO/WARWICK S.A.,,,3,Method and a device for generating a carburizing gas mixture,2016-04-19,PL,Swiebodzin,
+551,7585287,0,"Smiths Medical MD, Inc.",,,2,Device and method for insertion of a cannula of an infusion device,2009-09-08,US,St. Paul,MN
+552,4725471,0,Carry-Space Leichtbauelemente GmbH,,,3,Sheet-like composite element for construction purposes,1988-02-16,US,Dusseldorf,
+553,6593090,0,"Integrated Nano-Technologies, LLC",,,2,High resolution DNA detection methods and devices,2003-07-15,US,Rochester,NY
+554,10254909,0,"Disney Enterprises, Inc.",,,2,System and method for providing a user interface for media navigation by attribute compass,2019-04-09,US,Burbank,CA
+555,11247702,0,"HITACHI ASTEMO, LTD.",,,3,Vehicle control device and electronic control system,2022-02-15,JP,Hitachinaka,
+556,D634234,0,Akillis,,,3,Jewelry,2011-03-15,FR,Onnaing,
+557,10017330,0,"Intelligrated Headquarters, LLC",,,2,Gapping systems and methods,2018-07-10,US,Mason,OH
+558,D965111,0,Graff Faucets,,,2,Faucet,2022-09-27,US,Milwaukee,WI
+559,6284516,1,"Shin-Etsu Chemical. Co., Ltd.",,,3,DNA segments and methods for increasing polysaccharide production,2001-09-04,JP,Tokyo,
+560,4538974,0,Glyco Antriebstechnik GmbH,,,3,Vane-type oil pump for automotive vehicle,1985-09-03,DE,Wiesbaden,
+561,11364942,0,STARBERRY LIMITED,,,3,Stop announcement system and method therefor,2022-06-21,CN,Hong Kong,
+562,9490667,0,General Electric Company,,,2,Apparatus and system for attaching integral spacers to laminations,2016-11-08,US,Schenectady,NY
+563,7526247,0,QUALCOMM Incorporated,,,2,System and method for setting the reverse link gain of repeaters in wireless communications systems,2009-04-28,US,San Diego,CA
+564,6144836,0,"Hitachi Koki Co., Ltd.",,,3,Electrostatographic printing machine,2000-11-07,JP,Tokyo,
+565,7851336,0,"Innovalight, Inc.",,,2,Method of forming a passivated densified nanoparticle thin film on a substrate,2010-12-14,US,Sunnyvale,CA
+566,10649786,0,"Cisco Technology, Inc.",,,2,Reduced stack usage in a multithreaded processor,2020-05-12,US,San Jose,CA
+567,6007516,0,"Vasca, Inc.",,,2,Valve port and method for vascular access,1999-12-28,US,Tewksbury,MA
+568,10926009,0,TELEFLEX LIFE SCIENCES PTE. LTD.,,,3,Closed suction system,2021-02-23,SG,Singapore,
+569,9831963,1,Sony Mobile Communications Inc.,,,3,"MIMO communication method, terminal, and base station apparatus for transmitting and receiving pilot signals to estimate a channel",2017-11-28,JP,Tokyo,
+570,5148080,0,Hilux Development,,,2,Incandescent lamp filament incorporating hafnium,1992-09-15,US,Alsip,IL
+571,9486555,0,The University of Akron,,,2,Polyhedral oligomeric silsesquioxane (poss)-based bioactive hybrid glass as a scaffold for hard tissue engineering,2016-11-08,US,Akron,OH
+572,4504228,0,"Daikin Kogyo Co., Ltd.",,,3,Dental casting,1985-03-12,JP,,
+573,9536154,0,Axis AB,,,3,Monitoring method and camera,2017-01-03,SE,Lund,
+574,6000864,0,Sharp Kabushiki Kaisha,,,3,Print control method and printing system in which printer preliminary notifies period of time it takes before it becomes ready to receive print data,1999-12-14,JP,Osaka,
+575,9730925,0,GLAXOMITHKLINE LLC,,,2,Methods of treating cancer,2017-08-15,US,Wilmington,DE
+576,11246616,0,Cilag GmbH International,,,3,Motor-driven surgical cutting and fastening instrument with tactile position feedback,2022-02-15,CH,Zug,
+577,8846538,0,"Silicon Storage Technology, Inc.",,,2,"Passive elements, articles, packages, semiconductor composites, and methods of manufacturing same",2014-09-30,US,San Jose,CA
+578,5396329,0,British Aerospace PLC,,,3,Polarisation image detection systems,1995-03-07,GB,London,
+579,7512004,0,Kabushiki Kaisha Toshiba,,,3,Semiconductor memory device having stacked gate including charge accumulation layer and control gate and test method thereof,2009-03-31,JP,Tokyo,
+580,D947022,0,Altria Client Services LLC,,,2,Carton/dispenser package,2022-03-29,US,Richmond,VA
+581,10337141,0,ENGINEERED FLOORS LLC,,,2,Textile floor-covering with liquid blocking surface,2019-07-02,US,Dalton,GA
+582,D944210,0,LINDY-ELEKTRONIK GMBH,,,3,Contact plug for electric cables,2022-02-22,DE,Mannheim,
+583,8023968,0,"SellerBid, Inc.",,,2,System and method for providing locally applicable internet content with secure action requests and item condition alerts,2011-09-20,US,Arlington,VA
+584,9257065,0,Mitsubishi Electric Corporation,,,3,Liquid crystal display apparatus comprising first and second grounding routes and manufacturing method of the liquid crystal display apparatus,2016-02-09,JP,Tokyo,
+585,3997622,0,"Lion Fat & Oil Co., Ltd.",,,3,Method for preparation of olefin oligomer,1976-12-14,JA,Tokyo,
+586,8716743,0,Epistar Corporation,,,3,Optoelectronic semiconductor device and the manufacturing method thereof,2014-05-06,TW,Hsinchu,
+587,4294444,0,"World Wide Oil Tools, Inc.",,,2,Pipe gripping vise,1981-10-13,US,Houston,TX
+588,10068343,0,"SHENZHEN HUABAO ELECTRONIC TECHNOLOGY CO., LTD.",,,3,Method and apparatus for recognizing moving target,2018-09-04,CN,"Shenzhen, Guangdong",
+589,6556183,0,Nokia Mobile Phones Ltd.,,,3,Communications device having an interchangeable helmet user-interface,2003-04-29,FI,Espoo,
+590,10992598,0,"Pure Storage, Inc.",,,2,Synchronously replicating when a mediation service becomes unavailable,2021-04-27,US,Mountain View,CA
+591,9888577,0,Intel Corporation,,,2,Passive electrical devices with a polymer carrier,2018-02-06,US,Santa Clara,CA
+592,6852857,0,Bayer MaterialScience LLC,,,2,"Method of preparing substituted 4-amino-3-alkylthio-1,2,4-triazine-5-ones",2005-02-08,US,Pittsburgh,PA
+593,11382792,0,Lutronic Vision Inc.,,,2,"Ophthalmic treatment device, method for controlling ophthalmic treatment device, and fundus lesion treatment method",2022-07-12,US,Burlington,MA
+594,11107010,0,Amadeus S.A.S.,,,3,Content exchange with a travel management system,2021-08-31,FR,Biot,
+595,8885613,0,Telefonaktiebolaget L M Ericsson (publ),,,3,Method of operating an access network,2014-11-11,SE,Stockholm,
+596,4817898,0,Giroflex Entwicklungs AG,,,3,"Adjusting device, particularly for adjustable chairs",1989-04-04,CH,Koblenz,
+597,9577620,0,"Agency for Science, Technology and Research",,,3,Printed circuit arrangement and method of forming the same,2017-02-21,SG,Singapore,
+598,8283009,0,Roquette Freres,,,3,Use of a material based on a thermoplastic polymer having a high content of antioxidants for packaging dianhydrohexitols,2012-10-09,FR,Lestrem,
+599,6959171,0,Intel Corporation,,,2,Data transmission rate control,2005-10-25,US,Santa Clara,CA
+600,9772302,0,Abbott Point of Care Inc.,,,2,Quality assurance system and method for point-of-care testing,2017-09-26,US,Princeton,NJ
+601,5287130,0,Jamco Corporation,,,3,Picture projecting device,1994-02-15,JP,Tokyo,
+602,D553189,0,"Beifa Group Co., Ltd.",,,3,Pen,2007-10-16,CN,Ningbo,
+603,10468659,0,CPS TECHNOLOGY HOLDINGS LLC,,,2,Cell terminal seal system and method,2019-11-05,US,New York,NY
+604,10608039,0,"Foveon, Inc.",,,2,Imaging arrays having focal plane phase detecting pixel sensors,2020-03-31,US,San Jose,CA
+605,7696376,0,Japan Energy Corporation,,,3,Method for manufacture of esters by transesterification,2010-04-13,JP,"Minato-ku, Tokyo",
+606,6077290,0,"TNCO, Incorporated",,,2,Endoscopic instrument with removable front end,2000-06-20,US,Whitman,MA
+607,9666722,0,"Semiconductor Energy Laboratory Co., Ltd.",,,3,Semiconductor device,2017-05-30,JP,"Atsugi-shi, Kanagawa-ken",
+608,4717458,0,OMI International Corporation,,,2,Zinc and zinc alloy electrolyte and process,1988-01-05,US,Warren,MI
+609,4176613,0,"Rohr Industries, Inc.",,,2,Fixed geometry water jet inlet for a surface effect ship,1979-12-04,US,Chula Vista,CA
+610,9257920,0,STMICROELECTRONICS S.R.L.,,,3,Method and related driver of a permanent magnet synchronous electric motor,2016-02-09,IT,Agrate Brianza,
+611,8491063,0,ThyssenKrupp Steel Europe AG,,,3,Wheel rim for a motor vehicle,2013-07-23,DE,Duisburg,
+612,D485577,0,Nordson Corporation,,,2,Dispensing pen body,2004-01-20,US,Westlake,OH
+613,10541498,0,FOXCONN INTERCONNECT TECHNOLOGY LIMITED,,,3,Electrical connector having a shielding shell with a rear shell part and a front shell part,2020-01-21,KY,Grand Cayman,
+614,5378771,0,Kureha Kagaku Kogyo K.K.K.,,,3,"High-heat-resistant, crystalline block copolymers and production process thereof",1995-01-03,JP,Tokyo,
+615,D553986,0,"Ex-Cell Home Fashions, Inc.",,,2,Package insert,2007-10-30,US,New York,NY
+616,11271181,0,Apple Inc.,,,2,Electronic display visual artifact mitigation,2022-03-08,US,Cupertino,CA
+617,D404136,0,Minnesota Mining and Manufacturing Company,,,2,Bandage backing,1999-01-12,US,St. Paul,MN
+618,10798790,0,"Microwave Materials Technologies, Inc.",,,2,Enhanced microwave system utilizing tilted launchers,2020-10-06,US,Knoxville,TN
+619,10158827,0,"AIRTIME MEDIA, INC.",,,2,System and method for providing a shared canvas for chat participant,2018-12-18,US,Brooklyn,NY
+620,10263887,0,"Cisco Technology, Inc.",,,2,Propagating flow characteristics in service function chaining (SFC) headers,2019-04-16,US,San Jose,CA
+621,9499597,0,"Sangamo BioSciences, Inc.",,,2,Methods and compositions for treating Huntington's disease,2016-11-22,US,Richmond,CA
+622,4434458,0,Fischer & Porter Company,,,2,Auxiliary channel for direct digital control system,1984-02-28,US,Warminster,PA
+623,10445338,0,NEC CORPORATION,,,3,Method and system for replicating data in a cloud storage system,2019-10-15,JP,Tokyo,
+624,5364608,0,Eaton Corporation,,,2,"Method of converting a silicon nitride from alpha-phase to beta-phase, apparatus used therefor, and silicon nitride material made therefrom",1994-11-15,US,Cleveland,OH
+625,9088879,0,Google Inc.,,,2,Automatically enabling the forwarding of instant messages,2015-07-21,US,Mountain View,CA
+626,4574116,0,The Board of Trustees of the Leland Stanford Jr. University,,,2,Methods and cell lines for immortalization and monoclonal antibody production by antigen-stimulated B-lymphocytes,1986-03-04,US,Stanford,CA
+627,4873862,0,The Perkin-Elmer Corporation,,,2,Ionization detectors for gas chromatography,1989-10-17,US,Norwalk,CT
+628,11428467,0,"NEXT-GEN GRAPHENE POLYMERS CO., LTD",,,3,Facility for forming wood plastic composite with microwave and degassing device,2022-08-30,KR,Seoul,
+629,3975473,0,Union Carbide Corporation,,,2,Process for production of cellular thermoplastic bodies,1976-08-17,US,New York,NY
+630,5613782,0,Krupp Polysius AG,,,3,Supporting roller bearing,1997-03-25,DE,Beckum,
+631,10762452,0,"AT&T Intellectual Property I, L.P.",,,2,System and method for designing and executing control loops in a cloud environment,2020-09-01,US,Atlanta,GA
+632,8944338,0,Google Inc.,,,2,Thermostat with self-configuring connections to facilitate do-it-yourself installation,2015-02-03,US,Mountain View,CA
+633,RE39368,0,IGT,,,2,"Electronic casino gaming system with improved play capacity, authentication and security",2006-10-31,US,Reno,NV
+634,9990190,0,EMC IP Holding Company LLC,,,2,Secured virtual storage appliance installation image,2018-06-05,US,Hopkinton,MA
+635,11554692,0,"TF-METAL Co., Ltd.",,,3,Seat slide device,2023-01-17,JP,Kosai,
+636,6045664,0,Elf Atochem S.A.,,,3,Process for the photochemical sulphochlorination of gaseous alkanes,2000-04-04,FR,,
+637,8701108,0,Fujitsu Limited,,,3,Apparatus and method for controlling live-migrations of a plurality of virtual machines,2014-04-15,JP,Kawasaki,
+638,11593567,0,Dell Products L.P.,,,2,Intelligent conversational gateway,2023-02-28,US,Round Rock,TX
+639,4488918,0,Oy Wiik & Hoglund AB,,,3,Non-slip plastic film,1984-12-18,FI,Vaasa,
+640,9362482,1,KYOTO UNIVERSITY,,,3,"Method of producing piezoelectric device using Be, Fe and Co under excess oxygen atmosphere",2016-06-07,JP,Kyoto,
+641,5753865,0,Amalgamated Consulting Engineers of South Africa (Proprietary) Ltd.,,,3,Load measurement,1998-05-19,ZA,Vereeniging,
+642,5432069,0,Hoffmann-La Roche Inc.,,,2,"Tocopherol cyclase isolated from Chlorella protothecoides, Dunaliella salina and wheat leaves",1995-07-11,US,Nutley,NJ
+643,11196556,0,"Advanced New Technologies Co., Ltd.",,,3,Method for restoring public key based on SM2 signature,2021-12-07,KY,Grand Cayman,
+644,5583076,0,Canon Kabushiki Kaisha,,,3,Method for manufacturing a semiconductor photo-sensor,1996-12-10,JP,Tokyo,
+645,10334768,0,FUJI CORPORATION,,,3,Component mounting device,2019-06-25,JP,Chiryu,
+646,6498116,0,"Rutgers, the State University",,,2,Coating and filler materials for use in localized thermal processing of glazed ceramics,2002-12-24,US,Piscataway,NJ
+647,5595833,0,Rolls-Royce plc,,,3,Solid oxide fuel cell stack,1997-01-21,GB,London,
+648,4925475,0,Kokusai Denshin Denwa Kabushiki Kaisha,,,3,Method and apparatus for manufacturing preform for fluoride glass fiber,1990-05-15,JP,Tokyo,
+649,4594154,0,CFEC,,,3,Self-contained device for sterilizing water,1986-06-10,FR,Paris,
+650,10754619,0,Intel Corporation,,,2,Self-calibrated von-neumann extractor,2020-08-25,US,Santa Clara,CA
+651,7863958,0,International Business Machines Corporation,,,2,High speed clock signal duty cycle adjustment,2011-01-04,US,Armonk,NY
+652,11543941,0,NAGRAVISION S.A.,,,3,Intelligent content queuing from a secondary device,2023-01-03,CH,Cheseaux-sur-Lausanne,
+653,9246668,0,MARVELL INTERNATIONAL LTD.,,,3,Unified control for digital timing recovery and packet processing,2016-01-26,BM,,
+654,10099297,0,CemeCon AG,,,3,Tool and method for machining fiber-reinforced materials,2018-10-16,DE,WÃ¼rselen,
+655,7257677,0,Gateway Inc.,,,2,Data image cache used in testing,2007-08-14,US,Irvine,CA
+656,4301778,0,Equipements Automobiles Marchal,,,3,Electronic ignition device,1981-11-24,FR,Issy-les-Moulineaux,
+657,10646837,0,UNITED STATES GYPSUM COMPANY,,,2,Method for producing fiber reinforced cementitious slurry using a multi-state continuous mixer,2020-05-12,US,Chicago,IL
+658,6629547,0,"Sekisui Chemical Co., Ltd.",,,3,Composite high-pressure pipe and method of joining same,2003-10-07,JP,Osaka,
+659,D555462,0,"Dorman Products, Inc.",,,2,Dual arm pegboard hook,2007-11-20,US,Colmar,PA
+660,8507136,0,Panasonic Corporation,,,3,Fuel cell system,2013-08-13,JP,Osaka,
+661,11179129,0,"Varian Medical Systems, Inc.",,,2,Systems and methods for planning and executing automated multi-axis motion in treatment,2021-11-23,US,Palo Alto,CA
+662,10911454,0,Open Text Corporation,,,3,Hierarchical case model access roles and permissions,2021-02-02,CA,Waterloo,
+663,6402570,0,Kabushiki Kaisha T AN T,,,3,Automotive lamp unit and method for manufacturing the same,2002-06-11,JP,Tokyo,
+664,4299381,0,Xerox Corporation,,,2,Sheet feeding apparatus,1981-11-10,US,Stamford,CT
+665,6977461,0,ASML Netherlands B.V.,,,3,System and method for moving an object employing piezo actuators,2005-12-20,NL,Veldhoven,
+666,6965180,0,Siemens VDO Automotive Corporation,,,2,Electric motor with self-adjusting bushing structure,2005-11-15,US,Auburn Hills,MI
+667,9401317,0,"Aavid Thermalloy, LLC",,,2,Heat sink mount and assembly,2016-07-26,US,Laconia,NH
+668,9663200,0,IXBLUE,,,3,"System and method for the navigation of a movable vehicle, suitable for determining and displaying a safe navigation zone",2017-05-30,FR,Marly le Roi,
+669,5795735,0,ICOS Corporation,,,2,Isolated polynucleotides encoding PKA-binding proteins and methods of producing the proteins recombinantly,1998-08-18,US,Bothell,WA
+670,11038182,0,Garmor Inc.,,,2,"Low-cost, high-performance composite bipolar plate",2021-06-15,US,Orlando,FL
+671,D729961,0,"APM COMMUNICATION, INC.",,,3,Lighting bulb,2015-05-19,TW,Hsinchu,
+672,10902382,0,"Hipaat, Inc.",,,3,Methods for remotely accessing electronic medical records without having prior authorization,2021-01-26,CA,Mississauga,
+673,11363593,0,QUALCOMM Incorporated,,,2,Waveform generation in millimeter wave band with time domain implementation,2022-06-14,US,San Diego,CA
+674,10387372,0,"o9 Solutions, Inc.",,,2,Value-based differential data,2019-08-20,US,Dallas,TX
+675,5049930,0,Sharp Kabushiki Kaisha,,,3,System for preventing erroneous mounting of developer tanks accommodated in a developing device,1991-09-17,JP,Osaka,
+676,8619458,0,"Samsung Electronics Co., Ltd.",,,3,Bidirectional resistive memory devices using selective read voltage polarity,2013-12-31,KR,,
+677,4180943,0,McDonnell Douglas Corporation,,,2,Dual lost motion mechanism for an aircraft door,1980-01-01,US,Long Beach,CA
+678,4581633,0,International Standard Electric Corporation,,,2,Data compression,1986-04-08,US,New York,NY
+679,6328464,0,"Litton Systems, Inc.",,,2,Luminaire using right angle film,2001-12-11,US,Watertown,CT
+680,D382277,0,Graco Inc.,,,2,Double diaphragm pump,1997-08-12,US,Minneapolis,MN
+681,8920253,0,Wonderland Nurserygoods Company Limited,,,3,Baby swing,2014-12-30,HK,"Kwai Chung, N.T.",
+682,8305500,2,Himax Technologies Limited,,,3,Method of block-based motion estimation,2012-11-06,TW,Tainan County,
+683,7082636,0,Trek Bicycle Corporation,,,2,Bladed spoke wrench,2006-08-01,US,Waterloo,WI
+684,4208153,0,The Boeing Company,,,2,Apparatus for dispensing rivets and similar articles,1980-06-17,US,Seattle,WA
+685,5219247,0,Fondazioni Speciali S.r.l.,,,3,"Method of forming consolidating earth columns by injection, the relevant plant with double chamber pneumatic hammer boring drill and the resulting column",1993-06-15,IT,Parma,
+686,6951030,0,"Matsushita Electric Industrial Co., Ltd.",,,3,Data broadcast apparatus capable of stopping reproduction of broadcast data in reception apparatus when an event requiring to stop the reproduction of the broadcast data occurs,2005-09-27,JP,Osaka-fu,
+687,7962534,0,International Business Machines Corporation,,,2,Automatic management of dependencies between physical and logical elements in an application set,2011-06-14,US,Armonk,NY
+688,9926230,0,Infineon Technologies AG,,,3,Method of treating an acid effluent containing phosphoric acid,2018-03-27,DE,Neubiberg,
+689,9364001,0,ADAMA MAKHTESHIM LTD.,,,3,Quaternary fungicidal mixture,2016-06-14,IL,Beer Sheva,
+690,8174654,0,"Chunghwa Picture Tubes, Ltd.",,,3,Wiring structure of liquid crystal display device and liquid crystal display device,2012-05-08,TW,Taoyuan,
+691,7314721,1,Memorial Sloan-Kettering Cancer Center,,,2,Small cell lung cancer associated antigens and uses therefor,2008-01-01,US,New York,NY
+692,D596921,0,"Jergens, Inc.",,,2,Locking pin,2009-07-28,US,Cleveland,OH
+693,8991709,0,Tagstar Systems GmbH,,,3,Tamper-proof RFID label,2015-03-31,DE,Sauerlach,
+694,9811419,0,International Business Machines Corporation,,,2,Validation bits and offsets to represent logical pages split between data containers,2017-11-07,US,Armonk,NY
+695,6582353,0,"SciMed Life Systems, Inc.",,,2,Intravascular radiation delivery system,2003-06-24,US,Maple Grove,MN
+696,10698864,0,"PHILO, INC.",,,2,Auxiliary manifest file to provide timed metadata,2020-06-30,US,San Francisco,CA
+697,5606660,0,"Lexar Microsystems, Inc.",,,2,Method and apparatus for combining controller firmware storage and controller logic in a mass storage system,1997-02-25,US,Fremont,CA
+698,8969550,0,Lonza Ltd.,,,3,Process for the synthesis of cyclic carbamates,2015-03-03,CH,Visp,
+699,D891145,0,"BIO HAZARD, INC.",,,2,Dispenser,2020-07-28,US,Commerce,CA
+700,4490576,0,Appleton Electric Co.,,,2,Connector for use with jacketed metal clad cable,1984-12-25,US,Chicago,IL
+701,4715486,0,International Standard Electric Corporation,,,2,Low-wear frictionally engaging device,1987-12-29,US,New York,NY
+702,8575736,0,International Rectifier Corporation,,,2,Direct contact flip chip package with power transistors,2013-11-05,US,El Segundo,CA
+703,5539743,0,Fujitsu Limited,,,3,Multiple access system for communication network,1996-07-23,JP,Kanagawa,
+704,5966483,0,Corning Incorporated,,,2,Diffraction grating with reduced polarization sensitivity,1999-10-12,US,Corning,NY
+705,7482595,0,General Electric Company,,,2,Digital radiography detector assembly with access opening,2009-01-27,US,Schenectady,NY
+706,3998957,0,American Cyanamid Company,,,2,Complement inhibitors,1976-12-21,US,Stamford,CT
+707,4187812,0,"Nissan Motor Company, Limited",,,3,Closed loop fuel control with sample-hold operative in response to sensed engine operating parameters,1980-02-12,JP,Yokohama,
+708,7028262,0,International Business Machines Corporation,,,2,Method and system for designing a theme and associating it with a collaboration space user interface,2006-04-11,US,Armonk,NY
+709,11164608,0,"Micron Technology, Inc.",,,2,Centralized placement of command and address in memory devices,2021-11-02,US,Boise,ID
+710,4815718,0,"Teledyne Industries, Inc.",,,2,Self-lubricating die cylinder,1989-03-28,US,Breckville,OH
+711,8423428,0,SAP AG,,,3,Method for allocation of budget to order periods and delivery periods in a purchase order system,2013-04-16,DE,Walldord,
+712,7901980,0,International Business Machines Corporation,,,2,Self-aligned in-contact phase change memory device,2011-03-08,US,Armonk,NY
+713,10121070,0,Stryker Corporation,,,2,Video monitoring system,2018-11-06,US,Kalamazoo,MI
+714,9879763,1,BORGWARNER MORSE SYSTEMS JAPAN K.K.,,,3,Chain guide and chain transmission device,2018-01-30,JP,Mie,
+715,9330981,0,"Samsung Electronics Co., Ltd.",,,3,Semiconductor device and method of manufacturing the same,2016-05-03,KR,,
+716,8423351,0,Google Inc.,,,2,Speech correction for typed input,2013-04-16,US,Mountain View,CA
+717,6702539,0,CleanCut Technologies Limited,,,3,Pneumatic conveying,2004-03-09,GB,Edinborough,
+718,D648256,0,The Boeing Company,,,2,Passenger lounge,2011-11-08,US,Chicago,IL
+719,11038738,0,HUAZHONG UNIVERSITY OF SCIENCE AND TECHNOLOGY,,,3,"Encoding method and encoder for (n,n(n-1),n-1) permutation group code in communication modulation system",2021-06-15,CN,Hubei,
+720,9468379,0,Koninklijke Philips N.V.,,,3,Determination of a lipid water ratio,2016-10-18,NL,Eindhoven,
+721,9880847,0,International Business Machines Corporation,,,2,Register file mapping,2018-01-30,US,Armonk,NY
+722,9870829,0,Korea University Research and Business Foundation,,,3,Flash memory apparatus for physical unclonable function and embodying method of the same,2018-01-16,KR,Seoul,
+723,9794743,0,NEC Corporation,,,3,Method for performing distributed geographic event processing and geographic event processing system,2017-10-17,JP,Tokyo,
+724,7079246,0,Lucent Technologies Inc.,,,2,Method and apparatus for measuring polarization,2006-07-18,US,Murray Hill,NJ
+725,7998645,0,"Asahi Glass Company, Limited",,,3,Method for finishing surface of preliminary polished glass substrate,2011-08-16,JP,Tokyo,
+726,5573611,0,"Bridgestone/Firestone, Inc.",,,2,Method of monitoring conditions of vehicle tires and tires containing a monitoring device therein,1996-11-12,US,Akron,OH
+727,6487816,0,"Wren Garden Products, Inc.",,,2,Stackable support for bracing plants and other supple items,2002-12-03,US,Norwalk,CT
+728,6597171,0,Schlumberger Technology Corporation,,,2,Nuclear magnetic resonance methods for extracting information about a fluid in a rock,2003-07-22,US,Ridgefield,CT
+729,6815356,0,Nanya Technology Corporation,,,3,Method for forming bottle trench,2004-11-09,TW,Taoyuan,
+730,7019875,0,The John Hopkins University,,,2,Method and apparatus for single-photon source and quantum memory,2006-03-28,US,Baltimore,MD
+731,PP5574,0,Hilverda B.V.,,,3,Carnation named Hilbar,1985-10-15,NL,Aalsmeer,
+732,8784266,0,"Ford Global Technologies, LLC",,,2,Method for operating an automatic start/stop system in a vehicle,2014-07-22,US,Dearborn,MI
+733,D503846,0,,Kevin,Nohr,5,Chinstrap hat,2005-04-12,CA,Williams Lake,
+734,11350315,0,"Huawei Technologies Co., Ltd.",,,3,Communication method and network device,2022-05-31,CN,Shenzhen,
+735,RE33853,0,"Dainippon Ink and Chemicals, Inc.",,,3,Pigment paste,1992-03-24,JP,Tokyo,
+736,10124904,0,The Boeing Company,,,2,Aircraft refueling boom soft limits control,2018-11-13,US,Chicago,IL
+737,5166059,0,The United States of America as represented by the Department of Health and Human Services,,,6,Gene therapy using gene fusions for genetic or acquired disorders,1992-11-24,US,Washington,DC
+738,7024152,0,Xerox Corporation,,,2,Printing system with horizontal highway and single pass duplex,2006-04-04,US,Stamford,CT
+739,6939270,0,"Leisure Kingdom Holding, Inc.",,,2,Foldable trampoline,2005-09-06,US,San Jose,CA
+740,11269155,0,KYOCERA Corporation,,,3,"Imaging apparatus, imaging apparatus manufacturing method and moving body",2022-03-08,JP,Kyoto,
+741,7532514,0,Sandisk Corporation,,,2,Non-volatile memory and method with bit line to bit line coupled compensation,2009-05-12,US,Milpitas,CA

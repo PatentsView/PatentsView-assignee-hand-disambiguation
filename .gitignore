@@ -1,5 +1,8 @@
-.DS_Store
+**/.DS_Store
 PatentsView-assignee-hand-disambiguation.code-workspace
 .env
 env
 test/
+.idea
+**/.ipynb_checkpoints
+**/__pycache__

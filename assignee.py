@@ -1,4 +1,4 @@
-from sqlalchemy import *
+from sqlalchemy import create_engine, text
 from dotenv import dotenv_values
 import pandas as pd
 import numpy as np
@@ -6,6 +6,7 @@ import os
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.utils.dataframe import dataframe_to_rows
+from tqdm import tqdm
 
 """
 Establish MySQL connection with environmental variables
@@ -14,6 +15,8 @@ Returns
 -------
 connection : a PyMySQL connection object
 """
+
+
 def establish_connection():
     config = dotenv_values(".env")
     user = config['user']
@@ -23,13 +26,16 @@ def establish_connection():
     connection = create_engine(f"mysql+pymysql://{user}:{pswd}@{hostname}/{dbname}?charset=utf8mb4")
     return connection
 
+
 """
 Parameters
 ----------
 mention_id : string
-    Mention ID of an assignee, of the form US<patent_id>-<sequence_number>, such as "US7315019-0" for the first assignee (Pacific Biosciences) of patent US7315019.
+    Mention ID of an assignee, of the form US<patent_id>-<sequence_number>, such as "US7315019-0" for the first 
+    assignee (Pacific Biosciences) of patent US7315019.
 patent_only : Boolean
-    If true, only include patent specific information (returns one row). If false, include patent information, CPC categories, and inventor information (returns multiple rows).
+    If true, only include patent specific information (returns one row). If false, include patent information, 
+    CPC categories, and inventor information (returns multiple rows).
 connection : sqlalchemy.engine.base.Connection
     Connection using sqlalchemy to the PV database.
 
@@ -49,21 +55,25 @@ Pandas Dataframe, with columns for (the non-disambiguated version of):
     - Inventor locations
     - CPC Subgroups
 """
-def assignee_data(mention_id: str, patent_only: Boolean, connection):
+
+
+def assignee_data(mention_id: str, patent_only: bool, connection):
     # Getting patent information
     split = mention_id.split("-")
     patent_id = split[0][2:]
     sequence = split[1]
     # Running query on algorithms_assignee_labeling view
     if patent_only:
-        query = f"SELECT patent_id, assignee_sequence, organization, name_first, name_last, title, patent_date,\
+        query = f"SELECT patent_id, assignee_sequence, organization, name_first, name_last, assignee_type, title, patent_date,\
             assignee_country, assignee_city, assignee_state FROM algorithms_assignee_labeling.assignee WHERE\
             patent_id='{patent_id}' and assignee_sequence='{sequence}'"
     else:
-        query = f"SELECT * FROM algorithms_assignee_labeling.assignee WHERE patent_id='{patent_id}' and assignee_sequence='{sequence}'"
+        query = (f"SELECT * FROM algorithms_assignee_labeling.assignee WHERE patent_id='{patent_id}' and "
+                 f"assignee_sequence='{sequence}'")
     result = connection.execute(text(query)).fetchall()
     df = pd.DataFrame(result).drop_duplicates()
     return df
+
 
 """
 Parameters
@@ -73,21 +83,28 @@ size : int
 
 Pulls a random sample of assignee mention_id's from AWS and saves it as an output CSV file
 """
-def sample(size=10000):
+
+
+def sample_mentions(size=10000):
     np.random.seed(0)
     disamb = pd.read_csv(
-        "https://s3.amazonaws.com/data.patentsview.org/download/g_persistent_assignee.tsv.zip",
+        "g_persistent_assignee.tsv.zip",
         dtype=str,
         sep="\t",
         compression="zip")
 
     disamb["mention_id"] = "US" + disamb["patent_id"] + "-" + disamb["assignee_sequence"]
-    disamb_20220929 = disamb.set_index("mention_id")["disamb_assignee_id_20230330"]
+    disamb_20220929 = disamb.set_index("mention_id")["disamb_assignee_id_20230629"]
     disamb_20220929 = disamb_20220929.dropna()
     mention_ids = disamb_20220929.index
 
-    sample = np.random.choice(mention_ids, size=10000, replace=False)
-    pd.Series(sample).to_csv("data/sample.csv")
+    samples = np.random.choice(mention_ids, size=size, replace=False)
+    np.savetxt("data/01 - sample.txt", samples, fmt="%s")
+    # with open(, "w") as outfile:
+    #     outfile.write("\n".join(str(item) for item in samples.tolist()))
+
+    # pd.Series(samples).to_csv("data/sample.csv")
+
 
 """
 Parameters
@@ -104,9 +121,11 @@ Output
 Saves data to `output_path` which is a dataframe with one row for every element in `sample`
 Each row has all the attributes in assignee_data()
 """
+
+
 def populate_sample(sample_path, output_path, connection):
     # Load sample data and determine which are previously populated
-    sample = pd.read_csv(sample_path)['0'].tolist()
+    sample = np.loadtxt(sample_path, dtype=str)
     prev_df = pd.read_csv(output_path) if os.path.exists(output_path) else pd.DataFrame()
     df_list = [prev_df]
     populated = ["US" + str(row.patent_id) + "-" + str(row.assignee_sequence) for index, row in prev_df.iterrows()]
@@ -131,6 +150,7 @@ def populate_sample(sample_path, output_path, connection):
     # Save final dataframe
     pd.concat(df_list, axis=0, ignore_index=True).to_csv(output_path)
 
+
 """
 Parameters
 ----------
@@ -148,6 +168,8 @@ Returns
 ws : openpyxl worksheet
     Updated worksheet with all rows from `df` to `ws`
 """
+
+
 def merge_cells(ws, index_start, index_end, num_columns):
     for i in range(1, num_columns + 1):
         start = index_start
@@ -164,6 +186,7 @@ def merge_cells(ws, index_start, index_end, num_columns):
                 ws.merge_cells(start_row=start, end_row=end, start_column=i, end_column=i)
                 start = j + 1
                 end = j + 1
+
 
 """
 Parameters
@@ -187,9 +210,12 @@ Output
 -------
 XLSX file with rows for all assignee mentions that correspond to one disambiguated assignee ID in the provided list. 
 The columns should be the same as in the `assignee_data` function.
-Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of the disambiguated assignee ID in the provided list.
+Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of 
+the disambiguated assignee ID in the provided list.
 Implementing merged cells to increase readability
 """
+
+
 def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], output_path: str, connection):
     id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
     query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
@@ -215,13 +241,23 @@ def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], output_
     wb.save(output_path)
     print("Successfully saved", output_path)
 
+
 def main():
     engine = establish_connection()
     with engine.connect() as connection:
         # populate_sample('data/sample.csv', 'data/samples_with_data.csv', connection)
 
-        ids = ['40f6c198-5eab-468b-be04-b3359702cb92']
+        ids = ['717e8394-c25d-4ea6-b444-09d6036a4cde']
         disambiguated_assignees_data(ids, 'data/disamb_assignee_test.xlsx', connection)
 
+
 if __name__ == "__main__":
-    main()
+    import time
+
+    start = time.time()
+    # sample_mentions(750)
+    engine = establish_connection()
+    with engine.connect() as connection:
+        populate_sample(sample_path="data/01 - sample.txt", output_path="data/02 - sample_with_data.csv",
+                        connection=connection)
+    # print("Step took :{duration}".format(duration=time.time() - start))
