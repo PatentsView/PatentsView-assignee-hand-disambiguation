@@ -6,3 +6,4 @@ test/
 .idea
 **/.ipynb_checkpoints
 **/__pycache__
+*.zip
