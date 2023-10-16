@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import os
 from openpyxl import Workbook
-from openpyxl.styles import Alignment
 from openpyxl.utils.dataframe import dataframe_to_rows
 from tqdm import tqdm
 
@@ -29,7 +28,7 @@ Establish MySQL connection with environmental variables
 
 Returns
 -------
-connection : a PyMySQL connection object
+engine : a PyMySQL engine object
 """
 def establish_connection():
     config = dotenv_values(".env")
@@ -37,8 +36,8 @@ def establish_connection():
     pswd = config['password']
     hostname = config['hostname']
     dbname = config['dbname']
-    connection = create_engine(f"mysql+pymysql://{user}:{pswd}@{hostname}/{dbname}?charset=utf8mb4")
-    return connection
+    engine = create_engine(f"mysql+pymysql://{user}:{pswd}@{hostname}/{dbname}?charset=utf8mb4")
+    return engine
 
 
 """
@@ -198,6 +197,7 @@ def segment_sample(n=3, sample_path="data/02 - sample_with_data.csv", output_fol
         start = end + 1
         end = start + increment_size
 
+
 """
 Parameters
 ----------
@@ -255,15 +255,15 @@ Processing
 4. After adding each group, merge all cells that share a value within each column (need to be neighboring cells)
     - Make sure to not merge cells across separate mention_id groups
 
-Output
+Returns
 -------
-XLSX file with rows for all assignee mentions that correspond to one disambiguated assignee ID in the provided list. 
+openpyxl Workbook with rows for all assignee mentions that correspond to one disambiguated assignee ID in the provided list. 
 The columns should be the same as in the `assignee_data` function.
 Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of 
 the disambiguated assignee ID in the provided list.
 Implementing merged cells to increase readability
 """
-def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], output_path: str, connection):
+def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connection):
     id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
     query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
     result = connection.execute(text(query)).fetchall()
@@ -275,7 +275,7 @@ def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], output_
 
     # Loop through mention_id groups and sort values
     for group, data in df.groupby(['patent_id', 'assignee_sequence']):
-        df_temp = data.sort_values(by=["inventor_id", "cpc_subgroup_id"], inplace=False)
+        df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
 
         # Determine indexing values and add rows to worksheets
         index_start = ws.max_row + 1
@@ -285,9 +285,7 @@ def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], output_
 
         merge_cells(ws, index_start, index_end, len(df.columns))
 
-    wb.save(output_path)
-    print("Successfully saved", output_path)
-
+    return wb
 
 def main():
     engine = establish_connection()
@@ -295,7 +293,10 @@ def main():
         # populate_sample('data/sample.csv', 'data/samples_with_data.csv', connection)
 
         ids = ['717e8394-c25d-4ea6-b444-09d6036a4cde']
-        disambiguated_assignees_data(ids, 'data/disamb_assignee_test.xlsx', connection)
+        wb = disambiguated_assignees_data(ids, connection)
+        output_path = 'data/disamb_assignee_test.xlsx'
+        wb.save(output_path)
+        print("Successfully saved", output_path)
 
 
 if __name__ == "__main__":
