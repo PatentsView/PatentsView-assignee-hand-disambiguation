@@ -63,11 +63,11 @@ with st.sidebar:
     with st.expander("SQL Connection", expanded=True):
         sql_host = st.text_input("Host", value="patentsview-ingest-production.cckzcdkkfzqo.us-east-1.rds.amazonaws.com")
         sql_user = st.text_input("User", value="sengineer")
-        sql_pwd = st.text_input("Password")
+        sql_pwd = st.text_input("Password", value="")
         db_name = st.text_input("DB Name", value="algorithms_assignee_labeling")
 
     with st.expander("ElasticSearch Connection", expanded=True):
-        host = st.text_input("Host", value="https://patentsview-production.es.us-east-1.aws.found.io")
+        host = st.text_input("Host", value="https://patentsview-production-0cb426.es.us-east-1.aws.found.io")
         api_key = st.text_input("API Key", value="", help="API Key for authentication.")
     
     with st.expander("Configuration", expanded=True):
@@ -84,6 +84,7 @@ with st.sidebar:
 # Establish connection
 connection_type = "elastic" if api_key != "" else "sql" if sql_pwd != "" else "none"
 es = ElasticSearch(host, api_key=api_key)
+st.text(es.__dict__)
 engine = create_engine(f"mysql+pymysql://{sql_user}:{sql_pwd}@{sql_host}/{db_name}?charset=utf8mb4")
 
 # Search for user query
@@ -119,6 +120,7 @@ with st.spinner('Searching...'):
 
     # Parse results into dataframe
     df = parse_results(results, connection_type)
+    st.dataframe(df)
     cols = df.columns
     col_select = col_select_placeholder.multiselect("Columns to display:", options=cols, default=DF_COLS[connection_type])
 
