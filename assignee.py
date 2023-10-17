@@ -1,3 +1,4 @@
+from er_evaluation.search import ElasticSearch
 from sqlalchemy import create_engine, text
 from dotenv import dotenv_values
 import pandas as pd
@@ -22,7 +23,6 @@ ASSIGNEE_TYPE_DICT = {
     9: "U.S. state government"
 }
 
-
 """
 Establish MySQL connection with environmental variables
 
@@ -30,6 +30,8 @@ Returns
 -------
 engine : a PyMySQL engine object
 """
+
+
 def establish_connection():
     config = dotenv_values(".env")
     user = config['user']
@@ -37,7 +39,10 @@ def establish_connection():
     hostname = config['hostname']
     dbname = config['dbname']
     engine = create_engine(f"mysql+pymysql://{user}:{pswd}@{hostname}/{dbname}?charset=utf8mb4")
-    return engine
+    es_host = config['es_host']
+    api_key = config['es_api_key']
+    es = ElasticSearch(es_host, api_key=api_key)
+    return engine, es
 
 
 """
@@ -172,8 +177,9 @@ Output
 ------
 Folder with n different files, each an equally sized partition of sample_path
 """
-def segment_sample(n=3, sample_path="data/02 - sample_with_data.csv", output_folder="data/03 - segmented samples/"):
 
+
+def segment_sample(n=3, sample_path="data/02 - sample_with_data.csv", output_folder="data/03 - segmented samples/"):
     # Load input data and create output folder
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -257,42 +263,46 @@ Processing
 
 Returns
 -------
-openpyxl Workbook with rows for all assignee mentions that correspond to one disambiguated assignee ID in the provided list. 
+openpyxl Workbook with rows for all assignee mentions that correspond to one disambiguated assignee ID in the 
+provided list. 
 The columns should be the same as in the `assignee_data` function.
 Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of 
 the disambiguated assignee ID in the provided list.
 Implementing merged cells to increase readability
 """
+
+
 def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connection):
     id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
     query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
     result = connection.execute(text(query)).fetchall()
     df = pd.DataFrame(result).drop_duplicates()
 
-    # Create a new Excel workbook and add a worksheet
-    wb = Workbook()
-    ws = wb.active
+    # # Create a new Excel workbook and add a worksheet
+    # wb = Workbook()
+    # ws = wb.active
+    #
+    # # Loop through mention_id groups and sort values
+    # for group, data in df.groupby(['patent_id', 'assignee_sequence']):
+    #     df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
+    #
+    #     # Determine indexing values and add rows to worksheets
+    #     index_start = ws.max_row + 1
+    #     index_end = index_start + len(df_temp.index) - 1
+    #     for row in dataframe_to_rows(df_temp, index=False, header=(index_start == 2)):
+    #         ws.append(row)
+    #
+    #     merge_cells(ws, index_start, index_end, len(df.columns))
 
-    # Loop through mention_id groups and sort values
-    for group, data in df.groupby(['patent_id', 'assignee_sequence']):
-        df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
+    return df
 
-        # Determine indexing values and add rows to worksheets
-        index_start = ws.max_row + 1
-        index_end = index_start + len(df_temp.index) - 1
-        for row in dataframe_to_rows(df_temp, index=False, header=(index_start == 2)):
-            ws.append(row)
-
-        merge_cells(ws, index_start, index_end, len(df.columns))
-
-    return wb
 
 def main():
-    engine = establish_connection()
+    engine, es = establish_connection()
     with engine.connect() as connection:
         # populate_sample('data/sample.csv', 'data/samples_with_data.csv', connection)
 
-        ids = ['717e8394-c25d-4ea6-b444-09d6036a4cde']
+        ids = ["1c6bc924-b7f8-455f-a36b-0149cc43e608"]
         wb = disambiguated_assignees_data(ids, connection)
         output_path = 'data/disamb_assignee_test.xlsx'
         wb.save(output_path)
