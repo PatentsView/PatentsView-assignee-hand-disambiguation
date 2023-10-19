@@ -91,7 +91,6 @@ def assignee_data(mention_id: str, patent_only: bool, connection):
 
     # Return pandas df
     df = pd.DataFrame(result).drop_duplicates()
-    df['assignee_type'] = df['assignee_type'].map(ASSIGNEE_TYPE_DICT)
     return df
 
 
@@ -270,31 +269,29 @@ Specifically, rows should be of the form `assignee_data(mention_id)` for each me
 the disambiguated assignee ID in the provided list.
 Implementing merged cells to increase readability
 """
-
-
 def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connection):
     id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
     query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
     result = connection.execute(text(query)).fetchall()
     df = pd.DataFrame(result).drop_duplicates()
 
-    # # Create a new Excel workbook and add a worksheet
-    # wb = Workbook()
-    # ws = wb.active
-    #
-    # # Loop through mention_id groups and sort values
-    # for group, data in df.groupby(['patent_id', 'assignee_sequence']):
-    #     df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
-    #
-    #     # Determine indexing values and add rows to worksheets
-    #     index_start = ws.max_row + 1
-    #     index_end = index_start + len(df_temp.index) - 1
-    #     for row in dataframe_to_rows(df_temp, index=False, header=(index_start == 2)):
-    #         ws.append(row)
-    #
-    #     merge_cells(ws, index_start, index_end, len(df.columns))
+    # Create a new Excel workbook and add a worksheet
+    wb = Workbook()
+    ws = wb.active
+    
+    # Loop through mention_id groups and sort values
+    for group, data in tqdm(df.groupby(['patent_id', 'assignee_sequence']), "Outer groupby loop"):
+        df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
+    
+        # Determine indexing values and add rows to worksheets
+        index_start = ws.max_row + 1
+        index_end = index_start + len(df_temp.index) - 1
+        for row in dataframe_to_rows(df_temp, index=False, header=(index_start == 2)):
+            ws.append(row)
+    
+        merge_cells(ws, index_start, index_end, len(df.columns))
 
-    return df
+    return wb
 
 
 def main():
@@ -302,11 +299,15 @@ def main():
     with engine.connect() as connection:
         # populate_sample('data/sample.csv', 'data/samples_with_data.csv', connection)
 
-        ids = ["1c6bc924-b7f8-455f-a36b-0149cc43e608"]
+        # ids = ["1c6bc924-b7f8-455f-a36b-0149cc43e608"]
+        # wb = disambiguated_assignees_data(ids, connection)
+        # output_path = 'data/disamb_assignee_test.xlsx'
+        # wb.save(output_path)
+        # print("Successfully saved", output_path)
+
+        ids = ["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043", "e1d5391e-94c9-4ced-843b-6992e29b6fee", "8f703249-da60-44ea-a257-fb6a07b08f50"]
         wb = disambiguated_assignees_data(ids, connection)
-        output_path = 'data/disamb_assignee_test.xlsx'
-        wb.save(output_path)
-        print("Successfully saved", output_path)
+        wb.save('test.xlsx')
 
 
 if __name__ == "__main__":

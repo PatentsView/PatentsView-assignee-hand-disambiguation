@@ -31,49 +31,36 @@ DF_COLS = {
     },
 }
 
-"""
-## Disambiguated Assignee Search
-"""
-
-with st.expander("Information"):
-    st.info("This is a demo search tool for disambiguated assignees. By default, the search is performed on the "
-            "`assignees.assignee_organization` field, \
-            aggregates by disambiguated assignee ID, and returns assignee information for the top hit within each "
-            "aggregation bucket.")
-
-st.info("Aggregation searches can be time-consuming. Avoid including short keywords that may match a large number "
-        "of companies (e.g., 'LLC' or 'Corp'). \
-        If needed, increase the search timeout to up to a few minutes.")
-
-
+#Processing methods
 def parse_csv(csv):
     return [x.strip() for x in csv.split(",")]
 
+def parse_results(results):
+    agg_buckets = results["aggregations"][agg_fields[0]][f"{agg_fields[0]}_inner"]["buckets"]
+    df = pd.DataFrame.from_records(x["top_hits"]["hits"]["hits"][0]["_source"] for x in agg_buckets)
+    df["_score"] = [x["top_hits"]["hits"]["hits"][0]["_score"] for x in agg_buckets]
+    df.sort_values("_score", ascending=False, inplace=True)
+    return df
 
-def parse_results(results, connection_type):
-    if connection_type == "sql":
-        return pd.DataFrame(results)
-    elif connection_type == "elastic":
-        agg_buckets = results["aggregations"][agg_fields[0]][f"{agg_fields[0]}_inner"]["buckets"]
-        df = pd.DataFrame.from_records(x["top_hits"]["hits"]["hits"][0]["_source"] for x in agg_buckets)
-        df["_score"] = [x["top_hits"]["hits"]["hits"][0]["_score"] for x in agg_buckets]
-        df.sort_values("_score", ascending=False, inplace=True)
-        return df
-    else:
-        return pd.DataFrame()
+@st.cache_data
+def search(user_query, index, fields, agg_fields, source, agg_source, timeout, size, fuzziness):
+    return es.search(user_query, index, fields, agg_fields=agg_fields, source=source,
+                        agg_source=agg_source,
+                        timeout=timeout, size=size, fuzziness=fuzziness)
 
+
+# Information expander and sidebar
+with st.expander("Information"):
+    st.info("This is a demo search tool for disambiguated assignees. By default, the search is performed on the "
+        "`assignees.assignee_organization` field, \
+        aggregates by disambiguated assignee ID, and returns assignee information for the top hit within each "
+        "aggregation bucket.")
+
+    st.info("Aggregation searches can be time-consuming. Avoid including short keywords that may match a large number "
+        "of companies (e.g., 'LLC' or 'Corp'). \
+        If needed, increase the search timeout to up to a few minutes.")
 
 with st.sidebar:
-    # with st.expander("SQL Connection", expanded=True):
-    #     sql_host = st.text_input("Host",
-    #     value="patentsview-ingest-production.cckzcdkkfzqo.us-east-1.rds.amazonaws.com")
-    #     sql_user = st.text_input("User", value="")
-    #     sql_pwd = st.text_input("Password", value="")
-    #     db_name = st.text_input("DB Name", value="algorithms_assignee_labeling")
-    #
-    # with st.expander("ElasticSearch Connection", expanded=True):
-    #     host = st.text_input("Host", value="https://patentsview-production-0cb426.es.us-east-1.aws.found.io")
-    #     api_key = st.text_input("API Key", value="", help="API Key for authentication.")
 
     with st.expander("Configuration", expanded=True):
         timeout = st.number_input("Timeout", value=30, help="Search timeout in seconds.")
@@ -89,77 +76,86 @@ with st.sidebar:
         agg_source = parse_csv(st.text_input("Aggregation Source", value="assignees",
                                              help="Fields to return for each top hit in the aggregations."))
 
-# Establish connection
-engine, es = establish_connection()
-connection_type = 'elastic'
-
-
-# connection_type = "elastic" if api_key != "" else "sql" if sql_pwd != "" else "none"
-
-
-# Search for user query
-@st.cache_data
-def search(user_query, index, fields, agg_fields, source, agg_source, timeout, size, fuzziness):
-    if connection_type == "elastic":
-        return es.search(user_query, index, fields, agg_fields=agg_fields, source=source,
-                         agg_source=agg_source,
-                         timeout=timeout, size=size, fuzziness=fuzziness)
-    elif connection_type == "sql":
-        query = f"SELECT * FROM algorithms_assignee_labeling.assignee WHERE {fields[0]}='{user_query}'"
-        with engine.connect() as connection:
-            results = connection.execute(text(query)).fetchall()
-        return results
-
 
 # Input query and processing
+engine, es = establish_connection()
 user_query = st.text_input("Search:", value="Lutron Electronics")
 field_options = ["Organization", "First Name", "Last Name"]
 field_select = st.radio("Fields:", field_options, horizontal=True, label_visibility="collapsed")
-fields = [
-    list(DF_COLS[connection_type].values())[field_options.index(field_select)]] if connection_type != 'none' else None
+fields = [list(DF_COLS["elastic"].values())[field_options.index(field_select)]]
 
 # Execute search
-with st.spinner('Searching...'):
-    try:
-        if connection_type == "none":
-            st.write("**Please enter an API Key or a SQL connection.**")
-            st.stop()
-        else:
-            results = search(user_query, index, fields, agg_fields=agg_fields,
-                             source=list(DF_COLS[connection_type].values()),
-                             agg_source=agg_source,
-                             timeout=timeout, size=0, fuzziness=fuzziness)
+try:
+    results = search(user_query, index, fields, agg_fields=agg_fields,
+                    source=list(DF_COLS["elastic"].values()),
+                    agg_source=agg_source,
+                    timeout=timeout, size=0, fuzziness=fuzziness)
+except Exception as e:
+    st.error("Could not complete the search!", icon="🚨")
+    st.error(e)
+    st.stop()
 
-    except Exception as e:
-        st.error("Could not complete the search!", icon="🚨")
-        st.error(e)
-        st.stop()
 
-    # Parse results into dataframe
-    df = parse_results(results, connection_type)
-    # st.dataframe(df)
-    cols = df.columns
-    col_select = col_select_placeholder.multiselect("Columns to display:", options=cols,
-                                                    default=DF_COLS[connection_type].keys())
+"""
+Output of search results
+"""
+# Parse results into dataframe
+df = parse_results(results)
+col_select = col_select_placeholder.multiselect("Columns to display:", options=df.columns, default=DF_COLS["elastic"].keys())
+if 'selected_search_results' not in st.session_state: # Record all search results and user selections
+    st.session_state.selected_search_results = []
 
-    # Add editable column to indicate selection option
-    df.insert(0, "Select", False)
-    edited_df = st.data_editor(df[["Select"]+col_select])
+# Create editable table with select column and select all/none feature
+@st.cache_data
+def generate_table(user_query, toggle, selected_search_results):
+    df["Select"] = toggle
+    for result in selected_search_results:
+        if result["user_query"]==user_query:
+            # result["selected_ids"]
+            df["Select"] = True
+    return df[["Select"]+col_select]
 
-    # Search statistics
-    # entity_count = len(results["aggregations"]["assignees.assignee_id"]["assignees.assignee_id_inner"]["buckets"])
-    # record_count = results["aggregations"]["assignees.assignee_id"]["doc_count"]
-    # st.write(f"Found {entity_count} disambiguated assignees with {record_count} associated records.")
+# Enable user selection
+df.insert(0, "Select", False)
+toggle = st.checkbox("Select all/none")
+edited_df = st.data_editor(generate_table(user_query, toggle, st.session_state.selected_search_results))
 
-    # Selected data
-    st.write("Selected Assignee IDs:")
-    selected_df = df[edited_df["Select"] == True][
-        [list(DF_COLS[connection_type].keys())[i] for i in [7, 0, 1, 2]]]  # Get specific fields
-    disambiguated_assignee_IDs = selected_df[list(DF_COLS[connection_type].keys())[7]].tolist()
-    st.write(disambiguated_assignee_IDs)
+# Search statistics
+entity_count = len(results["aggregations"]["assignees.assignee_id"]["assignees.assignee_id_inner"]["buckets"])
+record_count = results["aggregations"]["assignees.assignee_id"]["doc_count"]
+st.write(f"Found {entity_count} disambiguated assignees with {record_count} associated records.")
 
-if len(disambiguated_assignee_IDs) > 0:
+
+"""
+Selected Assignee IDs
+"""
+# Create a button to update the results with the selected fields
+if st.button("Update Assignee IDs"):
+    # Remove any results with the same user_query
+    st.session_state.selected_search_results = [result for result in st.session_state.selected_search_results if result["user_query"] != user_query]
+    selected_ids = df[edited_df["Select"] == True]["assignee_id"].tolist()
+    st.session_state.selected_search_results.append({"user_query": user_query, "selected_ids": selected_ids})
+
+# Output disambiguated assignee IDs
+disambiguated_assignee_IDs = [i for result in st.session_state.selected_search_results for i in result["selected_ids"]]
+st.write("Selected Assignee IDs:", disambiguated_assignee_IDs)
+st.write("Selected Search Results", st.session_state.selected_search_results)
+
+"""
+Extract excel file with merged cells
+"""
+col1, col2 = st.columns(2)
+filename = col1.text_input("Filename", "COPY_AND_PASTE_SAMPLE_MENTION_ID.xlsx")
+if col2.button("Extract"):
     with st.spinner('Extracting...'):
         with engine.connect() as connection:
             mentions_table = disambiguated_assignees_data(disambiguated_assignee_IDs, connection)
-            st.dataframe(mentions_table)
+        st.dataframe(mentions_table)
+
+        # Save file
+        with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
+            # mentions_table.save(temp.name)
+            mentions_table.to_excel(temp.name)
+            with open(temp.name, "rb") as file:
+                bytes_data = file.read()
+                st.download_button(label="Download", data=bytes_data, file_name=filename, mime="application/vnd.ms-excel")
