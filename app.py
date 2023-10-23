@@ -1,10 +1,9 @@
 import streamlit as st
 from er_evaluation.search import ElasticSearch
+from extraction import run_extraction
 import pandas as pd
-from sqlalchemy import create_engine, text
-from openpyxl import Workbook
 import tempfile
-from assignee import disambiguated_assignees_data, establish_connection
+from dotenv import dotenv_values
 
 DF_COLS = {
     "none": [],
@@ -32,6 +31,13 @@ DF_COLS = {
 }
 
 #Processing methods
+def establish_connection():
+    config = dotenv_values(".env")
+    es_host = config['es_host']
+    api_key = config['es_api_key']
+    es = ElasticSearch(es_host, api_key=api_key)
+    return es
+
 def parse_csv(csv):
     return [x.strip() for x in csv.split(",")]
 
@@ -78,7 +84,7 @@ with st.sidebar:
 
 
 # Input query and processing
-engine, es = establish_connection()
+es = establish_connection()
 user_query = st.text_input("Search:", value="Lutron Electronics")
 field_options = ["Organization", "First Name", "Last Name"]
 field_select = st.radio("Fields:", field_options, horizontal=True, label_visibility="collapsed")
@@ -96,9 +102,8 @@ except Exception as e:
     st.stop()
 
 
-"""
-Output of search results
-"""
+
+
 # Parse results into dataframe
 df = parse_results(results)
 col_select = col_select_placeholder.multiselect("Columns to display:", options=df.columns, default=DF_COLS["elastic"].keys())
@@ -126,9 +131,7 @@ record_count = results["aggregations"]["assignees.assignee_id"]["doc_count"]
 st.write(f"Found {entity_count} disambiguated assignees with {record_count} associated records.")
 
 
-"""
-Selected Assignee IDs
-"""
+
 # Create a button to update the results with the selected fields
 if st.button("Update Assignee IDs"):
     # Remove any results with the same user_query
@@ -139,23 +142,24 @@ if st.button("Update Assignee IDs"):
 # Output disambiguated assignee IDs
 disambiguated_assignee_IDs = [i for result in st.session_state.selected_search_results for i in result["selected_ids"]]
 st.write("Selected Assignee IDs:", disambiguated_assignee_IDs)
-st.write("Selected Search Results", st.session_state.selected_search_results)
+# st.write("Selected Search Results", st.session_state.selected_search_results)
 
-"""
-Extract excel file with merged cells
-"""
-col1, col2 = st.columns(2)
+
+col1, col2, col3 = st.columns(3)
 filename = col1.text_input("Filename", "COPY_AND_PASTE_SAMPLE_MENTION_ID.xlsx")
 if col2.button("Extract"):
     with st.spinner('Extracting...'):
-        with engine.connect() as connection:
-            mentions_table = disambiguated_assignees_data(disambiguated_assignee_IDs, connection)
-        st.dataframe(mentions_table)
-
-        # Save file
-        with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
-            # mentions_table.save(temp.name)
-            mentions_table.to_excel(temp.name)
-            with open(temp.name, "rb") as file:
-                bytes_data = file.read()
-                st.download_button(label="Download", data=bytes_data, file_name=filename, mime="application/vnd.ms-excel")
+        if filename[-5:]==".xlsx":
+            with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
+                run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, merge=True)
+                with open(temp.name, "rb") as file:
+                    bytes_data = file.read()
+            mime="application/vnd.ms-excel"
+        elif filename[-4:]==".csv":
+            with tempfile.NamedTemporaryFile(suffix=".csv") as temp:
+                run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, merge=False)
+                with open(temp.name, "rb") as file:
+                    bytes_data = file.read()
+            mime="text/csv"
+    col3.download_button(label="Download", data=bytes_data, file_name=filename, mime=mime)
+        

@@ -1,27 +1,9 @@
-from er_evaluation.search import ElasticSearch
 from sqlalchemy import create_engine, text
 from dotenv import dotenv_values
 import pandas as pd
 import numpy as np
 import os
-from openpyxl import Workbook
-from openpyxl.utils.dataframe import dataframe_to_rows
-from tqdm import tqdm
 
-"""
-Dictionary for converting assignee type into it's actual meaning
-"""
-ASSIGNEE_TYPE_DICT = {
-    1: "Unassigned",
-    2: "United States company or corporation",
-    3: "Foreign company or corporation",
-    4: "United States individual",
-    5: "Foreign individual",
-    6: "U.S. Federal government",
-    7: "Foreign government",
-    8: "U.S. county government",
-    9: "U.S. state government"
-}
 
 """
 Establish MySQL connection with environmental variables
@@ -30,8 +12,6 @@ Returns
 -------
 engine : a PyMySQL engine object
 """
-
-
 def establish_connection():
     config = dotenv_values(".env")
     user = config['user']
@@ -39,10 +19,7 @@ def establish_connection():
     hostname = config['hostname']
     dbname = config['dbname']
     engine = create_engine(f"mysql+pymysql://{user}:{pswd}@{hostname}/{dbname}?charset=utf8mb4")
-    es_host = config['es_host']
-    api_key = config['es_api_key']
-    es = ElasticSearch(es_host, api_key=api_key)
-    return engine, es
+    return engine
 
 
 """
@@ -176,8 +153,6 @@ Output
 ------
 Folder with n different files, each an equally sized partition of sample_path
 """
-
-
 def segment_sample(n=3, sample_path="data/02 - sample_with_data.csv", output_folder="data/03 - segmented samples/"):
     # Load input data and create output folder
     if not os.path.exists(output_folder):
@@ -203,112 +178,9 @@ def segment_sample(n=3, sample_path="data/02 - sample_with_data.csv", output_fol
         end = start + increment_size
 
 
-"""
-Parameters
-----------
-ws : openpyxl worksheet
-    Worksheet for appending rows from 'df' and merging like cells
-index_start : int
-    First index of the mention_id group
-index_end : int
-    Last index of the mention_id group
-num_columns : int
-    Number of columns to apply the merge cell function
-
-Returns
--------
-ws : openpyxl worksheet
-    Updated worksheet with all rows from `df` to `ws`
-"""
-def merge_cells(ws, index_start, index_end, num_columns):
-    # Loop over columns
-    for i in range(1, num_columns + 1):
-
-        # Loop over rows in pre-defined range
-        start = index_start
-        end = start
-        for j in range(index_start, index_end + 1):
-
-            if j == start: # Initialize the previous value at the start of the section
-                prev_value = ws.cell(column=i, row=j).value
-            elif ws.cell(column=i, row=j).value == prev_value:
-                if j == index_end: # Consecutive cells with same value need to merge if end of section
-                    ws.merge_cells(start_row=start, end_row=j, start_column=i, end_column=i)
-                else: # Otherwise, consecutive cells with same value need to check the next cell before merging
-                    end += 1
-            elif start != end: # Merge prior sequence once a different value is in place
-                ws.merge_cells(start_row=start, end_row=end, start_column=i, end_column=i)
-                start = j + 1
-                end = j + 1
-
-
-"""
-Parameters
-----------
-assignee_disamiguation_IDs : list[str]
-    List of disambiguated assignee IDs (`assignee_id` field values)
-output_path : str
-    Path to CSV file for saving data for one mention ID (naming convention is simply the mention ID)
-Connection : sqlalchemy.engine.base.Connection
-    Connection using sqlalchemy to the PV database.
-
-Processing
-----------
-1. Pull `df` with SQL connection
-2. Group-by mention_id in `df` then sort by inventor_id, and cpc_subgroup_id within the groups
-3. Going group by group, add all rows from `df` to `ws`
-4. After adding each group, merge all cells that share a value within each column (need to be neighboring cells)
-    - Make sure to not merge cells across separate mention_id groups
-
-Returns
--------
-openpyxl Workbook with rows for all assignee mentions that correspond to one disambiguated assignee ID in the 
-provided list. 
-The columns should be the same as in the `assignee_data` function.
-Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of 
-the disambiguated assignee ID in the provided list.
-Implementing merged cells to increase readability
-"""
-def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connection):
-    id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
-    query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
-    result = connection.execute(text(query)).fetchall()
-    df = pd.DataFrame(result).drop_duplicates()
-
-    # Create a new Excel workbook and add a worksheet
-    wb = Workbook()
-    ws = wb.active
-    
-    # Loop through mention_id groups and sort values
-    for group, data in tqdm(df.groupby(['patent_id', 'assignee_sequence']), "Outer groupby loop"):
-        df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
-    
-        # Determine indexing values and add rows to worksheets
-        index_start = ws.max_row + 1
-        index_end = index_start + len(df_temp.index) - 1
-        for row in dataframe_to_rows(df_temp, index=False, header=(index_start == 2)):
-            ws.append(row)
-    
-        merge_cells(ws, index_start, index_end, len(df.columns))
-
-    return wb
-
-
 def main():
-    engine, es = establish_connection()
-    with engine.connect() as connection:
-        # populate_sample('data/sample.csv', 'data/samples_with_data.csv', connection)
-
-        # ids = ["1c6bc924-b7f8-455f-a36b-0149cc43e608"]
-        # wb = disambiguated_assignees_data(ids, connection)
-        # output_path = 'data/disamb_assignee_test.xlsx'
-        # wb.save(output_path)
-        # print("Successfully saved", output_path)
-
-        ids = ["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043", "e1d5391e-94c9-4ced-843b-6992e29b6fee", "8f703249-da60-44ea-a257-fb6a07b08f50"]
-        wb = disambiguated_assignees_data(ids, connection)
-        wb.save('test.xlsx')
-
+    engine = establish_connection()
+    ids = ["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043", "e1d5391e-94c9-4ced-843b-6992e29b6fee", "8f703249-da60-44ea-a257-fb6a07b08f50"]
 
 if __name__ == "__main__":
     main()
