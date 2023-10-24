@@ -79,7 +79,7 @@ size : int
 
 Pulls a random sample of assignee mention_id's from AWS and saves it as an output CSV file
 """
-def sample_mentions(size=10000, output_path="data/01 - sample.txt"):
+def sample_mentions(size=800, output_path="data/01 - sample.txt"):
     # Save seed and load in data
     np.random.seed(0)
     disamb = pd.read_csv(
@@ -93,6 +93,8 @@ def sample_mentions(size=10000, output_path="data/01 - sample.txt"):
     disamb_20220929 = disamb.set_index("mention_id")["disamb_assignee_id_20230629"]
     disamb_20220929 = disamb_20220929.dropna()
     mention_ids = disamb_20220929.index
+
+    # TODO - count records with matching disamb assignee ID using groupby
 
     # Save output
     samples = np.random.choice(mention_ids, size=size, replace=False)

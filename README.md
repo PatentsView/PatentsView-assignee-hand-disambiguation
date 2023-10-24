@@ -7,45 +7,56 @@ Codebase for algorithmically setting up the manual assignee labeling tasks.
 |---|---|
 | DSAA Team Lead | Sarvo Madhavan | 
 | Project Tier | Tier 2 | 
-| DSAA Team Members | - Olivier Binette (former AIR employee)<br>- Sarvo Madhavan (Senior Data Scientist) <br>- Siddharth Engineer (Data Scientist Assistant) |
+| DSAA Team Members | - Olivier Binette (former AIR employee)<br>- Sarvo Madhavan (Senior Data Scientist)
+    <br>- Beth Anne Card (Data Scientist) <br>- Siddharth Engineer (Data Scientist Assistant) |
 | Client(s) | PatentsView (USPTO) |
 | Project Start Date | 07/26/2023 |
 | Project End Date | None |
 | Status | In progress (awaiting hand-disambiguation process) |                                                                 
 
  ## Raw Materials In
-Connection to AIR's AWS database of PatentsView data for sampling mention IDs and pulling assignee information.
+- Sample of 800 mention IDs from g_persistent_assignee.tsv.zip from https://patentsview.org/download/data-download-tables
+- AWS database of PatentsView data for populating sample data
+- ElasticSearch for finding similar assignee names and storing potential disambiguated_assignee_ID clusters to merge
+- PatentsView API for retrieving data on assignee clusters for removal step
 
 ## Result Out
-Following the steps below, we will sample 10k mention IDs from the assignee table.
-After sampling mention IDs, we will generate an output dataframe which includes:
-- disambiguated assignee information
-- patent information
-- all rows are listed in the comments for `assignee_data()` in the `assignee.py` file
+For each mention ID in the generated sample, we will save a Dataframe containing all mention IDs belonging to the same assignee.
 
 ## Usage/Examples
 
-First we'll need to set up a the database connection for pulling data from AWS.
+First we'll need to set up our various data source connections.
 In this directory, create a `.env` file with the following fields:
+
 ```
-user = USERNAME
-password = PASSWORD
-hostname = HOSTNAME
-dbname = algorithms_assignee_labeling
+# SQL
+user=
+password=
+hostname="patentsview-ingest-production.cckzcdkkfzqo.us-east-1.rds.amazonaws.com"
+dbname="algorithms_assignee_labeling"
+
+# Elastic Search
+es_host="https://patentsview-production-0cb426.es.us-east-1.aws.found.io"
+es_api_key=
+
+# PV API
+pv_api_key=
 ```
 
-This is required for the `assignee.py` data pulls.
-However, we can still get our sample mention IDs by running sample.py without this DB connection.
-In your terminal, run:
+We recommend creating a virtual environment for your work. Run the following commands in this directory.
+
 ```
-python3 sample.py
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
 ```
 
-Feel free to adjust the main method to run different commands in the `assignee.py` file.
-To just get a populated dataset which is ready for manual assignee labeling, the main method is already configured so simply run the following in terminal:
-```
-python3 assignee.py
-```
+To generate our list of sample mention IDs, running `sample_mentions()` from the `assignee.py` script.
+Note that you'll need to download `g_persistent_assignee.tsv.zip` from https://patentsview.org/download/data-download-tables and for it to be saved in this directory.
+
+To retrieve our samples ready for usage by the hand labelers, use `populate_sample()` and `segment_sample()` from the `assignee.py` script.
+
+To run the streamlit app, type `streamlit run app.py` into your terminal. For a given mention ID, everything is handled in the app from this point on.
 
 ## FAQ
 
