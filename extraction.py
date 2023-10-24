@@ -26,6 +26,7 @@ ASSIGNEE_TYPE_DICT = { # Dictionary for converting assignee type into it's actua
     8: "U.S. county government",
     9: "U.S. state government"
 }
+PATENT_FIELDS = ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type"]
 
 """
 Download all CPC subclass titles from API and create a lookup dictionary
@@ -65,12 +66,18 @@ Get all extraction output from the PV API
 
 Requires that base_url, endpoint, and api_key are all defined
 """
-def full_extraction_output(assignee_IDs):
+def full_extraction_output(assignee_IDs, simplified):
+    # Determine return fields
+    if simplified:
+        f_list = ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type", "assignees.*"]
+    else:
+        ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type", "assignees.*",\
+            "inventors.*", "cpc_current.*"]
+    
     full_output = []
     endpoint = 'api/v1/patent'
     param_dict = {
-        "f" : ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type", "assignees.*",\
-            "inventors.*", "cpc_current.*"],
+        "f" : f_list,
         "o" : {"size":1000},
         "q" : {"assignees.assignee_id": assignee_IDs},
         "s" : [{"patent_id":"asc"}],
@@ -139,11 +146,22 @@ def new_cpc(row):
     else:
         return [{'cpc_section': '', 'cpc_subclass_id': '', 'cpc_subclass_title': ''}]
     
-def process_extraction_output(json_data, assignee_IDs):
-    for row in json_data:
-        row['assignees'] = new_assignees(row, assignee_IDs)
-        row['inventors'] = new_inventors(row)
-        row['cpc_current'] = new_cpc(row)
+def process_extraction_output(dirty_output, assignee_IDs, simplified):
+    clean_output = []
+
+    for row in dirty_output:
+        base_row = {field: row[field] for field in PATENT_FIELDS}
+        assignees = new_assignees(row, assignee_IDs)
+        if not simplified: # Simplified output doesn't include inventors or cpc
+            base_row['inventors'] = new_inventors(row)
+            base_row['cpc_current'] = new_cpc(row)
+
+        for assignee in assignees:
+            None
+            # TODO - create new_row from base_row and append to clean_output
+    
+    return clean_output
+
 
 def add_empty_rows(df, max_rows):
     num_empty_rows = max_rows - len(df)
@@ -166,12 +184,11 @@ def partition_endpoints(result):
 
 def extraction_output_to_csv(output, output_path = "data/05 - extraction/output.csv"):
     df_list = []
-    patent_fields = ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type"]
 
     for result in output:
         # Separating data to add empty rows where necessary
         inventors, cpc, assignees = partition_endpoints(result)
-        patent = {field: result[field] for field in patent_fields}
+        patent = {field: result[field] for field in PATENT_FIELDS}
         patent_df = pd.DataFrame.from_dict([patent] * max(len(inventors.index), len(cpc.index), len(assignees.index)))
 
         # Combining and storing result
@@ -183,12 +200,11 @@ def extraction_output_to_csv(output, output_path = "data/05 - extraction/output.
 def extraction_output_to_excel(output, output_path = "data/05 - extraction/output.xlsx"):
     wb = Workbook()
     ws = wb.active
-    patent_fields = ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type"]
 
     for result in output:
         # Separating data to add empty rows where necessary
         inventors, cpc, assignees = partition_endpoints(result)
-        patent = {field: result[field] for field in patent_fields}
+        patent = {field: result[field] for field in PATENT_FIELDS}
         patent_df = pd.DataFrame.from_dict([patent] * max(len(inventors.index), len(cpc.index), len(assignees.index)))
 
         # Combining and storing result
@@ -202,13 +218,13 @@ def extraction_output_to_excel(output, output_path = "data/05 - extraction/outpu
 
     wb.save(output_path)
 
-def run_extraction(assignee_IDs=["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043"], output_path=None, merge=False):
-    output = full_extraction_output(assignee_IDs)
-    process_extraction_output(output, assignee_IDs)
-    if merge:
-        extraction_output_to_excel(output, output_path)
-    else:
-        extraction_output_to_csv(output, output_path)
+def run_extraction(assignee_IDs=["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043"], output_path=None, simplified=True):
+    dirty_output = full_extraction_output(assignee_IDs, simplified)
+    clean_output = process_extraction_output(dirty_output, assignee_IDs, simplified)
+    if output_path[-4:] == ".csv":
+        extraction_output_to_csv(clean_output, output_path)
+    elif output_path[-5:] == ".xlsx":
+        extraction_output_to_excel(clean_output, output_path)
 
 if __name__ == "__main__":
     obj = run_extraction()

@@ -55,18 +55,18 @@ def search(user_query, index, fields, agg_fields, source, agg_source, timeout, s
                         timeout=timeout, size=size, fuzziness=fuzziness)
 
 
-# Information expander and sidebar
-with st.expander("Information"):
-    st.info("This is a demo search tool for disambiguated assignees. By default, the search is performed on the "
-        "`assignees.assignee_organization` field, \
-        aggregates by disambiguated assignee ID, and returns assignee information for the top hit within each "
-        "aggregation bucket.")
-
-    st.info("Aggregation searches can be time-consuming. Avoid including short keywords that may match a large number "
-        "of companies (e.g., 'LLC' or 'Corp'). \
-        If needed, increase the search timeout to up to a few minutes.")
-
 with st.sidebar:
+
+    # Information expander and sidebar
+    with st.expander("Information"):
+        st.info("This is a demo search tool for disambiguated assignees. By default, the search is performed on the "
+            "`assignees.assignee_organization` field, \
+            aggregates by disambiguated assignee ID, and returns assignee information for the top hit within each "
+            "aggregation bucket.")
+
+        st.info("Aggregation searches can be time-consuming. Avoid including short keywords that may match a large number "
+            "of companies (e.g., 'LLC' or 'Corp'). \
+            If needed, increase the search timeout to up to a few minutes.")
 
     with st.expander("Configuration", expanded=True):
         timeout = st.number_input("Timeout", value=30, help="Search timeout in seconds.")
@@ -82,6 +82,11 @@ with st.sidebar:
         agg_source = parse_csv(st.text_input("Aggregation Source", value="assignees",
                                              help="Fields to return for each top hit in the aggregations."))
 
+# Mention ID
+col1, col2 = st.columns([1, 2])
+mention_id = col1.text_input(label="Mention ID", placeholder="Paste Mention ID Here", value="", label_visibility="collapsed")
+patent_url = ("https://patents.google.com/patent/" + mention_id.split("-")[0]) if len(mention_id) > 0 else "https://patents.google.com/"
+col2.link_button(label="Go to patent", url=patent_url)
 
 # Input query and processing
 es = establish_connection()
@@ -145,21 +150,22 @@ st.write("Selected Assignee IDs:", disambiguated_assignee_IDs)
 # st.write("Selected Search Results", st.session_state.selected_search_results)
 
 
-col1, col2, col3 = st.columns(3)
-filename = col1.text_input("Filename", "COPY_AND_PASTE_SAMPLE_MENTION_ID.xlsx")
+col1, col2, col3 = st.columns([2, 1, 1])
+filename_value = (mention_id+".csv") if len(mention_id) > 0 else "MENTION_ID.csv"
+filename = col1.text_input(label="Filename", placeholder="Filename", value=filename_value, label_visibility="collapsed")
+
 if col2.button("Extract"):
     with st.spinner('Extracting...'):
-        if filename[-5:]==".xlsx":
-            with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
-                run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, merge=True)
-                with open(temp.name, "rb") as file:
-                    bytes_data = file.read()
-            mime="application/vnd.ms-excel"
-        elif filename[-4:]==".csv":
+        # if filename[-5:]==".xlsx":
+        #     with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
+        #         run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, merge=True)
+        #         with open(temp.name, "rb") as file:
+        #             bytes_data = file.read()
+        #     mime="application/vnd.ms-excel"
+        if filename[-4:]==".csv":
             with tempfile.NamedTemporaryFile(suffix=".csv") as temp:
-                run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, merge=False)
+                run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, simplified=True)
                 with open(temp.name, "rb") as file:
                     bytes_data = file.read()
             mime="text/csv"
     col3.download_button(label="Download", data=bytes_data, file_name=filename, mime=mime)
-        
