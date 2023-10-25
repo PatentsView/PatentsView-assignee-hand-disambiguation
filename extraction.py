@@ -149,16 +149,20 @@ def new_cpc(row):
 def process_extraction_output(dirty_output, assignee_IDs, simplified):
     clean_output = []
 
+    # Loop through api results
     for row in dirty_output:
         base_row = {field: row[field] for field in PATENT_FIELDS}
-        assignees = new_assignees(row, assignee_IDs)
         if not simplified: # Simplified output doesn't include inventors or cpc
             base_row['inventors'] = new_inventors(row)
             base_row['cpc_current'] = new_cpc(row)
-
+        
+        # Create a new row for every assignee (there should only be one)
+        assignees = new_assignees(row, assignee_IDs)
         for assignee in assignees:
-            None
-            # TODO - create new_row from base_row and append to clean_output
+            new_row = base_row if len(assignees) == 1 else base_row.copy() # avoid copying for most cases
+            for field in assignee.keys():
+                new_row[field] = assignee[field]
+            clean_output.append(new_row)
     
     return clean_output
 
@@ -172,59 +176,64 @@ def partition_endpoints(result):
     # Create separate dataframes
     inventors = pd.DataFrame.from_dict(result['inventors']).sort_values('inventor_sequence')
     cpc = pd.DataFrame.from_dict(result['cpc_current']).sort_values('cpc_subclass_id')
-    assignees = pd.DataFrame.from_dict(result['assignees']).sort_values('assignee_sequence')
 
     # Add empty rows
-    row_count = max(len(inventors.index), len(cpc.index), len(assignees.index))
+    row_count = max(len(inventors.index), len(cpc.index))
     inventors = add_empty_rows(inventors, row_count)
     cpc = add_empty_rows(cpc, row_count)
-    assignees = add_empty_rows(assignees, row_count)
     
-    return inventors, cpc, assignees
+    return inventors, cpc
 
-def extraction_output_to_csv(output, output_path = "data/05 - extraction/output.csv"):
-    df_list = []
+def extraction_output_to_csv(output, simplified, output_path="data/05 - extraction/output.csv"):
+    if simplified:
+        pd.DataFrame.from_dict(output).to_csv(output_path)
+    else:
+        df_list = []
 
-    for result in output:
-        # Separating data to add empty rows where necessary
-        inventors, cpc, assignees = partition_endpoints(result)
-        patent = {field: result[field] for field in PATENT_FIELDS}
-        patent_df = pd.DataFrame.from_dict([patent] * max(len(inventors.index), len(cpc.index), len(assignees.index)))
+        for result in output:
+            # Separating data to add empty rows where necessary
+            inventors, cpc = partition_endpoints(result)
+            del result['inventors']
+            del result['cpc_current']
+            patent_df = pd.DataFrame.from_dict([result] * max(len(inventors.index), len(cpc.index)))
 
-        # Combining and storing result
-        result = pd.concat([patent_df, assignees, inventors, cpc], axis=1)
-        df_list.append(result)
-        
-    pd.concat(df_list).to_csv(output_path)
+            # Combining and storing result
+            result = pd.concat([patent_df, inventors, cpc], axis=1)
+            df_list.append(result)
+            
+        pd.concat(df_list).to_csv(output_path)
 
-def extraction_output_to_excel(output, output_path = "data/05 - extraction/output.xlsx"):
-    wb = Workbook()
-    ws = wb.active
+def extraction_output_to_excel(output, simplified, output_path="data/05 - extraction/output.xlsx"):
+    if simplified:
+        pd.DataFrame.from_dict(output).to_excel(output_path)
+    else:
+        wb = Workbook()
+        ws = wb.active
 
-    for result in output:
-        # Separating data to add empty rows where necessary
-        inventors, cpc, assignees = partition_endpoints(result)
-        patent = {field: result[field] for field in PATENT_FIELDS}
-        patent_df = pd.DataFrame.from_dict([patent] * max(len(inventors.index), len(cpc.index), len(assignees.index)))
+        for result in output:
+            # Separating data to add empty rows where necessary
+            inventors, cpc, assignees = partition_endpoints(result)
+            patent = {field: result[field] for field in PATENT_FIELDS}
+            patent_df = pd.DataFrame.from_dict([patent] * max(len(inventors.index), len(cpc.index), len(assignees.index)))
 
-        # Combining and storing result
-        result = pd.concat([patent_df, assignees, inventors, cpc], axis=1)
-        merge_start = ws.max_row + 1
-        merge_end = merge_start + len(result.index) - 1
-        for row in dataframe_to_rows(result, index=False, header=(merge_start == 2)):
-            ws.append(row)
-        for col in range(1, 6):
-            ws.merge_cells(start_row=merge_start, end_row=merge_end, start_column=col, end_column=col)
+            # Combining and storing result
+            result = pd.concat([patent_df, assignees, inventors, cpc], axis=1)
+            merge_start = ws.max_row + 1
+            merge_end = merge_start + len(result.index) - 1
+            for row in dataframe_to_rows(result, index=False, header=(merge_start == 2)):
+                ws.append(row)
+            for col in range(1, 6):
+                ws.merge_cells(start_row=merge_start, end_row=merge_end, start_column=col, end_column=col)
 
-    wb.save(output_path)
+        wb.save(output_path)
 
 def run_extraction(assignee_IDs=["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043"], output_path=None, simplified=True):
     dirty_output = full_extraction_output(assignee_IDs, simplified)
     clean_output = process_extraction_output(dirty_output, assignee_IDs, simplified)
     if output_path[-4:] == ".csv":
-        extraction_output_to_csv(clean_output, output_path)
+        extraction_output_to_csv(clean_output, simplified, output_path)
     elif output_path[-5:] == ".xlsx":
-        extraction_output_to_excel(clean_output, output_path)
+        extraction_output_to_excel(clean_output, simplified, output_path)
 
 if __name__ == "__main__":
     obj = run_extraction()

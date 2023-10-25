@@ -79,9 +79,8 @@ size : int
 
 Pulls a random sample of assignee mention_id's from AWS and saves it as an output CSV file
 """
-def sample_mentions(size=800, output_path="data/01 - sample.txt"):
-    # Save seed and load in data
-    np.random.seed(0)
+def sample_mentions(size=800, output_dir="data/", seed=20231025):
+    # Load in data
     disamb = pd.read_csv(
         "g_persistent_assignee.tsv.zip",
         dtype=str,
@@ -90,15 +89,17 @@ def sample_mentions(size=800, output_path="data/01 - sample.txt"):
 
     # Clean data
     disamb["mention_id"] = "US" + disamb["patent_id"] + "-" + disamb["assignee_sequence"]
-    disamb_20220929 = disamb.set_index("mention_id")["disamb_assignee_id_20230629"]
-    disamb_20220929 = disamb_20220929.dropna()
-    mention_ids = disamb_20220929.index
+    disamb_20230629 = disamb[["mention_id", "disamb_assignee_id_20230629"]]
+    disamb_20230629 = disamb_20230629.dropna()
 
-    # TODO - count records with matching disamb assignee ID using groupby
+    # Sample and extract cluster sizes
+    sampled_df = disamb_20230629.sample(n=size, random_state=seed)
+    cluster_size_lookup = disamb_20230629["disamb_assignee_id_20230629"].value_counts()
+    sampled_df["cluster_size"] = [cluster_size_lookup[disamb_id] for disamb_id in sampled_df["disamb_assignee_id_20230629"]]
 
     # Save output
-    samples = np.random.choice(mention_ids, size=size, replace=False)
-    np.savetxt(output_path, samples, fmt="%s")
+    np.savetxt(os.path.join(output_dir, "01 - sample.txt"), sampled_df["mention_id"].values, fmt="%s")
+    sampled_df[["mention_id", "cluster_size"]].to_csv(os.path.join(output_dir, "01 - sample_with_cluster_size.csv"), index=False)
 
 
 """
@@ -116,7 +117,7 @@ Output
 Saves data to `output_path` which is a dataframe with one row for every element in `sample`
 Each row has all the attributes in assignee_data()
 """
-def populate_sample(connection, sample_path="01 - sample.txt", output_path="02 - sample_with_data.csv"):
+def populate_sample(connection, sample_path="data/01 - sample.txt", output_path="data/02 - sample_with_data.csv"):
     # Load sample data and determine which are previously populated
     sample = np.loadtxt(sample_path, dtype=str)
     prev_df = pd.read_csv(output_path) if os.path.exists(output_path) else pd.DataFrame()
@@ -182,7 +183,9 @@ def segment_sample(n=3, sample_path="data/02 - sample_with_data.csv", output_fol
 
 def main():
     engine = establish_connection()
-    ids = ["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043", "e1d5391e-94c9-4ced-843b-6992e29b6fee", "8f703249-da60-44ea-a257-fb6a07b08f50"]
+    with engine.connect() as connection:
+        populate_sample(connection)
+    # ids = ["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043", "e1d5391e-94c9-4ced-843b-6992e29b6fee", "8f703249-da60-44ea-a257-fb6a07b08f50"]
 
 if __name__ == "__main__":
     main()

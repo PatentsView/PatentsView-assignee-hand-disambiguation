@@ -82,7 +82,9 @@ with st.sidebar:
         agg_source = parse_csv(st.text_input("Aggregation Source", value="assignees",
                                              help="Fields to return for each top hit in the aggregations."))
 
-# Mention ID
+"""
+Mention ID:
+"""
 col1, col2 = st.columns([1, 2])
 mention_id = col1.text_input(label="Mention ID", placeholder="Paste Mention ID Here", value="", label_visibility="collapsed")
 patent_url = ("https://patents.google.com/patent/" + mention_id.split("-")[0]) if len(mention_id) > 0 else "https://patents.google.com/"
@@ -107,28 +109,40 @@ except Exception as e:
     st.stop()
 
 
-
-
 # Parse results into dataframe
 df = parse_results(results)
 col_select = col_select_placeholder.multiselect("Columns to display:", options=df.columns, default=DF_COLS["elastic"].keys())
 if 'selected_search_results' not in st.session_state: # Record all search results and user selections
     st.session_state.selected_search_results = []
 
-# Create editable table with select column and select all/none feature
+# Generates editable table with select column reflecting st.session_state.selected_search_results
+df.insert(0, "Select", False)
 @st.cache_data
-def generate_table(user_query, toggle, selected_search_results):
-    df["Select"] = toggle
+def generate_table(user_query, selected_search_results):
     for result in selected_search_results:
         if result["user_query"]==user_query:
-            # result["selected_ids"]
-            df["Select"] = True
+            df["Select"] = df["assignee_id"].isin(result["selected_ids"])
     return df[["Select"]+col_select]
 
+# Changes search results field to store the new selected_ids parameter
+def update_selection(selected_ids):
+    new_query = True
+    for result in st.session_state.selected_search_results:
+        if result["user_query"]==user_query:
+            new_query = False
+            result["selected_ids"] = selected_ids
+    if new_query:
+        st.session_state.selected_search_results.append({"user_query": user_query, "selected_ids": selected_ids, "df": df[col_select].copy()})
+
+# Add/remove all by editing st.session_state.selected_search_results
+col1, col2, col3 = st.columns([2, 3, 10])
+if col1.button("Add all"):
+    update_selection(df["assignee_id"].tolist())
+if col2.button("Remove all"):
+    update_selection([])
+
 # Enable user selection
-df.insert(0, "Select", False)
-toggle = st.checkbox("Select all/none")
-edited_df = st.data_editor(generate_table(user_query, toggle, st.session_state.selected_search_results))
+edited_df = st.data_editor(generate_table(user_query, st.session_state.selected_search_results))
 
 # Search statistics
 entity_count = len(results["aggregations"]["assignees.assignee_id"]["assignees.assignee_id_inner"]["buckets"])
@@ -136,32 +150,38 @@ record_count = results["aggregations"]["assignees.assignee_id"]["doc_count"]
 st.write(f"Found {entity_count} disambiguated assignees with {record_count} associated records.")
 
 
-
-# Create a button to update the results with the selected fields
+# Create a button to update the results field with the selected fields
 if st.button("Update Assignee IDs"):
-    # Remove any results with the same user_query
-    st.session_state.selected_search_results = [result for result in st.session_state.selected_search_results if result["user_query"] != user_query]
-    selected_ids = df[edited_df["Select"] == True]["assignee_id"].tolist()
-    st.session_state.selected_search_results.append({"user_query": user_query, "selected_ids": selected_ids})
+    selected_ids = df[edited_df["Select"]]["assignee_id"].tolist()
+    update_selection(selected_ids)
 
 # Output disambiguated assignee IDs
 disambiguated_assignee_IDs = [i for result in st.session_state.selected_search_results for i in result["selected_ids"]]
-st.write("Selected Assignee IDs:", disambiguated_assignee_IDs)
-# st.write("Selected Search Results", st.session_state.selected_search_results)
+if len(st.session_state.selected_search_results) > 0:
+    selected_df = pd.concat([result["df"][result["df"]['assignee_id'].isin(result["selected_ids"])] for result in st.session_state.selected_search_results])
+    selected_df.insert(0, "Remove", False)
+    edited_selected_df = st.data_editor(selected_df[["Remove"]+col_select])
 
+    if st.button("Remove Assignee IDs"):
+        remove_ids = edited_selected_df[edited_selected_df["Remove"]]["assignee_id"].tolist()
+        for result in st.session_state.selected_search_results:
+            result["selected_ids"] = [id for id in result["selected_ids"] if id not in remove_ids]
 
-col1, col2, col3 = st.columns([2, 1, 1])
-filename_value = (mention_id+".csv") if len(mention_id) > 0 else "MENTION_ID.csv"
+"""
+Extraction and Download:
+"""
+col1, col2, col3, col4 = st.columns([10, 3, 4, 3])
+filename_value = (mention_id+".csv") if len(mention_id) > 0 else ""
 filename = col1.text_input(label="Filename", placeholder="Filename", value=filename_value, label_visibility="collapsed")
 
 if col2.button("Extract"):
     with st.spinner('Extracting...'):
-        # if filename[-5:]==".xlsx":
-        #     with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
-        #         run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, merge=True)
-        #         with open(temp.name, "rb") as file:
-        #             bytes_data = file.read()
-        #     mime="application/vnd.ms-excel"
+        if filename[-5:]==".xlsx":
+            with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
+                run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, simplified=True)
+                with open(temp.name, "rb") as file:
+                    bytes_data = file.read()
+            mime="application/vnd.ms-excel"
         if filename[-4:]==".csv":
             with tempfile.NamedTemporaryFile(suffix=".csv") as temp:
                 run_extraction(assignee_IDs=disambiguated_assignee_IDs, output_path=temp.name, simplified=True)
