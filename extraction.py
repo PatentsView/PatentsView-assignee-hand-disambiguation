@@ -62,17 +62,53 @@ def cpc_subclass_dict():
 CPC_SUBCLASS_DICT = cpc_subclass_dict()
 
 """
+Simple extraction for single mention_id from the PV API with the following fields:
+    - Assignee name
+    - Assignee location
+    - Patent title
+    - Patent classification codes
+    - Patent date filed
+    - Patent date granted
+    - Patent type
+    - Patent inventors
+"""
+def simple_extraction_output(mention_id):
+    # Split up mention_id
+    patent_id = mention_id.split("-")[0][2:]
+    assignee_sequence = int(mention_id.split("-")[1])
+
+    # Making API call
+    f_list = ["patent_id", "patent_title", "patent_date", "patent_type", "assignees.*"]
+    endpoint = 'api/v1/patent'
+    param_dict = {
+        "f" : f_list,
+        "o" : {"size":1000},
+        "q" : {"patent_id": patent_id},
+        "s" : [{"patent_id":"asc"}],
+    }
+    param_string = "&".join([f"{param_name}={json.dumps(param_val)}" for param_name, param_val in param_dict.items()])
+    query_url = f"{BASE_URL}/{endpoint.strip('/')}/?{param_string}"
+    response = requests.get(query_url, headers={"X-Api-Key": API_KEY})
+
+    # Processing output and returning one dimensional dictionary 
+    output = response.json()['patents'][0]
+    assignees = new_assignees(output, [], assignee_sequence)[0]
+    del output["assignees"]
+    for field in assignees.keys():
+        output[field] = assignees[field]
+    return output
+
+
+"""
 Get all extraction output from the PV API
 
 Requires that base_url, endpoint, and api_key are all defined
 """
 def full_extraction_output(assignee_IDs, simplified):
     # Determine return fields
-    if simplified:
-        f_list = ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type", "assignees.*"]
-    else:
-        ["patent_id", "patent_title", "patent_abstract", "patent_date", "patent_type", "assignees.*",\
-            "inventors.*", "cpc_current.*"]
+    f_list = PATENT_FIELDS + ["assignees.*"]
+    if not simplified:
+        f_list += ["assignees.*", "inventors.*", "cpc_current.*"]
     
     full_output = []
     endpoint = 'api/v1/patent'
@@ -108,12 +144,13 @@ def full_extraction_output(assignee_IDs, simplified):
             break 
     return full_output
 
-def new_assignees(row, assignee_IDs):
+def new_assignees(row, assignee_IDs, assignee_sequence=None):
     if 'assignees' in row.keys():
         new_assignees = []
         for assignee in row['assignees']:
             assignee['assignee'] = assignee['assignee'][47:-1]
-            if assignee['assignee'] in assignee_IDs:
+            sequence_correct = (assignee_sequence is not None and assignee['assignee_sequence'] == assignee_sequence)
+            if assignee['assignee'] in assignee_IDs or sequence_correct:
                 assignee['assignee_type'] = ASSIGNEE_TYPE_DICT[int(assignee['assignee_type'])]
                 new_assignees.append(assignee)
         return new_assignees

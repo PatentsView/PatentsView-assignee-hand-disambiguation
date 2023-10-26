@@ -40,15 +40,12 @@ Pandas Dataframe, with columns for (the non-disambiguated version of):
     - URL to the PatentsView website page for the corresponding patent
     - Assignee name
     - Assignee location
-    - Co-assignees
     - Patent title
     - Patent classification codes
     - Patent date filed
     - Patent date granted
     - Patent type
     - Patent inventors
-    - Inventor locations
-    - CPC Subgroups
 """
 def assignee_data(mention_id: str, patent_only: bool, connection):
     # Getting patent information

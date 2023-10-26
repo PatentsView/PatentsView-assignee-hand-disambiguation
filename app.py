@@ -1,6 +1,6 @@
 import streamlit as st
 from er_evaluation.search import ElasticSearch
-from extraction import run_extraction
+from extraction import run_extraction, simple_extraction_output
 import pandas as pd
 import tempfile
 from dotenv import dotenv_values
@@ -85,14 +85,25 @@ with st.sidebar:
 """
 Mention ID:
 """
+@st.cache_data
+def mention_id_data(mention_id):
+    return simple_extraction_output(mention_id)
+
 col1, col2 = st.columns([1, 2])
 mention_id = col1.text_input(label="Mention ID", placeholder="Paste Mention ID Here", value="", label_visibility="collapsed")
-patent_url = ("https://patents.google.com/patent/" + mention_id.split("-")[0]) if len(mention_id) > 0 else "https://patents.google.com/"
+if len(mention_id) > 0:
+    patent_url = ("https://datatool.patentsview.org/#detail/patent/" + mention_id.split("-")[0][2:])
+    st.write(mention_id_data(mention_id))
+else:
+    patent_url = "https://datatool.patentsview.org/#search&pat=2|"
 col2.link_button(label="Go to patent", url=patent_url)
 
-# Input query and processing
+
+"""
+Search:
+"""
 es = establish_connection()
-user_query = st.text_input("Search:", value="Lutron Electronics")
+user_query = st.text_input(label="Search", value="Lutron Electronics", label_visibility="collapsed")
 field_options = ["Organization", "First Name", "Last Name"]
 field_select = st.radio("Fields:", field_options, horizontal=True, label_visibility="collapsed")
 fields = [list(DF_COLS["elastic"].values())[field_options.index(field_select)]]
