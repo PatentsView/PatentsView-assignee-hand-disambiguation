@@ -70,7 +70,7 @@ with st.sidebar:
 
     with st.expander("Configuration", expanded=True):
         timeout = st.number_input("Timeout", value=30, help="Search timeout in seconds.")
-        index = st.text_input("Index", value="patents", help="Index to search in.")
+        index = st.text_input("Index", value="assignee_references", help="Index to search in.")
         fuzziness = st.number_input("Fuzziness", value=2, help="Fuzziness level for matching.", min_value=0,
                                     max_value=2)
         col_select_placeholder = st.empty()
@@ -78,8 +78,8 @@ with st.sidebar:
     with st.expander("Search Fields (comma separated):", expanded=False):
         # source = parse_csv(st.text_input("Source", value="", help="Fields to return in the response.", ))
         agg_fields = parse_csv(
-            st.text_input("Aggregation Fields", value="assignees.assignee_id", help="Fields to aggregate on."))
-        agg_source = parse_csv(st.text_input("Aggregation Source", value="assignees",
+            st.text_input("Aggregation Fields", value="assignee_id", help="Fields to aggregate on."))
+        agg_source = parse_csv(st.text_input("Aggregation Source", value="",
                                              help="Fields to return for each top hit in the aggregations."))
 
 """
