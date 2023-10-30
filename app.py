@@ -42,7 +42,7 @@ def parse_csv(csv):
     return [x.strip() for x in csv.split(",")]
 
 def parse_results(results):
-    agg_buckets = results["aggregations"][agg_fields[0]][f"{agg_fields[0]}_inner"]["buckets"]
+    agg_buckets = results["aggregations"][f"{agg_fields[0]}_inner"]["buckets"]
     df = pd.DataFrame.from_records(x["top_hits"]["hits"]["hits"][0]["_source"] for x in agg_buckets)
     df["_score"] = [x["top_hits"]["hits"]["hits"][0]["_score"] for x in agg_buckets]
     df.sort_values("_score", ascending=False, inplace=True)
@@ -50,9 +50,8 @@ def parse_results(results):
 
 @st.cache_data
 def search(user_query, index, fields, agg_fields, source, agg_source, timeout, size, fuzziness):
-    return es.search(user_query, index, fields, agg_fields=agg_fields, source=source,
-                        agg_source=agg_source,
-                        timeout=timeout, size=size, fuzziness=fuzziness)
+    return es.search(user_query=user_query, index=index, fields=fields, agg_fields=agg_fields, source=source,
+                    agg_source=agg_source, timeout=timeout, size=size, fuzziness=fuzziness)
 
 
 with st.sidebar:
@@ -76,7 +75,7 @@ with st.sidebar:
         col_select_placeholder = st.empty()
 
     with st.expander("Search Fields (comma separated):", expanded=False):
-        # source = parse_csv(st.text_input("Source", value="", help="Fields to return in the response.", ))
+        source = parse_csv(st.text_input("Source", value="", help="Fields to return in the response.", )) # list(DF_COLS["elastic"].keys()) 
         agg_fields = parse_csv(
             st.text_input("Aggregation Fields", value="assignee_id", help="Fields to aggregate on."))
         agg_source = parse_csv(st.text_input("Aggregation Source", value="",
@@ -89,31 +88,34 @@ Mention ID:
 def mention_id_data(mention_id):
     return simple_extraction_output(mention_id)
 
-col1, col2 = st.columns([1, 2])
+col1, col2, col3 = st.columns([3, 1, 1])
 mention_id = col1.text_input(label="Mention ID", placeholder="Paste Mention ID Here", value="", label_visibility="collapsed")
+patent_id = mention_id.split("-")[0]
 if len(mention_id) > 0:
-    patent_url = ("https://datatool.patentsview.org/#detail/patent/" + mention_id.split("-")[0][2:])
+    pv_url = f"https://datatool.patentsview.org/#detail/patent/{patent_id[2:]}/"
+    gp_url = f"https://patents.google.com/patent/{patent_id}/"
     st.write(mention_id_data(mention_id))
 else:
-    patent_url = "https://datatool.patentsview.org/#search&pat=2|"
-col2.link_button(label="Go to patent", url=patent_url)
+    pv_url = "https://datatool.patentsview.org/#search&pat=2|"
+    gp_url = "https://patents.google.com/"
+
+col2.link_button(label="PatentsView", url=pv_url)
+col3.link_button(label="Google Patents", url=gp_url)
 
 
 """
 Search:
 """
 es = establish_connection()
-user_query = st.text_input(label="Search", value="Lutron Electronics", label_visibility="collapsed")
+user_query = st.text_input(label="Search", value="", label_visibility="collapsed")
 field_options = ["Organization", "First Name", "Last Name"]
 field_select = st.radio("Fields:", field_options, horizontal=True, label_visibility="collapsed")
-fields = [list(DF_COLS["elastic"].values())[field_options.index(field_select)]]
+fields = [list(DF_COLS["elastic"].keys())[field_options.index(field_select)]]
 
 # Execute search
 try:
-    results = search(user_query, index, fields, agg_fields=agg_fields,
-                    source=list(DF_COLS["elastic"].values()),
-                    agg_source=agg_source,
-                    timeout=timeout, size=0, fuzziness=fuzziness)
+    results = search(user_query=user_query, index=index, fields=fields, agg_fields=agg_fields,\
+                     source=[], agg_source=[], timeout=timeout, size=0, fuzziness=fuzziness)
 except Exception as e:
     st.error("Could not complete the search!", icon="🚨")
     st.error(e)
@@ -156,9 +158,8 @@ if col2.button("Remove all"):
 edited_df = st.data_editor(generate_table(user_query, st.session_state.selected_search_results))
 
 # Search statistics
-entity_count = len(results["aggregations"]["assignees.assignee_id"]["assignees.assignee_id_inner"]["buckets"])
-record_count = results["aggregations"]["assignees.assignee_id"]["doc_count"]
-st.write(f"Found {entity_count} disambiguated assignees with {record_count} associated records.")
+entity_count = len(results["aggregations"]["assignee_id_inner"]["buckets"])
+st.write(f"Found {entity_count} disambiguated assignees.")
 
 
 # Create a button to update the results field with the selected fields
