@@ -199,22 +199,34 @@ if len(user_query) > 0:
     """
     Extraction and Download:
     """
-    col1, col2, col3, col4 = st.columns([10, 3, 4, 3])
+    col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
     filename_value = (mention_id+".csv") if len(mention_id) > 0 else ""
     filename = col1.text_input(label="Filename", placeholder="Filename", value=filename_value, label_visibility="collapsed")
 
-    if col2.button("Extract"):
+    # Create the bytes data file necessary for downloading output
+    def extract_output(simplified, filename):
+        if filename[-4:]==".csv":
+            with tempfile.NamedTemporaryFile(suffix=".csv") as temp:
+                run_extraction(assignee_IDs=list(st.session_state.selected_assignee_ids), output_path=temp.name, simplified=simplified)
+                with open(temp.name, "rb") as file:
+                    bytes_data = file.read()
+            mime="text/csv"
+        elif filename[-5:]==".xlsx":
+            with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
+                run_extraction(assignee_IDs=list(st.session_state.selected_assignee_ids), output_path=temp.name, simplified=simplified)
+                with open(temp.name, "rb") as file:
+                    bytes_data = file.read()
+            mime="application/vnd.ms-excel"
+        return bytes_data, mime
+
+    # Download regular output
+    if col2.button("Extract simplified"):
         with st.spinner('Extracting...'):
-            if filename[-5:]==".xlsx":
-                with tempfile.NamedTemporaryFile(suffix=".xlsx") as temp:
-                    run_extraction(assignee_IDs=list(st.session_state.selected_assignee_ids), output_path=temp.name, simplified=True)
-                    with open(temp.name, "rb") as file:
-                        bytes_data = file.read()
-                mime="application/vnd.ms-excel"
-            if filename[-4:]==".csv":
-                with tempfile.NamedTemporaryFile(suffix=".csv") as temp:
-                    run_extraction(assignee_IDs=list(st.session_state.selected_assignee_ids), output_path=temp.name, simplified=True)
-                    with open(temp.name, "rb") as file:
-                        bytes_data = file.read()
-                mime="text/csv"
-        col3.download_button(label="Download", data=bytes_data, file_name=filename, mime=mime)
+            bytes_data, mime = extract_output(simplified=True, filename=filename)
+        col4.download_button(label="Download", data=bytes_data, file_name=filename, mime=mime)
+
+    # Download output with inventor and CPC information
+    if col3.button("Extract complex"):
+        with st.spinner('Extracting...'):
+            bytes_data, mime = extract_output(simplified=False, filename=filename)
+        col4.download_button(label="Download", data=bytes_data, file_name=filename, mime=mime)

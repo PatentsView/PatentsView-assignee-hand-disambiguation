@@ -108,7 +108,7 @@ def full_extraction_output(assignee_IDs, simplified):
     # Determine return fields
     f_list = PATENT_FIELDS + ["assignees.*"]
     if not simplified:
-        f_list += ["assignees.*", "inventors.*", "cpc_current.*"]
+        f_list += ["inventors.*", "cpc_current.*"]
     
     full_output = []
     endpoint = 'api/v1/patent'
@@ -249,7 +249,9 @@ def extraction_output_to_excel(output, simplified, output_path="data/05 - extrac
 
         for result in output:
             # Separating data to add empty rows where necessary
-            inventors, cpc, assignees = partition_endpoints(result)
+            inventors, cpc = partition_endpoints(result)
+            del result['inventors']
+            del result['cpc_current']
             patent = {field: result[field] for field in PATENT_FIELDS}
             patent_df = pd.DataFrame.from_dict([patent] * max(len(inventors.index), len(cpc.index), len(assignees.index)))
 
@@ -274,53 +276,3 @@ def run_extraction(assignee_IDs=["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043"], output
 
 if __name__ == "__main__":
     obj = run_extraction()
-    
-
-# """
-# Parameters
-# ----------
-# assignee_disamiguation_IDs : list[str]
-#     List of disambiguated assignee IDs (`assignee_id` field values)
-# output_path : str
-#     Path to CSV file for saving data for one mention ID (naming convention is simply the mention ID)
-
-# Processing
-# ----------
-# 1. Pull `df` with SQL connection
-# 2. Group-by mention_id in `df` then sort by inventor_id, and cpc_subgroup_id within the groups
-# 3. Going group by group, add all rows from `df` to `ws`
-# 4. After adding each group, merge all cells that share a value within each column (need to be neighboring cells)
-#     - Make sure to not merge cells across separate mention_id groups
-
-# Returns
-# -------
-# openpyxl Workbook with rows for all assignee mentions that correspond to one disambiguated assignee ID in the 
-# provided list. 
-# The columns should be the same as in the `assignee_data` function.
-# Specifically, rows should be of the form `assignee_data(mention_id)` for each mention_id that corresponds to one of 
-# the disambiguated assignee ID in the provided list.
-# Implementing merged cells to increase readability
-# """
-# def disambiguated_assignees_data(assignee_disambiguation_IDs: list[str], connection):
-#     id_list = '("' + '","'.join(assignee_disambiguation_IDs) + '")'
-#     query = f"SELECT * FROM algorithms_assignee_labeling.assignee a WHERE a.disambiguated_assignee_id IN {id_list}"
-#     result = connection.execute(text(query)).fetchall()
-#     df = pd.DataFrame(result).drop_duplicates()
-
-#     # Create a new Excel workbook and add a worksheet
-#     wb = Workbook()
-#     ws = wb.active
-    
-#     # Loop through mention_id groups and sort values
-#     for group, data in tqdm(df.groupby(['patent_id', 'assignee_sequence']), "Outer groupby loop"):
-#         df_temp = data.sort_values(by=["inventor_sequence", "cpc_subgroup_id"], ascending=True, inplace=False)
-    
-#         # Determine indexing values and add rows to worksheets
-#         index_start = ws.max_row + 1
-#         index_end = index_start + len(df_temp.index) - 1
-#         for row in dataframe_to_rows(df_temp, index=False, header=(index_start == 2)):
-#             ws.append(row)
-    
-#         merge_cells(ws, index_start, index_end, len(df.columns))
-
-#     return wb
