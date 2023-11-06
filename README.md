@@ -78,3 +78,17 @@ Apparently this is a thing.
 ## Appendix
 
 Any additional information goes here. Could be related projects, helpful links to packages used, etc.
+
+## How to start the SSH Instance
+Connecting to SSH
+1. From terminal, type `ssh PV-hand-disamb` to open the SSH connection.
+2. Go to the GitHub repository in the streamlit directory.
+
+To start the instance from scratch:
+3. Enter the virtual environment with `source env/bin/activate`.
+4. Use the `screen` command to create a screen instance. Recommended to give this instance a name.
+5. Run `streamlit run app.py`.
+5. Can safely exit.
+
+To re-open an existing screen instance:
+3. Use screen commands.
