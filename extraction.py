@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os
 import requests
 import json
@@ -121,13 +122,14 @@ def full_extraction_output(assignee_IDs, simplified):
     
     while True:
         # Update query parameters and get response
-        param_string = "&".join([f"{param_name}={json.dumps(param_val)}" for param_name, param_val in param_dict.items()])
-        query_url = f"{BASE_URL}/{endpoint.strip('/')}/?{param_string}"
-        response = requests.get(query_url, headers={"X-Api-Key": API_KEY})
+        post_url = f"{BASE_URL}/{endpoint.strip('/')}"
+        headers = {"X-Api-Key": API_KEY, "Content-Type": "application/json"}
+        response = requests.post(post_url, data=json.dumps(param_dict), headers=headers)
 
         # Check for errors
         if response.status_code == 429:
-            wait_for = response.headers['Retry-After']
+            wait_for = int(response.headers['Retry-After'])
+            print(wait_for)
             time.sleep(wait_for)
             continue
         if response.status_code != 200:
@@ -150,8 +152,9 @@ def new_assignees(row, assignee_IDs, assignee_sequence=None):
         for assignee in row['assignees']:
             assignee['assignee'] = assignee['assignee'][47:-1]
             sequence_correct = (assignee_sequence is not None and assignee['assignee_sequence'] == assignee_sequence)
-            if assignee['assignee'] in assignee_IDs or sequence_correct:
-                assignee['assignee_type'] = ASSIGNEE_TYPE_DICT[int(assignee['assignee_type'])]
+            if (assignee['assignee'] in assignee_IDs) or sequence_correct:
+                if assignee['assignee_type'] is not None:
+                    assignee['assignee_type'] = ASSIGNEE_TYPE_DICT[int(assignee['assignee_type'])]
                 new_assignees.append(assignee)
         return new_assignees
     else: # Empty assignees
@@ -275,4 +278,5 @@ def run_extraction(assignee_IDs=["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043"], output
         extraction_output_to_excel(clean_output, simplified, output_path)
 
 if __name__ == "__main__":
-    obj = run_extraction()
+    disamb_IDs = np.loadtxt('data/US5031150-0.txt', dtype="str").tolist()
+    obj = run_extraction(assignee_IDs=disamb_IDs, output_path="data/US5031150-0.csv", simplified=True)
