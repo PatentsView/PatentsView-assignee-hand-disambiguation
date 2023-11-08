@@ -278,5 +278,5 @@ def run_extraction(assignee_IDs=["a0ba1f5c-6e5f-4f62-b309-22bd81c8b043"], output
         extraction_output_to_excel(clean_output, simplified, output_path)
 
 if __name__ == "__main__":
-    disamb_IDs = np.loadtxt('data/US5031150-0.txt', dtype="str").tolist()
-    obj = run_extraction(assignee_IDs=disamb_IDs, output_path="data/US5031150-0.csv", simplified=True)
+    disamb_IDs = np.loadtxt('data/05 - extraction/US5031150-0.txt', dtype="str").tolist()
+    obj = run_extraction(assignee_IDs=disamb_IDs, output_path="data/05 - extraction/US5031150-0.csv", simplified=True)
