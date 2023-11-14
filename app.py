@@ -1,6 +1,7 @@
 import streamlit as st
 from er_evaluation.search import ElasticSearch
-from extraction import run_extraction, simple_extraction_output
+from extraction_old import simple_extraction_output
+from extraction import run_extraction
 import pandas as pd
 import tempfile
 from dotenv import dotenv_values
@@ -9,8 +10,8 @@ DF_COLS = {
     "none": [],
     "elastic": {
         'assignee_organization': 'assignees.assignee_organization',
-        'assignee_individual_name_last': 'assignees.assignee_individual_name_last',
         'assignee_individual_name_first': 'assignees.assignee_individual_name_first',
+        'assignee_individual_name_last': 'assignees.assignee_individual_name_last',
         'assignee_country': 'assignees.assignee_country',
         'assignee_state': 'assignees.assignee_state',
         'assignee_city': 'assignees.assignee_city',

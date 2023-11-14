@@ -4,7 +4,7 @@ import os
 import openpyxl
 
 # Read user input
-DATA_DIR = "data/06 - review/"
+DATA_DIR = "data/06 - compare/"
 MENTION_ID = sys.argv[1]
 labeler1 = sys.argv[2]
 labeler2 = sys.argv[3]
