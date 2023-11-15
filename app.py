@@ -1,11 +1,13 @@
 import streamlit as st
 from er_evaluation.search import ElasticSearch
-from extraction_old import simple_extraction_output
-from extraction import run_extraction
+from elasticsearch import Elasticsearch
+from elasticsearch_dsl import Search
+from extraction import run_extraction, simple_extraction_output, convert_assignee_type
 import pandas as pd
 import tempfile
 from dotenv import dotenv_values
 
+PORT = "443"
 DF_COLS = {
     "none": [],
     "elastic": {
@@ -18,7 +20,7 @@ DF_COLS = {
         'assignee_type': 'assignees.assignee_type',
         'assignee_id': 'assignees.assignee_id',
         'assignee_reference_id': 'assignees.assignee_reference_id',
-        '_score': '_score',
+        # '_score': '_score',
     },
     "sql": {
         'organization': 'organization',
@@ -32,29 +34,67 @@ DF_COLS = {
     },
 }
 
+
 #Processing methods
 def establish_connection():
     config = dotenv_values(".env")
-    es_host = config['es_host']
-    api_key = config['es_api_key']
-    es = ElasticSearch(es_host, api_key=api_key)
+    es = Elasticsearch(hosts=f"{config['es_host']}:{PORT}", api_key=config['es_api_key'], request_timeout=timeout)
+    # es = ElasticSearch(config['es_host'], api_key=config['es_api_key'])
     return es
 
 def parse_csv(csv):
     return [x.strip() for x in csv.split(",")]
 
 def parse_results(results):
-    agg_buckets = results["aggregations"][f"{agg_fields[0]}_inner"]["buckets"]
-    df = pd.DataFrame.from_records(x["top_hits"]["hits"]["hits"][0]["_source"] for x in agg_buckets)
-    df["_score"] = [x["top_hits"]["hits"]["hits"][0]["_score"] for x in agg_buckets]
-    df.sort_values("_score", ascending=False, inplace=True)
+    df = pd.DataFrame(results)
+    df['assignee_type'] = df['assignee_type'].apply(lambda x: convert_assignee_type(x))
+    df = df[['assignee_organization', 'assignee_id', 'assignee_individual_name_first', 'assignee_individual_name_last',\
+            'assignee_type', 'assignee_city', 'assignee_state', 'assignee_country', 'assignee_reference_id']]
     return df
+
+def _create_nested_query(field, full_field_path, query):
+    """Helper function to create nested queries"""
+    path = field.split(".")
+    if len(path) > 1:
+        return {
+            "nested": {
+                "path": path[0],
+                "query": _create_nested_query(".".join(path[1:]), full_field_path, query),
+            }
+        }
+    else:
+        return {"match": {full_field_path: query}}
+
+def process_query(user_query, fields, fuzziness=2):
+    """
+    Process the user's query and build a search query for Elasticsearch.
+
+    Args:
+        user_query: The user's query string.
+        fields: A list of fields to search in.
+        fuzziness: The fuzziness level for matching (optional, default: 2).
+    Returns:
+        A dictionary representing the Elasticsearch search query.
+    """
+
+    must_clauses = []
+    for field in fields:
+        query = {"query": user_query, "fuzziness": fuzziness}
+        must_clauses.append(_create_nested_query(field, field, query))
+
+    return {"bool": {"should": must_clauses}}
 
 @st.cache_data
 def search(user_query, index, fields, agg_fields, source, agg_source, timeout, size, fuzziness):
-    return es.search(user_query=user_query, index=index, fields=fields, agg_fields=agg_fields, source=source,
-                    agg_source=agg_source, timeout=timeout, size=size, fuzziness=fuzziness)
-
+    s = Search(using=es, index=index)
+    search_dict = {
+        "aggregations": agg_fields,
+        "size": size,
+        "query": process_query(user_query, fields, fuzziness),
+    }
+    s.update_from_dict(search_dict)
+    response = s.execute()
+    return [hit.to_dict() for hit in response]
 
 with st.sidebar:
 
@@ -72,20 +112,21 @@ with st.sidebar:
     with st.expander("Configuration", expanded=True):
         timeout = st.number_input("Timeout", value=30, help="Search timeout in seconds.")
         index = st.text_input("Index", value="assignee_references", help="Index to search in.")
-        fuzziness = st.number_input("Fuzziness", value=2, help="Fuzziness level for matching.", min_value=0,
-                                    max_value=2)
+        fuzziness = st.number_input("Fuzziness", value=2, help="Fuzziness level for matching.", min_value=0, max_value=2)
+        size = st.number_input("Size", value=50, help="Number of search results to display.", min_value=5, max_value=10000)
         col_select_placeholder = st.empty()
 
     with st.expander("Search Fields (comma separated):", expanded=False):
         source = parse_csv(st.text_input("Source", value="", help="Fields to return in the response.", )) # list(DF_COLS["elastic"].keys()) 
-        agg_fields = parse_csv(
-            st.text_input("Aggregation Fields", value="assignee_id", help="Fields to aggregate on."))
-        agg_source = parse_csv(st.text_input("Aggregation Source", value="",
-                                             help="Fields to return for each top hit in the aggregations."))
+        agg_fields = parse_csv(st.text_input("Aggregation Fields", value="", help="Fields to aggregate on."))
+        agg_source = parse_csv(st.text_input("Aggregation Source", value="", help="Fields to return for each top hit in the aggregations."))
 
 """
 Mention ID:
 """
+import json
+import requests
+from extraction import BASE_URL, API_KEY
 @st.cache_data
 def mention_id_data(mention_id):
     return simple_extraction_output(mention_id)
@@ -99,8 +140,12 @@ patent_id = mention_id.split("-")[0]
 if len(mention_id) > 0:
     pv_url = f"https://datatool.patentsview.org/#detail/patent/{patent_id[2:]}/"
     gp_url = f"https://patents.google.com/patent/{patent_id}/"
-    assignee_mention_data = mention_id_data(mention_id)
-    st.dataframe(assignee_mention_data)
+    try:
+        assignee_mention_data = mention_id_data(mention_id)
+        st.dataframe(assignee_mention_data)
+    except Exception as e:
+        st.error("MySQL may be down. Please use PatentsView or Google Patents instead.", icon="🚨")
+        st.error(e)
 else:
     pv_url = "https://datatool.patentsview.org/#search&pat=2|"
     gp_url = "https://patents.google.com/"
@@ -115,7 +160,7 @@ col3.link_button(label="Google Patents", url=gp_url)
 Search:
 """
 es = establish_connection()
-user_query_null = "" if assignee_mention_data is None else assignee_mention_data["assignee_organization"]
+user_query_null = "" if assignee_mention_data is None else assignee_mention_data['value'][9]
 user_query = st.text_input(label="Search", value=user_query_null, label_visibility="collapsed")
 field_options = ["Organization", "First Name", "Last Name"]
 field_select = st.radio("Fields:", field_options, horizontal=True, label_visibility="collapsed")
@@ -124,8 +169,8 @@ fields = [list(DF_COLS["elastic"].keys())[field_options.index(field_select)]]
 # Execute search
 if len(user_query) > 0:
     try:
-        results = search(user_query=user_query, index=index, fields=fields, agg_fields=agg_fields,\
-                        source=[], agg_source=[], timeout=timeout, size=0, fuzziness=fuzziness)
+        results = search(user_query=user_query, index=index, fields=fields, agg_fields=[],\
+                        source=[], agg_source=[], timeout=timeout, size=size, fuzziness=fuzziness)
     except Exception as e:
         st.error("Could not complete the search!", icon="🚨")
         st.error(e)
@@ -133,7 +178,8 @@ if len(user_query) > 0:
 
     # Parse results into dataframe
     search_df = parse_results(results)
-    col_select = col_select_placeholder.multiselect("Columns to display:", options=search_df.columns, default=DF_COLS["elastic"].keys())
+    cols = [i for i in search_df.columns]
+    col_select = col_select_placeholder.multiselect("Columns to display:", options=cols, default=cols)
     if 'selection_rows' not in st.session_state: # Record all search results and user selections
         st.session_state.selection_rows = []
         st.session_state.selected_assignee_ids = set()
@@ -144,10 +190,6 @@ if len(user_query) > 0:
     def generate_table(user_query, selected_assignee_ids, col_select):
         search_df["Select"] = search_df["assignee_id"].isin(selected_assignee_ids)
         return search_df[["Select"]+col_select]
-    
-    # Search statistics
-    entity_count = len(results["aggregations"]["assignee_id_inner"]["buckets"])
-    st.write(f"Found {entity_count} disambiguated assignees.")
 
     """
     SEARCH DataFrame:
