@@ -187,14 +187,14 @@ if len(user_query) > 0:
     # Generates editable table with select column reflecting st.session_state
     search_df.insert(0, "Select", False)
     @st.cache_data
-    def generate_table(user_query, selected_assignee_ids, col_select):
+    def generate_table(user_query, selected_assignee_ids, col_select, size):
         search_df["Select"] = search_df["assignee_id"].isin(selected_assignee_ids)
         return search_df[["Select"]+col_select]
 
     """
     SEARCH DataFrame:
     """
-    edited_df = st.data_editor(generate_table(user_query, st.session_state.selected_assignee_ids, col_select))
+    edited_df = st.data_editor(generate_table(user_query, st.session_state.selected_assignee_ids, col_select, size))
 
     # Button row
     col1, col2, col3, col4 = st.columns([1.5, 2, 2, 2.5])
