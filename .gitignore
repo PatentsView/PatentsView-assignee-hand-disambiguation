@@ -8,3 +8,4 @@ test/
 **/__pycache__
 *.zip
 data/06 - compare/
+data/07 - evaluation/
