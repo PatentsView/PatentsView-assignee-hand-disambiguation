@@ -1,0 +1,165 @@
+CHECK: US4631438-0.csv assignee_organization do not all start with the same character.
+CHECK: US11331519-0.csv assignee_organization do not all start with the same character.
+CHECK: US9501839-0.csv assignee_organization do not all start with the same character.
+CHECK: US7504513-0.csv assignee_organization do not all start with the same character.
+CHECK: US6395545-0.csv assignee_organization do not all start with the same character.
+CHECK: US7318565-0.csv assignee_organization do not all start with the same character.
+CHECK: US7452454-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US8084741-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US8820878-0.csv assignee_organization do not all start with the same character.
+CHECK: US4014535-0.csv assignee_organization do not all start with the same character.
+CHECK: US9377117-1.csv assignee_organization do not all start with the same character.
+CHECK: US8001726-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US9847443-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US8394022-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US6930630-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US5333624-0.csv assignee_organization do not all start with the same character.
+CHECK: US11181482-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US5075561-0.csv assignee_organization do not all start with the same character.
+CHECK: US6023158-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US9192336-0.csv assignee_organization do not all start with the same character.
+CHECK: US11526241-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US7652346-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US8849402-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US6982277-0.csv assignee_organization do not all start with the same character.
+CHECK: US7944615-0.csv assignee_organization do not all start with the same character.
+CHECK: USPP15161-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US9761552-0.csv assignee_organization do not all start with the same character.
+CHECK: USD735883-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US7300807-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US5329173-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US5842053-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US11115144-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US11635401-0.csv assignee_organization do not all start with the same character.
+CHECK: US6815182-1.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US9833467-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US11543689-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US10559392-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US5855579-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US6438185-0.csv assignee_organization do not all start with the same character.
+CHECK: USD542763-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US10109798-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US6118028-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US10069657-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US10194613-0.csv assignee_organization do not all start with the same character.
+CHECK: US5966978-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: USRE34408-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US5409293-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US7635990-0.csv assignee_organization do not all start with the same character.
+CHECK: US11224246-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US7824473-0.csv assignee_organization do not all start with the same character.
+CHECK: US8008251-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US8016497-0.csv assignee_organization do not all start with the same character.
+CHECK: US11365305-0.csv assignee_organization do not all start with the same character.
+ERROR WHILE CHECKING: [Errno 60] Operation timed out
+CHECK: US7129991-1.csv assignee_organization do not all start with the same character.
